@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "file:///Users/perryharlock/Documents/meal-picker/.github/workflows/deploy.yml"
+    }
+}
