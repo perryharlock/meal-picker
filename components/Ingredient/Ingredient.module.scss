@@ -1,0 +1,13 @@
+.ingredient {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+
+    &:nth-child(odd) {
+        background: var(--color-light-grey);
+    }
+
+    &__title {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,100 @@
+@import "styles/media-queries.scss";
+
+.meal {
+    margin-bottom: 30px;
+    width: 100%;
+
+    &:last-child {
+        margin: 0;
+    }
+
+    @media ($screen-tablet) {
+        width: calc(50% - 15px);
+    }
+
+    &__upper {
+        margin-top: 10px;
+        position: relative;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.1;
+
+        @media ($screen-tablet) {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    &__tags {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+    }
+
+    &__actions {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        top: 0;
+    }
+
+    &__img {
+        display: block;
+        height: auto;
+        width: 100%;
+    }
+
+    &__btn {
+        background-color: var(--color-coral);
+        color: var(--color-white);
+        cursor: pointer;
+        border: none;
+        font-size: 40px;
+        line-height: 40px;
+        outline: none;
+        width: 50px;
+        height: 100%;
+
+        &:hover, &:active, &:focus {
+            background-color: var(--color-black);
+        }
+    }
+
+    &__ingredients {
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+
+        &[open] {
+            .meal__ingredients-title {
+                color:red;
+
+                &:after {
+                    content: "-"
+                }
+            }
+        }
+
+        &-title {
+            font-size: 16px;
+            font-weight: 600;
+            list-style: none;
+
+            &:after {
+                content: "+";
+                width: 10px;
+                margin-left: 3px;
+                text-align: left;
+                display: inline-block;
+            }
+        }
+
+        &-list {
+            margin-top: 10px;
+        }
+    }
+}

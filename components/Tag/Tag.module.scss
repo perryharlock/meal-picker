@@ -1,0 +1,15 @@
+.tag {
+    background-color: var(--color-white);
+    color: var(--color-pure-black);
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    list-style: none;
+    margin-right: 5px;
+    padding: 2px 5px;
+    text-transform: uppercase;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
