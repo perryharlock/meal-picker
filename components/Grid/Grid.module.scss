@@ -12,4 +12,16 @@
     @media ($screen-tablet) {
         max-width: 750px;
     }
+
+    @media ($screen-laptop) {
+        max-width: 970px;
+    }
+
+    @media ($screen-desktop) {
+        max-width: 1170px;
+    }
+
+    @media ($screen-desktop-lg) {
+        max-width: 1400px;
+    }
 }

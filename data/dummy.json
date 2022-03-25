@@ -1,0 +1,147 @@
+[
+    {
+        "id": "default",
+        "type": "groupedGyms",
+        "data": {
+            "data": [
+                {
+                    "name": "Jubilee Hall",
+                    "resources": [
+                        {
+                            "name": "Free weights",
+                            "icon": "free-weights",
+                            "has_cost": false,
+                            "open": true,
+                            "best": false
+                        },
+                        {
+                            "name": "Cardio machines",
+                            "icon": "cardio-machines",
+                            "has_cost": false,
+                            "open": true,
+                            "best": false
+                        },
+                        {
+                            "name": "Resistance machines",
+                            "icon": "resistance-machines",
+                            "has_cost": false,
+                            "open": true,
+                            "best": false
+                        }
+                    ],
+                    "products": [
+                        {
+                            "id": 983,
+                            "price": 1800,
+                            "type": "daypass",
+                            "original_price": 2000
+                        },
+                        {
+                            "id": 216640,
+                            "price": 8400,
+                            "type": "direct",
+                            "original_price": 8400
+                        },
+                        {
+                            "id": 45453,
+                            "price": 9240,
+                            "type": "monthly",
+                            "original_price": null,
+                            "monthly_price": 9240,
+                            "discount": {
+                                "discounted_price": 4620,
+                                "trial_days": null,
+                                "renewal_price_discounted": 9240,
+                                "renewals_affected": null
+                            }
+                        }
+                    ],
+                    "resources_open": [
+                        {
+                            "name": "Changing Rooms"
+                        },
+                        {
+                            "name": "Showers"
+                        },
+                        {
+                            "name": "Lockers"
+                        },
+                        {
+                            "name": "Cardio machines"
+                        },
+                        {
+                            "name": "Free weights"
+                        },
+                        {
+                            "name": "Fitness studio"
+                        },
+                        {
+                            "name": "Resistance machines"
+                        }
+                    ]
+                },
+                {
+                    "name": "Rathbone Boxing Club",
+                    "resources": [
+                        {
+                            "name": "Free weights",
+                            "icon": "free-weights",
+                            "has_cost": false,
+                            "open": true,
+                            "best": false
+                        },
+                        {
+                            "name": "Group exercise",
+                            "icon": "group-exercise",
+                            "has_cost": false,
+                            "open": true,
+                            "best": false
+                        },
+                        {
+                            "name": "Cardio machines",
+                            "icon": "cardio-machines",
+                            "has_cost": false,
+                            "open": true,
+                            "best": false
+                        }
+                    ],
+                    "products": [
+                        {
+                            "id": 215872,
+                            "price": 2000,
+                            "type": "daypass",
+                            "original_price": 2000
+                        },
+                        {
+                            "id": 216688,
+                            "price": 35000,
+                            "type": "direct",
+                            "original_price": 35000
+                        },
+                        {
+                            "id": 45453,
+                            "price": 38500,
+                            "type": "monthly",
+                            "original_price": null,
+                            "monthly_price": 38500,
+                            "discount": {
+                                "discounted_price": 19250,
+                                "trial_days": null,
+                                "renewal_price_discounted": 38500,
+                                "renewals_affected": null
+                            }
+                        }
+                    ],
+                    "resources_open": [
+                        {
+                            "name": "Changing Rooms"
+                        },
+                        {
+                            "name": "Showers"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

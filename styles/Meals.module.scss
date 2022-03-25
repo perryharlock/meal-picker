@@ -6,24 +6,11 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin-top: 40px;
+        margin-top: 20px;
     }
 
     &__title {
         font-size: 20px;
         font-weight: 600;
-    }
-
-    &__basket {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: var(--color-coral);
-        color: var(--color-white);
-
-        &-list {
-            display: none;
-        }
     }
 }

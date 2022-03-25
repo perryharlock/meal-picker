@@ -7,26 +7,26 @@ import { Meal as MealType } from '../../types/meals'
 import styles from './Meal.module.scss'
 
 export type MealProps = {
-  meal: MealType,
-  handleRemove: (mealId: string) => void;
-  handleAdd: (mealId: string) => void;
-  basketLength: number
+  meal: MealType;
+  handleRemove: (mealId: MealType) => void;
+  handleAdd: (mealId: MealType) => void;
+  basketLength: number;
 };
   
 export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, basketLength }) => {
   const [showRemove, setShowRemove] = useState(false);
   const [showAdd, setShowAdd] = useState(true);
 
-  const removedItem = () => {
+  const removeItem = () => {
     setShowRemove(false)
     setShowAdd(true)
-    handleRemove(meal.id)
+    handleRemove(meal)
   }
 
   const addItem = () => {
     setShowAdd(false)
     setShowRemove(true)
-    handleAdd(meal.id)
+    handleAdd(meal)
   }
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, baske
         <img className={styles.meal__img} src={meal.img} alt={meal.name} width="375" height="250" />
         <div className={styles.meal__actions}>
           {showAdd === true && <button className={styles.meal__btn} onClick={addItem}>+</button>}
-          {showRemove && <button className={styles.meal__btn} onClick={removedItem}>-</button>}
+          {showRemove && <button className={styles.meal__btn} onClick={removeItem}>-</button>}
         </div>
       </div>
       <details className={styles.meal__ingredients}>

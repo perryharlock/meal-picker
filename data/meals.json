@@ -132,13 +132,73 @@
         "time": 45,
         "tags": [
             {
-                "item": "Chorizo"
+                "item": "Spaghetti"
             },
             {
-                "item": "Gnocchi"
+                "item": "Bolognese"
+            }
+        ],
+        "ingredients": [
+            {
+                "name": "Cooking spray",
+                "quantity": "1",
+                "quantityType": "tbsp"
             },
             {
-                "item": "Mozzarella"
+                "name": "Beef mince",
+                "quantity": "500",
+                "quantityType": "g"
+            },
+            {
+                "name": "Spaghetti",
+                "quantity": "300",
+                "quantityType": "g"
+            },
+            {
+                "name": "Onion",
+                "quantity": "2"
+            },
+            {
+                "name": "Carrots",
+                "quantity": "2"
+            },
+            {
+                "name": "Celery sticks",
+                "quantity": "2",
+                "quantityType": "g"
+            },
+            {
+                "name": "Garlic cloves",
+                "quantity": "2"
+            },
+            {
+                "name": "Chopped tomatoes",
+                "quantity": "2",
+                "quantityType": "tins"
+            },
+            {
+                "name": "Dried oregano",
+                "quantity": "2",
+                "quantityType": "tsp"
+            },
+            {
+                "name": "Beef stock cube",
+                "quantity": "2"
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "name": "Spaghetti Bolgnese",
+        "img": "spaghetti-bolognese.webp",
+        "rating": 9,
+        "time": 45,
+        "tags": [
+            {
+                "item": "Spaghetti"
+            },
+            {
+                "item": "Bolognese"
             }
         ],
         "ingredients": [

@@ -14,7 +14,8 @@ export type Meal = {
     rating?: number;
     time: number;
     img: string;
-    tags: Tag[];
-    ingredients: Ingredient[];
+    tags: Array<Tag>;
+    ingredients: Array<Ingredient>;
     method?: [];
+    lastCooked?: Date;
 };

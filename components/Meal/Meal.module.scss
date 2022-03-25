@@ -1,7 +1,7 @@
 @import "styles/media-queries.scss";
 
 .meal {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     width: 100%;
 
     &:last-child {
@@ -12,17 +12,27 @@
         width: calc(50% - 15px);
     }
 
+    @media ($screen-laptop) {
+        width: calc(33.33% - 20px);
+    }
+
+    @media ($screen-desktop-lg) {
+        width: calc(25% - 22px);
+    }
+
     &__upper {
-        margin-top: 10px;
+        height: 150px;
+        margin-top: 8px;
         position: relative;
     }
 
     &__title {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 600;
         line-height: 1.1;
 
         @media ($screen-tablet) {
+            font-size: 20px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -39,12 +49,12 @@
         position: absolute;
         bottom: 0;
         right: 0;
-        top: 0;
     }
 
     &__img {
         display: block;
-        height: auto;
+        height: 100%;
+        object-fit: cover;
         width: 100%;
     }
 
@@ -54,12 +64,13 @@
         cursor: pointer;
         border: none;
         font-size: 40px;
-        height: 100%;
-        line-height: 40px;
+        height: 50px;
+        line-height: 50px;
         margin: 0;
         outline: none;
         padding: 0;
         text-align: center;
+        transition: all 0.2s ease-in-out;
         width: 50px;
 
         &:hover, &:active, &:focus {
@@ -70,7 +81,7 @@
     &__ingredients {
         cursor: pointer;
         font-size: 14px;
-        margin-top: 10px;
+        padding: 10px 0;
 
         &[open] {
             .meal__ingredients-title {

@@ -6,7 +6,25 @@
     margin-bottom: 20px;
     padding: 15px 0;
 
+    &__content {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+
     &__highlight {
         color: var(--color-coral);
+    }
+
+    &__badge {
+        background-color: var(--color-white);
+        border-radius: 50%;
+        color: var(--color-coral);
+        font-size: 16px;
+        font-weight: 600;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        width: 30px;
     }
 }
