@@ -71,7 +71,6 @@ const Meals: NextPage = () => {
         {basketLength ? (
           <Basket
             basket={basket}
-            basketLength={basketLength}
             ingredientListVisible={ingredientListVisible}
             resetBasket={resetBasket}
             toggleIngredientList={toggleIngredientList}

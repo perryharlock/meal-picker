@@ -1,23 +1,24 @@
 import React from 'react'
 import { Meal as MealType } from '../../types/meals'
 
+import { SrOnly } from '../../components/SrOnly/SrOnly'
+
 import styles from './Basket.module.scss'
 
 export type BasketProps = {
   ingredientListVisible: boolean;
-  basketLength: number;
   basket: Array<MealType>;
   resetBasket: () => void;
   toggleIngredientList: () => void;
 };
 
-export const Basket: React.FC<BasketProps> = ({ ingredientListVisible, basketLength, basket, toggleIngredientList, resetBasket }) => {
+export const Basket: React.FC<BasketProps> = ({ ingredientListVisible, basket, toggleIngredientList, resetBasket }) => {
   return (
     <div className={`${styles.basket} ${ingredientListVisible ? styles['basket--open'] : ''}`}>
       <div className={styles.basket__actions}>
-        <button className={styles.basket__btn} onClick={resetBasket}>Reset</button>
+        <button className={styles.basket__btn} onClick={resetBasket}>Reset<SrOnly> Selected Meals</SrOnly></button>
         <button className={styles.basket__btn} onClick={toggleIngredientList}>
-          {ingredientListVisible ? 'Close' : 'View'}
+          {ingredientListVisible ? 'Close' : 'View'}<SrOnly> Selected Meals</SrOnly>
         </button>
       </div>
       {ingredientListVisible && (

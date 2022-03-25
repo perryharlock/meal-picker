@@ -1,6 +1,11 @@
 @import "styles/media-queries.scss";
 
 .meals {
+    &__main {
+        padding-top: 90px;
+        padding-bottom: 70px;
+    }
+
     &__list {
         display: flex;
         flex-direction: row;

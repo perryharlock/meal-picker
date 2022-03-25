@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
 import { Ingredient } from '../../components/Ingredient/Ingredient'
-import { Tag } from '../../components/Tag/Tag'
 import { Meal as MealType } from '../../types/meals'
+
+import { Tag } from '../../components/Tag/Tag'
+import { SrOnly } from '../../components/SrOnly/SrOnly'
 
 import styles from './Meal.module.scss'
 
@@ -47,8 +49,12 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, baske
         </ul>
         <img className={styles.meal__img} src={meal.img} alt={meal.name} width="375" height="250" />
         <div className={styles.meal__actions}>
-          {showAdd === true && <button className={styles.meal__btn} onClick={addItem}>+</button>}
-          {showRemove && <button className={styles.meal__btn} onClick={removeItem}>-</button>}
+          {showAdd === true && <button className={styles.meal__btn} onClick={addItem}>
+            {'+'}
+            <SrOnly>Add ingredients to basket</SrOnly></button>}
+          {showRemove && <button className={styles.meal__btn} onClick={removeItem}>
+            {'-'}
+            <SrOnly>Add ingredients to basket</SrOnly></button>}
         </div>
       </div>
       <details className={styles.meal__ingredients}>
