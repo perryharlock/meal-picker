@@ -2,7 +2,12 @@
     background: var(--color-white);
     bottom: 0;
     color: var(--color-black);
+    height: 100%;
     left: 0;
+    margin: 0 auto;
+    max-width: 600px;
+    overflow: scroll;
+    padding: 10px 15px 55px 15px;
     position: fixed;
     right: 0;
     z-index: 5;
@@ -15,9 +20,13 @@
 
     &__actions {
         background: var(--color-coral);
+        bottom: 0;
         display: flex;
         justify-content: space-between;
+        left: 0;
         padding: 10px 15px;
+        position: fixed;
+        right: 0;    
     }
 
     &__title {
@@ -56,21 +65,6 @@
 
         &:hover, &:active, &:focus {
             background-color: var(--color-black);
-        }
-    }
-
-    &--open {
-        height: 100%;
-        overflow: scroll;
-        padding: 10px 15px 55px 15px;
-        max-width: 600px;
-        margin: 0 auto;
-
-        .basket__actions {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            left: 0;
         }
     }
 }

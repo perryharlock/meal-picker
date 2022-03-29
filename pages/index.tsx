@@ -17,11 +17,13 @@ const Meals: NextPage = () => {
   const [basket, setBasket] = useState<Array<MealType>>([])
   const [basketLength, setBasketLength] = useState(0)
   const [ingredientListVisible, setIngredientListVisible] = useState(false)
+  const [animate, setAnimate] = useState(false);
 
   const addToBasket = (mealId: MealType) => {
     basket.push(mealId)
     setBasket(basket)
     setBasketLength(basket.length)
+    setAnimate(!animate)
   }
 
   const removeFromBasket = (mealId: MealType) => {
@@ -29,6 +31,7 @@ const Meals: NextPage = () => {
     basket.splice(index, 1)
     setBasket(basket)
     setBasketLength(basket.length)
+    setAnimate(!animate)
   }
 
   const resetBasket = () => {
@@ -49,7 +52,7 @@ const Meals: NextPage = () => {
         <link rel="icon" href="favicon.ico" />
       </Head>
 
-      <Header basketLength={basketLength} />
+      <Header basketLength={basketLength} toggleIngredientList={toggleIngredientList} animate={animate} />
 
       <main className={styles.meals__main}>
         <Grid>
@@ -68,10 +71,9 @@ const Meals: NextPage = () => {
             ))}
           </ul>
         </Grid>
-        {basketLength ? (
+        {ingredientListVisible ? (
           <Basket
             basket={basket}
-            ingredientListVisible={ingredientListVisible}
             resetBasket={resetBasket}
             toggleIngredientList={toggleIngredientList}
           />

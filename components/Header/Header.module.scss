@@ -20,15 +20,74 @@
         color: var(--color-coral);
     }
 
+    &__basket {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        
+        svg {
+            height: 31px;
+            width: 40px;
+        }
+
+        &--in {
+            animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+        }
+
+        &--out {
+            animation: shake-out 0.82s cubic-bezier(.36,.07,.19,.97) both;
+        }
+    }
+
     &__badge {
         background-color: var(--color-coral);
         border-radius: 50%;
         color: var(--color-white);
         font-size: 16px;
         font-weight: 600;
-        height: 30px;
-        line-height: 30px;
+        height: 25px;
+        line-height: 25px;
+        position: absolute;
+        top: -8px;
+        left: -15px;
         text-align: center;
-        width: 30px;
+        width: 25px;
+    }
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+@keyframes shake-out {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
     }
 }
