@@ -3,19 +3,9 @@
         "id" : "1",
         "name": "Chorizo Carbonara",
         "img": "chorizo-carbonara.webp",
-        "rating": 10,
         "time": 15,
-        "tags": [
-            {
-                "item": "Pasta"
-            },
-            {
-                "item": "Chorizo"
-            },
-            {
-                "item": "Carbonara"
-            }
-        ],
+        "serves": 2,
+        "tags": ["Pasta", "Chorizo", "Carbonara"],
         "ingredients": [
             {
                 "name": "Spaghetti",
@@ -56,19 +46,8 @@
         "id": "2",
         "name": "Chorizo & Mozzarella Gnocchi Bake",
         "img": "chorizo-gnocchi.webp",
-        "rating": 9,
         "time": 30,
-        "tags": [
-            {
-                "item": "Chorizo"
-            },
-            {
-                "item": "Gnocchi"
-            },
-            {
-                "item": "Mozzarella"
-            }
-        ],
+        "tags": [ "Chorizo", "Gnocchi", "Mozzarella"],
         "ingredients": [
             {
                 "name": "Chicken",
@@ -128,22 +107,10 @@
         "id": "3",
         "name": "Spaghetti Bolgnese",
         "img": "spaghetti-bolognese.webp",
-        "rating": 9,
-        "time": 45,
-        "tags": [
-            {
-                "item": "Spaghetti"
-            },
-            {
-                "item": "Bolognese"
-            }
-        ],
+        "time": 30,
+        "serves": 4,
+        "tags": ["Spaghetti", "Bolognese"],
         "ingredients": [
-            {
-                "name": "Cooking spray",
-                "quantity": "1",
-                "quantityType": "tbsp"
-            },
             {
                 "name": "Beef mince",
                 "quantity": "500",
@@ -189,64 +156,112 @@
     },
     {
         "id": "4",
-        "name": "Spaghetti Bolgnese",
-        "img": "spaghetti-bolognese.webp",
-        "rating": 9,
+        "name": "Chicken Dopiaza with Cumin Roast potatoes",
+        "img": "chicken-dopiaza.webp",
         "time": 45,
-        "tags": [
-            {
-                "item": "Spaghetti"
-            },
-            {
-                "item": "Bolognese"
-            }
-        ],
+        "serves": 4,
         "ingredients": [
             {
-                "name": "Cooking spray",
-                "quantity": "1",
-                "quantityType": "tbsp"
-            },
-            {
-                "name": "Beef mince",
+                "name": "Chicken",
                 "quantity": "500",
                 "quantityType": "g"
             },
             {
-                "name": "Spaghetti",
-                "quantity": "300",
-                "quantityType": "g"
+                "name": "Red Onions",
+                "quantity": "2.5"
             },
             {
-                "name": "Onion",
-                "quantity": "2"
-            },
-            {
-                "name": "Carrots",
-                "quantity": "2"
-            },
-            {
-                "name": "Celery sticks",
-                "quantity": "2",
+                "name": "Potatoes",
+                "quantity": "700",
                 "quantityType": "g"
             },
             {
                 "name": "Garlic cloves",
-                "quantity": "2"
+                "quantity": "4"
             },
             {
-                "name": "Chopped tomatoes",
-                "quantity": "2",
-                "quantityType": "tins"
+                "name": "Root ginger",
+                "quantity": "2.5",
+                "quantityType": "cm"
             },
             {
-                "name": "Dried oregano",
-                "quantity": "2",
+                "name": "Red Chilli",
+                "quantity": "1"
+            },
+            {
+                "name": "Garam Masala",
+                "quantity": "1",
+                "quantityType": "tbsp"
+            },
+            {
+                "name": "Ground cumin",
+                "quantity": "2.5",
                 "quantityType": "tsp"
             },
             {
-                "name": "Beef stock cube",
-                "quantity": "2"
+                "name": "Ground coriander",
+                "quantity": "1",
+                "quantityType": "tsp"
+            },
+            {
+                "name": "Chopped tomatoes",
+                "quantity": "1",
+                "quantityType": "tin"
+            },
+            {
+                "name": "Chicken stock cube",
+                "quantity": "1"
+            },
+            {
+                "name": "Red pepper",
+                "quantity": "1"
+            },
+            {
+                "name": "Fresh coriander",
+                "quantity": "1",
+                "quantityType": "tbsp"
+            }
+        ]
+    },
+    {
+        "id": "5",
+        "name": "Cheat's Fish and Chips",
+        "time": 45,
+        "img": "cheats-fish-and-chips.webp",
+        "serves": 2,
+        "ingredients": [
+            {
+                "name": "White fish",
+                "quantity": "250",
+                "quantityType": "g"
+            },
+            {
+                "name": "Potatoes",
+                "quantity": "400",
+                "quantityType": "g"
+            },
+            {
+                "name": "Streaky bacon rasher",
+                "quantity": "1"
+            },
+            {
+                "name": "Stale bread",
+                "quantity": "60",
+                "quantityType": "g"
+            },
+            {
+                "name": "Plain flour",
+                "quantity": "30",
+                "quantityType": "g"
+            },
+            {
+                "name": "Large egg",
+                "quantity": "1"
+            },
+            {
+                "name": "Frozen peas",
+                "quantity": "250",
+                "quantityType": "g"
             }
         ]
     }
