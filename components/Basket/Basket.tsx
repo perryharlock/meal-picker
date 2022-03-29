@@ -22,18 +22,20 @@ export const Basket: React.FC<BasketProps> = ({ ingredientListVisible, basket, t
           {ingredientListVisible ? 'Close' : 'View'}<SrOnly> Selected Meals</SrOnly>
         </button>
       </div>
-      <h4 className={styles.basket__title}>Shopping list</h4>
       {ingredientListVisible && (
-        basket.map((item) => (
-          <>
-            <p className={styles.basket__meal}>{item.name}</p>
-            <ul className={styles.basket__list}>
-              {item.ingredients.map((ingredient, idx) => (
-                <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
-              ))}
-            </ul>
-          </>
-        ))
+        <>
+          <h4 className={styles.basket__title}>Shopping list</h4>
+          {basket.map((item) => (
+            <>
+              <p className={styles.basket__meal}>{item.name}</p>
+              <ul className={styles.basket__list}>
+                {item.ingredients.map((ingredient, idx) => (
+                  <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
+                ))}
+              </ul>
+            </>
+          ))}
+        </>
       )}
     </div>
   );
