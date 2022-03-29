@@ -20,6 +20,25 @@
         padding: 10px 15px;
     }
 
+    &__title {
+        background-color: var(--color-black);
+        color: var(--color-white);
+        font-size: 22px;
+        line-height: 1;
+        margin: -15px -15px 20px -15px;
+        padding: 15px;
+    }
+
+    &__meal {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 0 15px 0;
+    }
+
+    &__list {
+        margin-bottom: 40px;
+    }
+
     &__btn {
         background-color: var(--color-black);
         color: var(--color-white);
@@ -43,7 +62,7 @@
     &--open {
         height: 100%;
         overflow: scroll;
-        padding: 10px 15px 80px 15px;
+        padding: 10px 15px 55px 15px;
         max-width: 600px;
         margin: 0 auto;
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { Meal as MealType } from '../../types/meals'
 
 import { SrOnly } from '../../components/SrOnly/SrOnly'
+import { Ingredient } from '../../components/Ingredient/Ingredient'
 
 import styles from './Basket.module.scss'
 
@@ -21,19 +22,14 @@ export const Basket: React.FC<BasketProps> = ({ ingredientListVisible, basket, t
           {ingredientListVisible ? 'Close' : 'View'}<SrOnly> Selected Meals</SrOnly>
         </button>
       </div>
+      <h4 className={styles.basket__title}>Shopping list</h4>
       {ingredientListVisible && (
         basket.map((item) => (
           <>
-            <p>{item.name}</p>
-            <ul>
+            <p className={styles.basket__meal}>{item.name}</p>
+            <ul className={styles.basket__list}>
               {item.ingredients.map((ingredient, idx) => (
-                <li className={styles.basket__ingredient} key={item + '-' + idx}>
-                  
-                  <div>{ingredient.name}</div>
-                  <div>
-                    {ingredient.quantity}{ingredient.quantityType}
-                  </div>
-                </li>
+                <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
               ))}
             </ul>
           </>
