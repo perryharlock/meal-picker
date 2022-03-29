@@ -18,6 +18,7 @@ export type MealProps = {
 export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, basketLength }) => {
   const [showRemove, setShowRemove] = useState(false);
   const [showAdd, setShowAdd] = useState(true);
+  const showTags = false;
 
   const removeItem = () => {
     setShowRemove(false)
@@ -42,12 +43,14 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, baske
     <li className={styles.meal} key={`meal-${meal.id}`}>
       <h3 className={styles.meal__title}>{meal.name}</h3>
       <div className={styles.meal__upper}>
-        <ul className={styles.meal__tags}>
-          {meal.tags.map((tag) => (
-            <Tag key={`tag-${tag.item}`} tag={tag.item} />
-          ))}
-        </ul>
-        <img className={styles.meal__img} src={meal.img} alt={meal.name} width="375" height="250" />
+        {meal.tags && showTags &&
+          <ul className={styles.meal__tags}>
+            {meal.tags.map((tag) => (
+              <Tag key={`tag-${tag}`} tag={tag} />
+            ))}
+          </ul>
+        }
+        <img className={styles.meal__img} src={meal.img ? meal.img : 'meal-placeholder.webp'} alt={meal.name} width="375" height="250" />
         <div className={styles.meal__actions}>
           {showAdd === true && <button className={styles.meal__btn} onClick={addItem}>
             {'+'}
