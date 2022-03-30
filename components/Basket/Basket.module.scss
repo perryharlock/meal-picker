@@ -1,16 +1,40 @@
+@import "styles/media-queries.scss";
+
 .basket {
-    background: var(--color-white);
+    background: rgba(#000000, 0.8);
     bottom: 0;
-    color: var(--color-black);
     height: 100%;
     left: 0;
-    margin: 0 auto;
-    max-width: 600px;
-    overflow: scroll;
-    padding: 10px 15px 55px 15px;
     position: fixed;
     right: 0;
     z-index: 5;
+
+    &__inner {
+        background: var(--color-white);
+        color: var(--color-black);
+        height: 100%;
+        margin: 0 auto;
+        max-width: 600px;
+
+        @media ($screen-smalltablet) {
+            height: auto;
+            max-height: 90%;
+            position: relative;
+            top: 5%;
+            width: 90%;
+        }
+
+        @media ($screen-tablet) {
+            max-height: 80%;
+            top: 10%;
+        }
+
+        @media ($screen-laptop) {
+            height: 70%;
+            top: 15%;
+            max-height: none;
+        }
+    }
 
     &__ingredient {
         display: flex;
@@ -18,24 +42,28 @@
         padding: 5px;
     }
 
-    &__actions {
-        background: var(--color-coral);
-        bottom: 0;
+    &__header {
+        background-color: var(--color-black);
         display: flex;
         justify-content: space-between;
         left: 0;
-        padding: 10px 15px;
-        position: fixed;
-        right: 0;    
+        margin: 0 0 20px 0;
+        padding: 15px;
+        position: sticky;
+        right: 0;
+        top: 0;
+    }
+
+    &__scrollable {
+        height: calc(100% - 80px);
+        overflow-y: scroll;
+        padding: 0 15px;
     }
 
     &__title {
-        background-color: var(--color-black);
         color: var(--color-white);
         font-size: 22px;
         line-height: 1;
-        margin: -15px -15px 20px -15px;
-        padding: 15px;
     }
 
     &__meal {
@@ -53,18 +81,23 @@
         color: var(--color-white);
         cursor: pointer;
         border: none;
-        font-size: 16px;
-        line-height: 16px;
-        margin: 0;
+        height: 20px;
+        margin: 0 0 0 20px;
         outline: none;
-        padding: 10px 0;
-        text-align: center;
-        text-transform: uppercase;
+        padding: 0;
         transition: all 0.2s ease-in-out;
-        width: calc(50% - 10px);
+        width: 20px;
+
+        &--reset {
+            width: 27px;
+        }
 
         &:hover, &:active, &:focus {
             background-color: var(--color-black);
+        }
+
+        svg {
+            fill: var(--color-white);
         }
     }
 }

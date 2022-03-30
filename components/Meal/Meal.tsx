@@ -41,7 +41,6 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, baske
 
   return (
     <li className={styles.meal} key={`meal-${meal.id}`}>
-      <h3 className={styles.meal__title}>{meal.name}</h3>
       <div className={styles.meal__upper}>
         {meal.tags && showTags &&
           <ul className={styles.meal__tags}>
@@ -60,6 +59,7 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, baske
             <SrOnly>Add ingredients to basket</SrOnly></button>}
         </div>
       </div>
+      <h3 className={styles.meal__title}>{meal.name}</h3>
       <details className={styles.meal__ingredients}>
         <summary className={styles['meal__ingredients-title']}>Ingredients</summary>
         <ul className={styles['meal__ingredients-list']}>

@@ -1,6 +1,15 @@
 @import "styles/media-queries.scss";
 
 .meals {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+
+    &--no-scroll {
+        overflow: hidden;
+    }
+
     &__main {
         padding-top: 90px;
         padding-bottom: 30px;
@@ -10,7 +19,6 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
         margin-top: 20px;
     }
 

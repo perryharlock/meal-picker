@@ -45,7 +45,7 @@ const Meals: NextPage = () => {
   }
 
   return (
-    <div className={styles.meals}>
+    <div className={`${styles.meals} ${ingredientListVisible ? styles['meals--no-scroll'] : ''}`}>
       <Head>
         <title>mealpicker</title>
         <meta name="description" content="Meal picker app" />
