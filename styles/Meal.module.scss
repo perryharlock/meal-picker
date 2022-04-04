@@ -1,0 +1,96 @@
+@import "styles/media-queries.scss";
+
+.meal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+
+    &__title {
+        font-size: 24px;
+    }
+
+    &__ingredients {
+        margin-top: 30px;
+
+        &-title {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__row {
+        display: flex;
+        flex-direction: column;
+
+        @media ($screen-tablet) {
+            flex-direction: row;
+        }
+    }
+
+    &__column1 {
+        order: 1;
+
+        @media ($screen-tablet) {
+            order: 2;
+        }
+    }
+
+    &__column2 {
+        order: 2;
+
+        @media ($screen-tablet) {
+            order: 1;
+            margin-right: 30px;
+        }
+    }
+
+    &__img {
+        border-radius: 5px;
+        display: block;
+        height: 180px;
+        margin-top: 15px;
+        object-fit: cover;
+        width: 100%;
+
+        @media ($screen-tablet) {
+            margin: 0;
+        }
+
+        @media ($screen-laptop) {
+            height: 210px;
+        }
+
+        @media ($screen-desktop) {
+            height: 330px;
+        }
+
+        @media ($screen-desktop-lg) {
+            height: 385px;
+        }
+    }
+
+    &__main {
+        padding-top: 110px;
+        padding-bottom: 30px;
+    }
+
+    &__info {
+        display: flex;
+        font-size: 16px;
+        margin-right: 15px;
+        text-transform: uppercase;
+
+        &-list {
+            display: flex;
+            margin-top: 15px;
+        }
+    }
+
+    &__icon {
+        margin-right: 5px;
+
+        svg {
+            height: 20px;
+        }
+    }
+}

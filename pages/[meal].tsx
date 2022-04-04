@@ -13,8 +13,9 @@ import { Header } from '../components/Header/Header'
 import { Footer } from '../components/Footer/Footer'
 import { Basket } from '../components/Basket/Basket'
 import { Ingredient } from '../components/Ingredient/Ingredient'
+import { Serves, Time } from '../components/Icons'
 
-import styles from '../styles/Meals.module.scss'
+import styles from '../styles/Meal.module.scss'
 
 const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients }) => {
   const [basket, setBasket] = useState<Array<MealType>>([])
@@ -42,7 +43,7 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients }) 
   }, []);
 
   return (
-    <div className={`${styles.meals} ${basketVisible ? styles['meals--no-scroll'] : ''}`}>
+    <div className={`${styles.meal} ${basketVisible ? styles['meals--no-scroll'] : ''}`}>
       <Head>
         <title>mealpicker</title>
         <meta name="description" content="Meal picker app" />
@@ -51,17 +52,38 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients }) 
 
       <Header basketLength={basketLength} toggleBasket={toggleBasket} animate={animate} />
 
-      <main className={styles.meals__main}>
+      <main className={styles.meal__main}>
         <Grid>
-          <h2 className={styles.meals__title}>
-            {name} {time} {serves}
-          </h2>
-          <img className={styles.meal__img} src={img ? img : 'meal-placeholder.webp'} alt={name} width="375" height="250" />
-          <ul className={styles['meal__ingredients-list']}>
-            {ingredients.map((ingredient) => (
-              <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
-            ))}
-          </ul>
+          <div className={styles.meal__row}>
+            <div className={styles.meal__column1}>
+              <h2 className={styles.meals__title}>
+                {name}
+              </h2>
+              <ul className={styles['meal__info-list']}>
+                <li className={styles.meal__info}>
+                  <span className={styles.meal__icon}>
+                    <Serves />
+                  </span>
+                  {serves}
+                </li>
+                <li className={styles.meal__info}>
+                  <span className={styles.meal__icon}><Time /></span>
+                  {time} mins
+                </li>
+              </ul>
+            </div>
+            <div className={styles.meal__column2}>
+              <img className={styles.meal__img} src={img ? img : 'meal-placeholder.webp'} alt={name} width="375" height="250" />
+            </div>
+          </div>
+          <div className={styles.meal__ingredients}>
+            <h3 className={styles['meal__ingredients-title']}>Ingredients</h3>
+            <ul className={styles['meal__ingredients-list']}>
+              {ingredients.map((ingredient) => (
+                <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
+              ))}
+            </ul>
+          </div>
         </Grid>
         {basketVisible ? (
           <Basket
