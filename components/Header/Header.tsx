@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { Grid } from '../Grid/Grid'
 import { Basket } from '../Icons'
@@ -7,18 +7,20 @@ import styles from './Header.module.scss'
 
 export type HeaderProps = {
   basketLength: number;
-  toggleIngredientList: () => void;
+  toggleBasket: () => void;
   animate: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ basketLength, toggleIngredientList, animate }) => {
+export const Header: React.FC<HeaderProps> = ({ basketLength, toggleBasket, animate }) => {
 
   return (
     <header className={styles.header}>
         <Grid className={styles.header__content}>
-            <h1>meal<span className={styles.header__highlight}>pick</span>er</h1>
-            {basketLength ? (
-              <button onClick={toggleIngredientList} className={`${styles.header__basket} ${styles[`header__basket--${animate ? 'in' : 'out'}`]}`}>
+            <a href="/">
+              <h1>meal<span className={styles.header__highlight}>pick</span>er</h1>
+            </a>
+            {basketLength > 0 ? (
+              <button onClick={toggleBasket} className={`${styles.header__basket} ${styles[`header__basket--${animate ? 'in' : 'out'}`]}`}>
                 <Basket />
                 <span className={styles.header__badge}>
                   {basketLength > 99 ? '9+' : basketLength}
