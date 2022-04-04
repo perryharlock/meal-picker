@@ -5,6 +5,7 @@ import { Meal as MealType } from '../../types/meals'
 import { SrOnly } from '../../components/SrOnly/SrOnly'
 
 import styles from './Meal.module.scss'
+import { url } from 'inspector';
 
 export type MealProps = {
   meal: MealType;
@@ -14,10 +15,12 @@ export type MealProps = {
 };
   
 export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInBasket }) => {
+  const isProd = process.env.NODE_ENV === 'production';
+
   return (
     <li className={styles.meal} key={`meal-${meal.id}`}>
       <div className={styles.meal__upper}>
-        <a title={meal.name + ' details'} href={meal.url}>
+        <a title={meal.name + ' details'} href={isProd ? `/meal-picker/${meal.url}` : meal.url}>
           <h3 className={styles.meal__title}>{meal.name}</h3>
           <div className={styles['meal__img-container']}>
             <img className={styles.meal__img} src={meal.img ? meal.img : 'meal-placeholder.webp'} alt={meal.name} width="375" height="250" />

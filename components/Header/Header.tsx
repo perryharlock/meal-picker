@@ -12,11 +12,12 @@ export type HeaderProps = {
 }
 
 export const Header: React.FC<HeaderProps> = ({ basketLength, toggleBasket, animate }) => {
+  const isProd = process.env.NODE_ENV === 'production';
 
   return (
     <header className={styles.header}>
         <Grid className={styles.header__content}>
-            <a href="/">
+            <a href={isProd ? '/meal-picker' : '/'}>
               <h1>meal<span className={styles.header__highlight}>pick</span>er</h1>
             </a>
             {basketLength > 0 ? (
