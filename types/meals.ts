@@ -6,6 +6,7 @@ export type Ingredient = {
 
 export type Meal = {
     id : string,
+    url: string;
     name: string;
     rating?: number;
     time?: number;
@@ -15,4 +16,8 @@ export type Meal = {
     ingredients: Array<Ingredient>;
     method?: [];
     lastCooked?: Date;
+};
+
+export type Basket = {
+    basket: Array<Meal>;
 };
