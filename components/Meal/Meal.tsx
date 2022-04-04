@@ -3,9 +3,9 @@ import React from 'react'
 import { Meal as MealType } from '../../types/meals'
 
 import { SrOnly } from '../../components/SrOnly/SrOnly'
+import { Serves, Time } from '../../components/Icons'
 
 import styles from './Meal.module.scss'
-import { url } from 'inspector';
 
 export type MealProps = {
   meal: MealType;
@@ -38,9 +38,17 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInB
           )}
         </div>
       </div>
-      <ul>
-        <li>Serves {meal.serves}</li>
-        <li>{meal.time} mins</li>
+      <ul className={styles['meal__info-list']}>
+        <li className={styles.meal__info}>
+          <span className={styles.meal__icon}>
+            <Serves />
+          </span>
+          {meal.serves}
+        </li>
+        <li className={styles.meal__info}>
+          <span className={styles.meal__icon}><Time /></span>
+          {meal.time} mins
+        </li>
       </ul>
     </li>
   );
