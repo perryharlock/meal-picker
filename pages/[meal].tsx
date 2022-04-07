@@ -13,6 +13,7 @@ import { Header } from '../components/Header/Header'
 import { Footer } from '../components/Footer/Footer'
 import { Basket } from '../components/Basket/Basket'
 import { Ingredient } from '../components/Ingredient/Ingredient'
+import { Tabs } from '../components/Tabs/Tabs'
 import { Serves, Time } from '../components/Icons'
 
 import styles from '../styles/Meal.module.scss'
@@ -41,6 +42,15 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients }) 
     sessionData.basket !== undefined && setBasket(sessionData.basket)
     sessionLength !== null && setBasketLength(sessionLength)
   }, []);
+
+  const tabData = [
+    {
+      "title": "Ingredients"
+    },
+    {
+      "title": "Method"
+    },
+  ];
 
   return (
     <div className={`${styles.meal} ${basketVisible ? styles['meals--no-scroll'] : ''}`}>
@@ -77,12 +87,20 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients }) 
             </div>
           </div>
           <div className={styles.meal__ingredients}>
-            <h3 className={styles['meal__ingredients-title']}>Ingredients</h3>
-            <ul className={styles['meal__ingredients-list']}>
-              {ingredients.map((ingredient) => (
-                <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
-              ))}
-            </ul>
+            {/* Let's get rid of the tabData. Include the title somewhere*/}
+            <Tabs tabs={tabData}>
+              <div>
+                <h3 className={styles['meal__ingredients-title']}>Ingredients</h3>
+                <ul className={styles['meal__ingredients-list']}>
+                  {ingredients.map((ingredient) => (
+                    <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className={styles['meal__ingredients-title']}>Method</h3>
+              </div>
+            </Tabs>
           </div>
         </Grid>
         {basketVisible ? (
