@@ -1,5 +1,15 @@
 @import "styles/media-queries.scss";
 
 .tab {
-    
+    &--active {
+        color: red;
+    }
+
+    &__content {
+        display: none;
+
+        &--active {
+            display: block;
+        }
+    }
 }

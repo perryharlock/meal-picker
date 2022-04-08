@@ -14,6 +14,7 @@ import { Footer } from '../components/Footer/Footer'
 import { Basket } from '../components/Basket/Basket'
 import { Ingredient } from '../components/Ingredient/Ingredient'
 import { Tabs } from '../components/Tabs/Tabs'
+import { Tab } from '../components/Tabs/Tab'
 import { Serves, Time } from '../components/Icons'
 
 import styles from '../styles/Meal.module.scss'
@@ -80,19 +81,18 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients }) 
             </div>
           </div>
           <div className={styles.meal__ingredients}>
-            {/* Let's get rid of the tabData. Include the title somewhere*/}
-            <Tabs tabs={tabData}>
-              <div>
+            <Tabs>
+              <Tab title="Ingredients">
                 <h3 className={styles['meal__ingredients-title']}>Ingredients</h3>
                 <ul className={styles['meal__ingredients-list']}>
                   {ingredients.map((ingredient) => (
                     <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
                   ))}
                 </ul>
-              </div>
-              <div>
+              </Tab>
+              <Tab title="Method">
                 <h3 className={styles['meal__ingredients-title']}>Method</h3>
-              </div>
+              </Tab>
             </Tabs>
           </div>
         </Grid>

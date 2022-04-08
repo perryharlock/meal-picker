@@ -1,13 +1,10 @@
-import React, { useState, Children } from 'react'
+import React, { useState, Children, ReactElement } from 'react'
+
+import { TabProps } from './Tab'
 
 import styles from './Tabs.module.scss'
-import { Tab } from './Tab'
 
-export type TabsProps = {
-  tabs: string[];
-};
-
-export const Tabs: React.FC<TabsProps> = ({ tabs, children }) => {
+export const Tabs: React.FC = ({ children }) => {
   const [activeTab, setActiveTab] = useState('tab0')
 
   const selectTab = (tab: string) => {
@@ -22,20 +19,40 @@ export const Tabs: React.FC<TabsProps> = ({ tabs, children }) => {
   return (
     <div>
       <ul role="presentation">
-        {tabs.map((tab, index) => (
-          <Tab
-            handleClick={e => handleClick(e, `tab${index}`)}
-            tabId={`tab${index}`}
-            title={tab}
-            activeTab={activeTab}
-            key={`tab${index}`}
-          />
-        ))}
+        {Children.map(children, (child, index) => {
+          const item = child as ReactElement<TabProps>;
+          const isActive = activeTab === `tab${index}`;
+          const tab = `tab${index}`;
+  
+          return (
+            <li role="presentation">
+              <a
+                onClick={e => handleClick(e, `tab${index}`)}
+                role="tab"
+                href={`#${tab}`}
+                aria-controls={tab}
+                aria-selected={isActive}
+                tabIndex={activeTab === tab ? 0 : -1}
+                className={`${styles.tab} ${isActive ? styles[`tab--active`] : ''}`}
+              >
+                  {item.props.title}
+              </a>
+            </li>
+          )
+        })}
       </ul>
       {Children.map(children, (child, index) => {
+        const isActive = activeTab === `tab${index}`;
+        const tab = `tab${index}`;
+
         return (
-          <div id={`tab${index}`} aria-labelledby={`tab${index}`} role="tabpanel">
-            {child} {activeTab === `tab${index}` ? 'active' : 'not active'}
+          <div
+            id={tab}
+            aria-labelledby={tab}
+            role="tabpanel"
+            className={`${styles.tab__content} ${isActive ? styles[`tab__content--active`] : ''}`}
+          >
+            {child}
           </div>
         )
       })}
