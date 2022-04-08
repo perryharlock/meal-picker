@@ -43,14 +43,7 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients }) 
     sessionLength !== null && setBasketLength(sessionLength)
   }, []);
 
-  const tabData = [
-    {
-      "title": "Ingredients"
-    },
-    {
-      "title": "Method"
-    },
-  ];
+  const tabData = ["Ingredients", "Method"];
 
   return (
     <div className={`${styles.meal} ${basketVisible ? styles['meals--no-scroll'] : ''}`}>

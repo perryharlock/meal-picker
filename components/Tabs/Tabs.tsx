@@ -4,7 +4,7 @@ import styles from './Tabs.module.scss'
 import { Tab } from './Tab'
 
 export type TabsProps = {
-  tabs: {title: string}[];
+  tabs: string[];
 };
 
 export const Tabs: React.FC<TabsProps> = ({ tabs, children }) => {
@@ -14,7 +14,7 @@ export const Tabs: React.FC<TabsProps> = ({ tabs, children }) => {
     setActiveTab(tab);
   } 
 
-  const handleClick = (e: any, tab: string) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, tab: string) => {
     e.preventDefault();
     selectTab(tab);
   };
@@ -26,7 +26,7 @@ export const Tabs: React.FC<TabsProps> = ({ tabs, children }) => {
           <Tab
             handleClick={e => handleClick(e, `tab${index}`)}
             tabId={`tab${index}`}
-            title={tab.title}
+            title={tab}
             activeTab={activeTab}
             key={`tab${index}`}
           />
