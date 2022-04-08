@@ -49,6 +49,7 @@ export const Tabs: React.FC = ({ children }) => {
           <div
             id={tab}
             aria-labelledby={tab}
+            aria-hidden={!isActive}
             role="tabpanel"
             className={`${styles.tab__content} ${isActive ? styles[`tab__content--active`] : ''}`}
           >
