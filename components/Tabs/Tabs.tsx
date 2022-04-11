@@ -18,14 +18,14 @@ export const Tabs: React.FC = ({ children }) => {
 
   return (
     <div>
-      <ul role="presentation">
+      <ul className={styles.tab__nav} role="presentation">
         {Children.map(children, (child, index) => {
           const item = child as ReactElement<TabProps>;
           const isActive = activeTab === `tab${index}`;
           const tab = `tab${index}`;
   
           return (
-            <li role="presentation">
+            <li className={`${styles.tab} ${isActive ? styles[`tab--active`] : ''}`} role="presentation">
               <a
                 onClick={e => handleClick(e, tab)}
                 role="tab"
@@ -33,7 +33,6 @@ export const Tabs: React.FC = ({ children }) => {
                 aria-controls={tab}
                 aria-selected={isActive}
                 tabIndex={activeTab === tab ? 0 : -1}
-                className={`${styles.tab} ${isActive ? styles[`tab--active`] : ''}`}
               >
                   {item.props.title}
               </a>

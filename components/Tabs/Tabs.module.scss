@@ -1,12 +1,46 @@
 @import "styles/media-queries.scss";
 
+
 .tab {
+    border: solid 2px transparent;
+    border-bottom: none;
+    color: var(--color-black);
+    font-weight: 600;
+    padding: 15px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    width: 50%;
+    z-index: 1;
+
+    @media ($screen-tablet) {
+        font-size: 20px;
+        padding: 15px 25px;
+        width: auto;
+    }
+
+    &__nav {
+        display: flex;
+        margin-bottom: -2px;
+    }
+
     &--active {
-        color: red;
+        background-color: var(--color-white);
+        border: solid 2px var(--color-light-grey);
+        border-radius: 5px 5px 0 0;
+        border-bottom: none;
     }
 
     &__content {
+        border: solid 2px var(--color-light-grey);
+        border-radius: 5px;
         display: none;
+        padding: 15px;
+        position: relative;
+
+        @media ($screen-tablet) {
+            padding: 50px 25px;
+        }
 
         &--active {
             display: block;
