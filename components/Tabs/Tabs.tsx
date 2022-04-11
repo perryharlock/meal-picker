@@ -14,7 +14,7 @@ export const Tabs: React.FC = ({ children }) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, tab: string) => {
     e.preventDefault();
     selectTab(tab);
-  };
+  }
 
   return (
     <div>
@@ -27,7 +27,7 @@ export const Tabs: React.FC = ({ children }) => {
           return (
             <li role="presentation">
               <a
-                onClick={e => handleClick(e, `tab${index}`)}
+                onClick={e => handleClick(e, tab)}
                 role="tab"
                 href={`#${tab}`}
                 aria-controls={tab}
