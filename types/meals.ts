@@ -4,6 +4,10 @@ export type Ingredient = {
     quantityType?: string;
 }
 
+export type Method = {
+    desc: string;
+}
+
 export type Meal = {
     id : string,
     url: string;
@@ -14,7 +18,7 @@ export type Meal = {
     tags?: string[];
     serves?: number;
     ingredients: Array<Ingredient>;
-    method?: [];
+    method?: Array<Method>
     lastCooked?: Date;
 };
 

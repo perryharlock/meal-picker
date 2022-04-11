@@ -19,7 +19,7 @@ import { Serves, Time } from '../components/Icons'
 
 import styles from '../styles/Meal.module.scss'
 
-const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients }) => {
+const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients, method }) => {
   const [basket, setBasket] = useState<Array<MealType>>([])
   const [basketLength, setBasketLength] = useState(0)
   const [basketVisible, setBasketVisible] = useState(false)
@@ -83,7 +83,6 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients }) 
           <div className={styles.meal__ingredients}>
             <Tabs>
               <Tab title="Ingredients">
-                <h3 className={styles['meal__ingredients-title']}>Ingredients</h3>
                 <ul className={styles['meal__ingredients-list']}>
                   {ingredients.map((ingredient) => (
                     <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
@@ -91,7 +90,17 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients }) 
                 </ul>
               </Tab>
               <Tab title="Method">
-                <h3 className={styles['meal__ingredients-title']}>Method</h3>
+                {method ? (
+                  <ol className={styles['meal__method-list']}>
+                    {method.map((step, index) => (
+                      <li className={styles['meal__method-item']}>
+                        {step.desc}
+                      </li>
+                    ))}
+                  </ol>
+                ) : (
+                  <p>No method availabe</p>
+                )}
               </Tab>
             </Tabs>
           </div>
@@ -129,6 +138,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       time: meal.time,
       serves: meal.serves,
       ingredients: meal.ingredients,
+      method: meal.method,
     },
   };
 };
