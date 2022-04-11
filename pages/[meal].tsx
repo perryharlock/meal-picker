@@ -13,11 +13,13 @@ import { Header } from '../components/Header/Header'
 import { Footer } from '../components/Footer/Footer'
 import { Basket } from '../components/Basket/Basket'
 import { Ingredient } from '../components/Ingredient/Ingredient'
+import { Tabs } from '../components/Tabs/Tabs'
+import { Tab } from '../components/Tabs/Tab'
 import { Serves, Time } from '../components/Icons'
 
 import styles from '../styles/Meal.module.scss'
 
-const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients }) => {
+const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients, method }) => {
   const [basket, setBasket] = useState<Array<MealType>>([])
   const [basketLength, setBasketLength] = useState(0)
   const [basketVisible, setBasketVisible] = useState(false)
@@ -41,6 +43,8 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients }) 
     sessionData.basket !== undefined && setBasket(sessionData.basket)
     sessionLength !== null && setBasketLength(sessionLength)
   }, []);
+
+  const tabData = ["Ingredients", "Method"];
 
   return (
     <div className={`${styles.meal} ${basketVisible ? styles['meals--no-scroll'] : ''}`}>
@@ -77,12 +81,28 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients }) 
             </div>
           </div>
           <div className={styles.meal__ingredients}>
-            <h3 className={styles['meal__ingredients-title']}>Ingredients</h3>
-            <ul className={styles['meal__ingredients-list']}>
-              {ingredients.map((ingredient) => (
-                <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
-              ))}
-            </ul>
+            <Tabs>
+              <Tab title="Ingredients">
+                <ul className={styles['meal__ingredients-list']}>
+                  {ingredients.map((ingredient) => (
+                    <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
+                  ))}
+                </ul>
+              </Tab>
+              <Tab title="Method">
+                {method ? (
+                  <ol className={styles['meal__method-list']}>
+                    {method.map((step, index) => (
+                      <li className={styles['meal__method-item']}>
+                        {step.desc}
+                      </li>
+                    ))}
+                  </ol>
+                ) : (
+                  <p>No method availabe</p>
+                )}
+              </Tab>
+            </Tabs>
           </div>
         </Grid>
         {basketVisible ? (
@@ -118,6 +138,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       time: meal.time,
       serves: meal.serves,
       ingredients: meal.ingredients,
+      method: meal.method,
     },
   };
 };
