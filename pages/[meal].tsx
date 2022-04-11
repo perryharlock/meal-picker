@@ -138,7 +138,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       time: meal.time,
       serves: meal.serves,
       ingredients: meal.ingredients,
-      method: meal.method,
+      method: meal.method || null,
     },
   };
 };
