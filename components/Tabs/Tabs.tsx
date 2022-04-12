@@ -25,8 +25,9 @@ export const Tabs: React.FC = ({ children }) => {
           const tab = `tab${index}`;
   
           return (
-            <li className={`${styles.tab} ${isActive ? styles[`tab--active`] : ''}`} role="presentation">
+            <li className={styles.tab} role="presentation">
               <a
+                className={`${styles.tab__link} ${isActive ? styles[`tab__link--active`] : ''}`}
                 onClick={e => handleClick(e, tab)}
                 role="tab"
                 href={`#${tab}`}

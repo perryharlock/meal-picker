@@ -2,20 +2,9 @@
 
 
 .tab {
-    border: solid 2px transparent;
-    border-bottom: none;
-    color: var(--color-black);
-    font-weight: 600;
-    padding: 15px;
-    position: relative;
-    text-align: center;
-    text-transform: uppercase;
     width: 50%;
-    z-index: 1;
-
+    
     @media ($screen-tablet) {
-        font-size: 20px;
-        padding: 15px 25px;
         width: auto;
     }
 
@@ -24,11 +13,32 @@
         margin-bottom: -2px;
     }
 
-    &--active {
-        background-color: var(--color-white);
-        border: solid 2px var(--color-light-grey);
-        border-radius: 5px 5px 0 0;
+    &__link {
+        border: solid 2px transparent;
         border-bottom: none;
+        color: var(--color-black);
+        display: block;
+        font-weight: 600;
+        padding: 15px;
+        text-align: center;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 1;
+
+        @media ($screen-tablet) {
+            font-size: 20px;
+            padding: 15px 25px;
+        }
+
+        &--active {
+            background-color: var(--color-white);
+            border-color: var(--color-light-grey);
+            border-radius: 5px 5px 0 0;
+        }
+
+        &:hover, &:active, &:focus {
+            outline: none;
+        }
     }
 
     &__content {
