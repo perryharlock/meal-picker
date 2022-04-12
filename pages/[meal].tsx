@@ -93,8 +93,8 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients, me
                 {method ? (
                   <ol className={styles['meal__method-list']}>
                     {method.map((step, index) => (
-                      <li className={styles['meal__method-item']}>
-                        {step.desc}
+                      <li key={`step-${index}`} className={styles['meal__method-item']}>
+                        {step}
                       </li>
                     ))}
                   </ol>
