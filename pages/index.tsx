@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ChangeEvent } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
@@ -10,6 +10,7 @@ import { Header } from '../components/Header/Header'
 import { Meal } from '../components/Meal/Meal'
 import { Footer } from '../components/Footer/Footer'
 import { Basket } from '../components/Basket/Basket'
+import { Search } from '../components/Search/Search'
 
 import styles from '../styles/Meals.module.scss'
 
@@ -17,7 +18,9 @@ const Meals: NextPage = () => {
   const [basket, setBasket] = useState<Array<MealType>>([])
   const [basketLength, setBasketLength] = useState(0)
   const [basketVisible, setBasketVisible] = useState(false)
-  const [animate, setAnimate] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('')
+  const [meals, setMeals] = useState(mealData)
+  const [animate, setAnimate] = useState(false)
 
   const addToBasket = (mealId: MealType) => {
     basket.push(mealId)
@@ -53,6 +56,11 @@ const Meals: NextPage = () => {
     return basket.filter((e: { id: string }) => e.id === mealId).length > 0
   }
 
+  const searchMeals = (searchTerm: string) => {
+    setMeals(mealData.filter(meal => meal.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1))
+    setSearchTerm(searchTerm)
+  }
+
   useEffect(() => {
     const sessionData = JSON.parse(sessionStorage.getItem('basket') || '{}');
     const sessionLength = JSON.parse(sessionStorage.getItem('basketLength') || '0');
@@ -72,17 +80,24 @@ const Meals: NextPage = () => {
 
       <main className={styles.meals__main}>
         <Grid>
-          <ul className={styles.meals__list}>
-            {mealData.map((meal) => (
-              <Meal
-                key={meal.id}
-                meal={meal}
-                handleRemove={removeFromBasket}
-                handleAdd={addToBasket}
-                isInBasket={isInBasket(meal.id)}
-              />
-            ))}
-          </ul>
+          <Search searchTerm={searchTerm} onChangeValue={searchMeals} />
+
+          {meals.length ? (
+            <ul className={styles.meals__list}>
+              {meals.map((meal) => (
+                <Meal
+                  key={meal.id}
+                  meal={meal}
+                  handleRemove={removeFromBasket}
+                  handleAdd={addToBasket}
+                  isInBasket={isInBasket(meal.id)}
+                />
+              ))}
+            </ul>
+            ) : (
+              <p>No meals match your search :-/</p>
+            )
+          }
         </Grid>
         {basketVisible ? (
           <Basket
