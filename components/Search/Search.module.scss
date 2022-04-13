@@ -1,8 +1,9 @@
 @import "styles/media-queries.scss";
+@import "styles/colors.scss";
 
 .search {
     &__form {
-        border: solid 2px var(--color-light-grey);
+        border: solid 2px $light-grey;
         border-radius: 5px;
         display: flex;
         justify-content: space-between;
@@ -34,7 +35,7 @@
         width: 16px;
 
         svg {
-            fill: var(--color-black);
+            fill: $black;
             width: 16px;
             height: 16px;
         }
@@ -49,7 +50,7 @@
         width: 16px;
         
         svg {
-            fill: var(--color-coral);
+            fill: $coral;
         }
     }
 }

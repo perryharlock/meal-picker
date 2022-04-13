@@ -1,4 +1,6 @@
 @import "styles/media-queries.scss";
+@import "styles/colors.scss";
+@import "styles/typography.scss";
 
 .meal {
     width: 100%;
@@ -45,13 +47,13 @@
     }
 
     &__title {
-        color: var(--color-white);
+        color: $white;
         font-size: 24px;
-        font-weight: 600;
+        font-weight: $font-weight-bold;
         line-height: 1.2;
         letter-spacing: 0.3px;
         position: absolute;
-        text-shadow: 2px 2px var(--color-black);
+        text-shadow: 2px 2px $black;
         top: 10px;
         left: 13px;
         right: 10px;
@@ -143,8 +145,8 @@
     }
 
     &__btn {
-        background-color: var(--color-coral);
-        color: var(--color-white);
+        background-color: $coral;
+        color: $white;
         cursor: pointer;
         border: none;
         border-radius: 3px;
@@ -159,7 +161,7 @@
         width: 70px;
 
         &:hover, &:active, &:focus {
-            background-color: var(--color-black);
+            background-color: $black;
         }
     }
 }

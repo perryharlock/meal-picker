@@ -1,4 +1,5 @@
 @import "styles/media-queries.scss";
+@import "styles/colors.scss";
 
 .meal {
     display: flex;
@@ -133,8 +134,8 @@
 
             &:before {
                 @media ($screen-tablet) {
-                    background-color: var(--color-coral);
-                    color: var(--color-white);
+                    background-color: $coral;
+                    color: $white;
                     border-radius: 50%;
                     content: counter(item);
                     display: block;
@@ -150,7 +151,7 @@
             }
 
             &:after {
-                background-color: var(--color-light-grey);
+                background-color: $light-grey;
                 content: "";
                 display: block;
                 height: 2px;

@@ -1,9 +1,9 @@
 .tag {
-    background-color: var(--color-white);
-    color: var(--color-pure-black);
+    background-color: $white;
+    color: $pure-black;
     display: inline-block;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: $font-weight-bold;
     list-style: none;
     margin-right: 5px;
     padding: 2px 5px;

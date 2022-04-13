@@ -1,7 +1,9 @@
 @import "styles/media-queries.scss";
+@import "styles/colors.scss";
+@import "styles/typography.scss";
 
 .basket {
-    background: rgba(#000000, 0.8);
+    background: rgba($pure-black, 0.8);
     bottom: 0;
     height: 100%;
     left: 0;
@@ -10,8 +12,8 @@
     z-index: 5;
 
     &__inner {
-        background: var(--color-white);
-        color: var(--color-black);
+        background: $white;
+        color: $black;
         height: 100%;
         margin: 0 auto;
         max-width: 600px;
@@ -43,7 +45,7 @@
     }
 
     &__header {
-        background-color: var(--color-black);
+        background-color: $black;
         display: flex;
         justify-content: space-between;
         left: 0;
@@ -61,14 +63,14 @@
     }
 
     &__title {
-        color: var(--color-white);
+        color: $white;
         font-size: 22px;
         line-height: 1;
     }
 
     &__meal {
         font-size: 18px;
-        font-weight: 600;
+        font-weight: $font-weight-bold;
         margin: 0 0 15px 0;
     }
 
@@ -77,8 +79,8 @@
     }
 
     &__btn {
-        background-color: var(--color-black);
-        color: var(--color-white);
+        background-color: $black;
+        color: $white;
         cursor: pointer;
         border: none;
         height: 20px;
@@ -93,11 +95,11 @@
         }
 
         &:hover, &:active, &:focus {
-            background-color: var(--color-black);
+            background-color: $black;
         }
 
         svg {
-            fill: var(--color-white);
+            fill: $white;
         }
     }
 }
