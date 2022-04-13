@@ -1,8 +1,10 @@
 @import "styles/media-queries.scss";
+@import "styles/colors.scss";
+@import "styles/typography.scss";
 
 .header {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: $black;
+    color: $white;
     left: 0;
     padding: 15px 0;
     position: fixed;
@@ -17,7 +19,7 @@
     }
 
     &__highlight {
-        color: var(--color-coral);
+        color: $coral;
     }
 
     &__basket {
@@ -27,7 +29,7 @@
         position: relative;
         
         svg {
-            fill: var(--color-white);
+            fill: $white;
             height: 31px;
             width: 40px;
         }
@@ -42,11 +44,11 @@
     }
 
     &__badge {
-        background-color: var(--color-coral);
+        background-color: $coral;
         border-radius: 50%;
-        color: var(--color-white);
+        color: $white;
         font-size: 16px;
-        font-weight: 600;
+        font-weight: $font-weight-bold;
         height: 25px;
         line-height: 25px;
         position: absolute;

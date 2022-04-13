@@ -1,5 +1,6 @@
 @import "styles/media-queries.scss";
-
+@import "styles/colors.scss";
+@import "styles/typography.scss";
 
 .tab {
     width: 50%;
@@ -16,9 +17,9 @@
     &__link {
         border: solid 2px transparent;
         border-bottom: none;
-        color: var(--color-black);
+        color: $black;
         display: block;
-        font-weight: 600;
+        font-weight: $font-weight-bold;
         padding: 15px;
         text-align: center;
         text-transform: uppercase;
@@ -31,8 +32,8 @@
         }
 
         &--active {
-            background-color: var(--color-white);
-            border-color: var(--color-light-grey);
+            background-color: $white;
+            border-color: $light-grey;
             border-radius: 5px 5px 0 0;
         }
 
@@ -42,7 +43,7 @@
     }
 
     &__content {
-        border: solid 2px var(--color-light-grey);
+        border: solid 2px $light-grey;
         border-radius: 5px;
         display: none;
         padding: 15px;
