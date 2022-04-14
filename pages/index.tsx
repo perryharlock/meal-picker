@@ -25,6 +25,7 @@ const Meals: NextPage = () => {
   const isMobile = useMediaQuery(767);
   const isTablet = useMediaQuery(991) && !isMobile;
   const isDesktop = useMediaQuery(992, 'min');
+  const isProd = process.env.NODE_ENV === 'production';
 
   const addToBasket = (mealId: MealType) => {
     basket.push(mealId)
@@ -79,14 +80,14 @@ const Meals: NextPage = () => {
         <meta name="description" content="Meal picker app" />
         <link rel="icon" href="favicon.ico" />
         <link
-          href="/fonts/OpenSans-Regular.woff2"
+          href={`${isProd ? '/meal-picker' : ''}/fonts/OpenSans-Regular.woff2`}
           rel="preload"
           type="font/woff2"
           crossOrigin="anonymous"
           as="font"
         />
         <link
-          href={`fonts/OpenSans-Bold.woff2`}
+          href={`${isProd ? '/meal-picker' : ''}/fonts/OpenSans-Bold.woff2`}
           rel="preload"
           type="font/woff2"
           crossOrigin="anonymous"
