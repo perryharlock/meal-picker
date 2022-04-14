@@ -74,6 +74,20 @@ const Meals: NextPage = () => {
         <title>mealpicker</title>
         <meta name="description" content="Meal picker app" />
         <link rel="icon" href="favicon.ico" />
+        <link
+          href="/fonts/OpenSans-Regular.woff2"
+          rel="preload"
+          type="font/woff2"
+          crossOrigin="anonymous"
+          as="font"
+        />
+        <link
+          href={`fonts/OpenSans-Bold.woff2`}
+          rel="preload"
+          type="font/woff2"
+          crossOrigin="anonymous"
+          as="font"
+        />
       </Head>
 
       <Header basketLength={basketLength} toggleBasket={toggleBasket} animate={animate} />
@@ -84,13 +98,14 @@ const Meals: NextPage = () => {
 
           {meals.length ? (
             <ul className={styles.meals__list}>
-              {meals.map((meal) => (
+              {meals.map((meal, index) => (
                 <Meal
                   key={meal.id}
                   meal={meal}
                   handleRemove={removeFromBasket}
                   handleAdd={addToBasket}
                   isInBasket={isInBasket(meal.id)}
+                  lazyLoad={index > 2}
                 />
               ))}
             </ul>
