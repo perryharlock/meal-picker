@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-import { Close, Search as SearchIcon } from '../../components/Icons'
-import { SrOnly } from '../../components/SrOnly/SrOnly'
+import { Close, Search as SearchIcon } from '../../components/Icons';
+import { SrOnly } from '../../components/SrOnly/SrOnly';
 
-import styles from './Search.module.scss'
+import styles from './Search.module.scss';
 
 export type HeaderProps = {
   searchTerm: string;
   onChangeValue: (term: string) => void;
-}
+};
 
 export const Search: React.FC<HeaderProps> = ({ searchTerm, onChangeValue }) => {
   return (
@@ -18,12 +18,13 @@ export const Search: React.FC<HeaderProps> = ({ searchTerm, onChangeValue }) => 
       </div>
       <input
         className={styles.search__input}
-        onChange={evt => onChangeValue(evt.target.value)}
+        onChange={(evt) => onChangeValue(evt.target.value)}
         placeholder="Type a meal name"
         value={searchTerm}
       />
       <button type="button" className={styles.search__clear} onClick={() => onChangeValue('')}>
-        <Close /><SrOnly>Reset basket</SrOnly>
+        <Close />
+        <SrOnly>Reset basket</SrOnly>
       </button>
     </form>
   );

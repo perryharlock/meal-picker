@@ -1,4 +1,3 @@
-
 // VIEWPORTS
 $min-default: 320px;
 $min-phone: 480px;
@@ -15,21 +14,21 @@ $max-laptop: ($min-desktop - 1);
 $max-desktop: ($min-hd - 1);
 
 // MEDIA QUERIES
-$screen-default: unquote('max-width: #{$min-default}');
-$screen-default-end: unquote('max-width: #{$max-default}');
-$screen-phone: unquote('min-width: #{$min-phone}');
-$screen-phone-end: unquote('max-width: #{$max-phone}');
-$screen-phone-strict: unquote('min-width: #{$min-phone}) and (max-width: #{$max-phone}');
-$screen-smalltablet: unquote('min-width: #{$min-smalltablet}');
-$screen-smalltablet-end: unquote('max-width: #{$max-smalltablet}');
-$screen-smalltablet-strict: unquote('min-width: #{$min-smalltablet}) and (max-width: #{$max-smalltablet}');
-$screen-tablet: unquote('min-width: #{$min-tablet}');
-$screen-tablet-end: unquote('max-width: #{$max-tablet}');
-$screen-tablet-strict: unquote('min-width: #{$min-tablet}) and (max-width: #{$max-tablet}');
-$screen-laptop: unquote('min-width: #{$min-laptop}');
-$screen-laptop-end: unquote('max-width: #{$max-laptop}');
-$screen-laptop-strict: unquote('min-width: #{$min-laptop}) and (max-width: #{$max-laptop}');
-$screen-desktop: unquote('min-width: #{$min-desktop}');
-$screen-desktop-end: unquote('max-width: #{$max-desktop}');
-$screen-desktop-strict: unquote('min-width: #{$min-desktop}) and (max-width: #{$max-desktop}');
-$screen-desktop-lg: unquote('min-width: #{$min-hd}');
+$screen-default: unquote("max-width: #{$min-default}");
+$screen-default-end: unquote("max-width: #{$max-default}");
+$screen-phone: unquote("min-width: #{$min-phone}");
+$screen-phone-end: unquote("max-width: #{$max-phone}");
+$screen-phone-strict: unquote("min-width: #{$min-phone}) and (max-width: #{$max-phone}");
+$screen-smalltablet: unquote("min-width: #{$min-smalltablet}");
+$screen-smalltablet-end: unquote("max-width: #{$max-smalltablet}");
+$screen-smalltablet-strict: unquote("min-width: #{$min-smalltablet}) and (max-width: #{$max-smalltablet}");
+$screen-tablet: unquote("min-width: #{$min-tablet}");
+$screen-tablet-end: unquote("max-width: #{$max-tablet}");
+$screen-tablet-strict: unquote("min-width: #{$min-tablet}) and (max-width: #{$max-tablet}");
+$screen-laptop: unquote("min-width: #{$min-laptop}");
+$screen-laptop-end: unquote("max-width: #{$max-laptop}");
+$screen-laptop-strict: unquote("min-width: #{$min-laptop}) and (max-width: #{$max-laptop}");
+$screen-desktop: unquote("min-width: #{$min-desktop}");
+$screen-desktop-end: unquote("max-width: #{$max-desktop}");
+$screen-desktop-strict: unquote("min-width: #{$min-desktop}) and (max-width: #{$max-desktop}");
+$screen-desktop-lg: unquote("min-width: #{$min-hd}");

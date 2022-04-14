@@ -5,7 +5,7 @@ const assetPrefix = isProd ? '/meal-picker/' : '';
 
 const nextConfig = {
   reactStrictMode: true,
-  assetPrefix
-}
+  assetPrefix,
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

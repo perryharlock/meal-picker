@@ -4,7 +4,7 @@
 
 .tab {
     width: 50%;
-    
+
     @media ($screen-tablet) {
         width: auto;
     }
@@ -37,7 +37,9 @@
             border-radius: 5px 5px 0 0;
         }
 
-        &:hover, &:active, &:focus {
+        &:hover,
+        &:active,
+        &:focus {
             outline: none;
         }
     }
