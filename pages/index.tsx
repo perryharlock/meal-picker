@@ -1,9 +1,10 @@
-import React, { useState, useEffect, ChangeEvent } from 'react'
+import React, { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
 import mealData from '../data/meals.json'
 import { Meal as MealType } from '../types/meals'
+import { useMediaQuery } from '../hooks/useMediaMatch';
 
 import { Grid } from '../components/Grid/Grid'
 import { Header } from '../components/Header/Header'
@@ -21,6 +22,9 @@ const Meals: NextPage = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [meals, setMeals] = useState(mealData)
   const [animate, setAnimate] = useState(false)
+  const isMobile = useMediaQuery(767);
+  const isTablet = useMediaQuery(991) && !isMobile;
+  const isDesktop = useMediaQuery(992, 'min');
 
   const addToBasket = (mealId: MealType) => {
     basket.push(mealId)
@@ -105,7 +109,7 @@ const Meals: NextPage = () => {
                   handleRemove={removeFromBasket}
                   handleAdd={addToBasket}
                   isInBasket={isInBasket(meal.id)}
-                  lazyLoad={index > 2}
+                  lazyLoad={index > (isDesktop ? 8 : isTablet ? 7 : 2)}
                 />
               ))}
             </ul>

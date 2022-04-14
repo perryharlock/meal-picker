@@ -12,18 +12,19 @@ export type MealProps = {
   handleRemove: (mealId: MealType) => void;
   handleAdd: (mealId: MealType) => void;
   isInBasket: boolean;
+  lazyLoad: boolean;
 };
   
-export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInBasket }) => {
+export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInBasket, lazyLoad }) => {
   const isProd = process.env.NODE_ENV === 'production';
 
   return (
     <li className={styles.meal} key={`meal-${meal.id}`}>
       <div className={styles.meal__upper}>
         <a className={styles.meal__link} title={meal.name + ' details'} href={isProd ? `/meal-picker/${meal.url}` : meal.url}>
-          <h3 className={styles.meal__title}>{meal.name}</h3>
+          <h2 className={styles.meal__title}>{meal.name}{lazyLoad}</h2>
           <div className={styles['meal__img-container']}>
-            <img className={styles.meal__img} src={meal.img ? meal.img : 'meal-placeholder.webp'} alt={meal.name} width="375" height="250" />
+            <img loading={lazyLoad ? 'lazy' : 'eager'} className={styles.meal__img} src={meal.img ? meal.img : 'meal-placeholder.webp'} alt={meal.name} width="375" height="250" />
           </div>
         </a>
         <div className={styles.meal__actions}>
