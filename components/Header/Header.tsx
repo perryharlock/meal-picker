@@ -21,7 +21,12 @@ export const Header: React.FC<HeaderProps> = ({ basketLength, toggleBasket, anim
               <h1>meal<span className={styles.header__highlight}>pick</span>er</h1>
             </a>
             {basketLength > 0 ? (
-              <button onClick={toggleBasket} className={`${styles.header__basket} ${styles[`header__basket--${animate ? 'in' : 'out'}`]}`}>
+              <button
+                onClick={toggleBasket}
+                className={`${styles.header__basket}
+                ${styles[`header__basket--${animate ? 'in' : 'out'}`]}`}
+                data-testid="header-basket"
+              >
                 <Basket />
                 <span className={styles.header__badge}>
                   {basketLength > 99 ? '9+' : basketLength}
