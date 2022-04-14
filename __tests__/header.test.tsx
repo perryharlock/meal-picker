@@ -4,7 +4,7 @@ import '@testing-library/jest-dom'
 
 describe('Header', () => {
   it('does not render basket button if basket is empty', () => {
-    render(<Header basketLength={4} toggleBasket={() =>(console.log('hi'))} animate={false} />)
+    render(<Header basketLength={0} toggleBasket={() =>(console.log('hi'))} animate={false} />)
 
     const basketButton = screen.queryByTestId('header-basket')
 
