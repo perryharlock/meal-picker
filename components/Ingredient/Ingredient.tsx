@@ -1,10 +1,10 @@
-import React from 'react'
-import { Ingredient as IngredientType } from '../../types/meals'
+import React from 'react';
+import { Ingredient as IngredientType } from '../../types/meals';
 
-import styles from './Ingredient.module.scss'
+import styles from './Ingredient.module.scss';
 
 export type IngredientProps = {
-  ingredient: IngredientType
+  ingredient: IngredientType;
 };
 
 export const Ingredient: React.FC<IngredientProps> = ({ ingredient }) => {
@@ -12,7 +12,9 @@ export const Ingredient: React.FC<IngredientProps> = ({ ingredient }) => {
     <li className={styles.ingredient} key={`tag-${ingredient.name}`}>
       <div>{ingredient.name}</div>
       <div>
-        {ingredient.quantity}{ingredient.quantityType !== 'g' ? ' ' : ''}{ingredient.quantityType}
+        {ingredient.quantity}
+        {ingredient.quantityType !== 'g' ? ' ' : ''}
+        {ingredient.quantityType}
       </div>
     </li>
   );

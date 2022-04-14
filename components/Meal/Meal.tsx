@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-import { Meal as MealType } from '../../types/meals'
+import { Meal as MealType } from '../../types/meals';
 
-import { SrOnly } from '../../components/SrOnly/SrOnly'
-import { Serves, Time } from '../../components/Icons'
+import { SrOnly } from '../../components/SrOnly/SrOnly';
+import { Serves, Time } from '../../components/Icons';
 
-import styles from './Meal.module.scss'
+import styles from './Meal.module.scss';
 
 export type MealProps = {
   meal: MealType;
@@ -14,7 +14,7 @@ export type MealProps = {
   isInBasket: boolean;
   lazyLoad: boolean;
 };
-  
+
 export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInBasket, lazyLoad }) => {
   const isProd = process.env.NODE_ENV === 'production';
 
@@ -22,10 +22,14 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInB
     <li className={styles.meal} key={`meal-${meal.id}`}>
       <div className={styles.meal__upper}>
         <a
-          className={styles.meal__link} title={meal.name + ' details'}
+          className={styles.meal__link}
+          title={meal.name + ' details'}
           href={isProd ? `/meal-picker/${meal.url}` : meal.url}
         >
-          <h2 className={styles.meal__title}>{meal.name}{lazyLoad}</h2>
+          <h2 className={styles.meal__title}>
+            {meal.name}
+            {lazyLoad}
+          </h2>
           <div className={styles['meal__img-container']}>
             <img
               loading={lazyLoad ? 'lazy' : 'eager'}
@@ -41,11 +45,13 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInB
           {isInBasket ? (
             <button className={styles.meal__btn} onClick={() => handleRemove(meal)}>
               {'-'}
-              <SrOnly>Add ingredients to basket</SrOnly></button>
+              <SrOnly>Add ingredients to basket</SrOnly>
+            </button>
           ) : (
             <button className={styles.meal__btn} onClick={() => handleAdd(meal)}>
-            {'+'}
-            <SrOnly>Add ingredients to basket</SrOnly></button>
+              {'+'}
+              <SrOnly>Add ingredients to basket</SrOnly>
+            </button>
           )}
         </div>
       </div>
@@ -57,7 +63,9 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInB
           {meal.serves}
         </li>
         <li className={styles.meal__info}>
-          <span className={styles.meal__icon}><Time /></span>
+          <span className={styles.meal__icon}>
+            <Time />
+          </span>
           {meal.time} mins
         </li>
       </ul>

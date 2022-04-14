@@ -94,7 +94,9 @@
             width: 27px;
         }
 
-        &:hover, &:active, &:focus {
+        &:hover,
+        &:active,
+        &:focus {
             background-color: $black;
         }
 

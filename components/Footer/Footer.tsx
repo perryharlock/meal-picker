@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import { Grid } from '../Grid/Grid'
+import { Grid } from '../Grid/Grid';
 
-import styles from './Footer.module.scss'
+import styles from './Footer.module.scss';
 
 export const Footer: React.FC = () => {
   return (
