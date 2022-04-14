@@ -8,7 +8,7 @@
     height: 100vh;
 
     &__title {
-        font-size: 24px;
+        font-size: 2.4rem;
     }
 
     &__ingredients {
@@ -77,7 +77,7 @@
 
     &__info {
         display: flex;
-        font-size: 16px;
+        font-size: 1.6rem;
         margin-right: 15px;
         text-transform: uppercase;
 
@@ -97,7 +97,7 @@
 
     &__ingredients-list {
         @media ($screen-tablet) {
-            font-size: 20px;
+            font-size: 2rem;
             max-width: 75%;
         }
 
@@ -115,7 +115,7 @@
 
         &-item {
             counter-increment: item;
-            font-size: 16px;
+            font-size: 1.6rem;
             line-height: 1.6;
             margin-bottom: 15px;
             padding-bottom: 10px;
@@ -123,13 +123,13 @@
             text-align: center;
 
             @media ($screen-tablet) {
-                font-size: 18px;
+                font-size: 1.8rem;
                 padding-left: 50px;
                 text-align: left;
             }
 
             @media ($screen-laptop) {
-                font-size: 20px;
+                font-size: 2rem;
             }
 
             &:before {
@@ -139,7 +139,7 @@
                     border-radius: 50%;
                     content: counter(item);
                     display: block;
-                    font-size: 18px;
+                    font-size: 1.8rem;
                     height: 29px;
                     line-height: 29px;
                     text-align: center;

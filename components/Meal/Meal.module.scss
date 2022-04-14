@@ -48,7 +48,7 @@
 
     &__title {
         color: $white;
-        font-size: 24px;
+        font-size: 2.4rem;
         font-weight: $font-weight-bold;
         line-height: 1.2;
         letter-spacing: 0.3px;
@@ -60,7 +60,7 @@
         z-index: 2;
 
         @media ($screen-desktop) {
-            font-size: 30px;
+            font-size: 3rem;
             top: 12px;
             left: 18px;
             right: 15px;
@@ -76,7 +76,7 @@
 
     &__info {
         display: flex;
-        font-size: 16px;
+        font-size: 1.6rem;
         margin-right: 15px;
         text-transform: uppercase;
 
@@ -150,7 +150,7 @@
         cursor: pointer;
         border: none;
         border-radius: 3px;
-        font-size: 40px;
+        font-size: 4rem;
         height: 50px;
         line-height: 50px;
         margin: 0;
