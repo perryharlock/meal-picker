@@ -43,12 +43,12 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInB
         </a>
         <div className={styles.meal__actions}>
           {isInBasket ? (
-            <button className={styles.meal__btn} onClick={() => handleRemove(meal)}>
+            <button data-testid="remove-from-basket" className={styles.meal__btn} onClick={() => handleRemove(meal)}>
               {'-'}
-              <SrOnly>Add ingredients to basket</SrOnly>
+              <SrOnly>Remove ingredients from basket</SrOnly>
             </button>
           ) : (
-            <button className={styles.meal__btn} onClick={() => handleAdd(meal)}>
+            <button data-testid="add-to-basket" className={styles.meal__btn} onClick={() => handleAdd(meal)}>
               {'+'}
               <SrOnly>Add ingredients to basket</SrOnly>
             </button>
