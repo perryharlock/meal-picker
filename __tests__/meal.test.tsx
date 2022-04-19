@@ -11,15 +11,15 @@ describe('Meal card', () => {
       <ul>
         {mock.map((meal) => (
           <Meal
-              key={meal.id}
-              meal={meal}
-              handleRemove={() => console.log('remove')}
-              handleAdd={() => console.log('add')}
-              isInBasket={false}
-              lazyLoad={false}
+            key={meal.id}
+            meal={meal}
+            handleRemove={() => console.log('remove')}
+            handleAdd={() => console.log('add')}
+            isInBasket={false}
+            lazyLoad={false}
           />
         ))}
-      </ul>
+      </ul>,
     );
 
     const basketButton = screen.getByTestId('add-to-basket');
@@ -32,15 +32,15 @@ describe('Meal card', () => {
       <ul>
         {mock.map((meal) => (
           <Meal
-              key={meal.id}
-              meal={meal}
-              handleRemove={() => console.log('remove')}
-              handleAdd={() => console.log('add')}
-              isInBasket={true}
-              lazyLoad={false}
+            key={meal.id}
+            meal={meal}
+            handleRemove={() => console.log('remove')}
+            handleAdd={() => console.log('add')}
+            isInBasket={true}
+            lazyLoad={false}
           />
         ))}
-      </ul>
+      </ul>,
     );
 
     const basketButton = screen.getByTestId('remove-from-basket');
