@@ -1,34 +1,51 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## What is mealpicker
+
+This is a personal project built in NextJS/Typescript/SCSS.
+
+We were forever forgetting what meals we liked and which recipe books or websites they were on so that we could find the ingredients we would need and the cooking instructions.
+
+I decided to create a simple website which would act as a central repository for our meals so that we could build a shopping list and get access to the cooking instructions in one place.
+
+The meals are retrieved from a JSON file and displayed in a list view with an add to basket option which will build a list of ingredients required.
+
+The meal details page shows the ingredients and the cooking method.
+
 ## Getting Started
 
-First, run the development server:
+Clone this repo
+
+Install dependencies
 
 ```bash
-npm run dev
-# or
+yarn install
+```
+
+Run the development server:
+
+```bash
 yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Tests
+You can run tests locally using
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+yarn test
+```
+e
+## Prettier
+You can run prettier using
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+yarn pretier
+```
 
-## Learn More
+and to fix prettier issues
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+yarn prettier:fix
+```
