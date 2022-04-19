@@ -9,12 +9,13 @@ describe('Header', () => {
     const basketButton = screen.queryByTestId('header-basket');
 
     expect(basketButton).toBeNull();
-  }),
-    it('renders the basket button if there are items in the basket', () => {
-      render(<Header basketLength={1} toggleBasket={() => console.log('hi')} animate={false} />);
+  });
 
-      const basketButton = screen.getByTestId('header-basket');
+  it('renders the basket button if there are items in the basket', () => {
+    render(<Header basketLength={1} toggleBasket={() => console.log('hi')} animate={false} />);
 
-      expect(basketButton).toBeInTheDocument();
-    });
+    const basketButton = screen.getByTestId('header-basket');
+
+    expect(basketButton).toBeInTheDocument();
+  });
 });
