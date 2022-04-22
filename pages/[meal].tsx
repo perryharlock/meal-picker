@@ -62,12 +62,8 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients, me
             <div className={styles.meal__column1}>
               <h2 className={styles.meal__title}>{name}</h2>
               <ul className={styles['meal__info-list']}>
-                <li className={styles.meal__info}>
-                  {time} minutes
-                </li>
-                <li className={styles.meal__info}>
-                  Serves {serves}
-                </li>
+                <li className={styles.meal__info}>{time} minutes</li>
+                <li className={styles.meal__info}>Serves {serves}</li>
               </ul>
             </div>
             <div className={styles.meal__column2}>

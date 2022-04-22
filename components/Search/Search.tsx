@@ -28,8 +28,9 @@ export const Search: React.FC<HeaderProps> = ({ searchTerm, onChangeValue }) => 
             <Close />
             <SrOnly>Reset basket</SrOnly>
           </>
-        ) : ''
-        }
+        ) : (
+          ''
+        )}
       </button>
     </form>
   );

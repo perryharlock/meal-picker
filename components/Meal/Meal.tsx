@@ -17,11 +17,7 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInB
 
   return (
     <li className={styles.meal} key={`meal-${meal.id}`}>
-      <a
-        className={styles.meal__link}
-        title={meal.name}
-        href={isProd ? `/meal-picker/${meal.url}` : meal.url}
-      >
+      <a className={styles.meal__link} title={meal.name} href={isProd ? `/meal-picker/${meal.url}` : meal.url}>
         <div className={styles['meal__img-container']}>
           <img
             loading={lazyLoad ? 'lazy' : 'eager'}
@@ -38,12 +34,8 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInB
             {lazyLoad}
           </h2>
           <ul className={styles['meal__info-list']}>
-            <li className={styles.meal__info}>
-              {meal.time} minutes
-            </li>
-            <li className={styles.meal__info}>
-              Serves {meal.serves}
-            </li>
+            <li className={styles.meal__info}>{meal.time} minutes</li>
+            <li className={styles.meal__info}>Serves {meal.serves}</li>
           </ul>
         </div>
       </a>

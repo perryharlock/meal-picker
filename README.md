@@ -31,13 +31,17 @@ yarn dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Tests
+
 You can run tests locally using
 
 ```bash
 yarn test
 ```
+
 e
+
 ## Prettier
+
 You can run prettier using
 
 ```bash
