@@ -15,7 +15,6 @@ import { Basket } from '../components/Basket/Basket';
 import { Ingredient } from '../components/Ingredient/Ingredient';
 import { Tabs } from '../components/Tabs/Tabs';
 import { Tab } from '../components/Tabs/Tab';
-import { Serves, Time } from '../components/Icons';
 
 import styles from '../styles/Meal.module.scss';
 
@@ -57,16 +56,16 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients, me
       <Header basketLength={basketLength} toggleBasket={toggleBasket} animate={animate} />
 
       <main className={styles.meal__main}>
-        <Grid>
-          <div className={styles.meal__row}>
-            <div className={styles.meal__column1}>
+        <Grid className={styles.meal__grid}>
+          <div className={styles.meal__summary}>
+            <div className={styles.meal__text}>
               <h2 className={styles.meal__title}>{name}</h2>
               <ul className={styles['meal__info-list']}>
                 <li className={styles.meal__info}>{time} minutes</li>
                 <li className={styles.meal__info}>Serves {serves}</li>
               </ul>
             </div>
-            <div className={styles.meal__column2}>
+            <div className={styles['meal__img-container']}>
               <img
                 className={styles.meal__img}
                 src={img ? img : 'meal-placeholder.webp'}
