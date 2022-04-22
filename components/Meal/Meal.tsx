@@ -2,9 +2,6 @@ import React from 'react';
 
 import { Meal as MealType } from '../../types/meals';
 
-import { SrOnly } from '../../components/SrOnly/SrOnly';
-import { Serves, Time } from '../../components/Icons';
-
 import styles from './Meal.module.scss';
 
 export type MealProps = {
@@ -20,55 +17,45 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInB
 
   return (
     <li className={styles.meal} key={`meal-${meal.id}`}>
-      <div className={styles.meal__upper}>
-        <a
-          className={styles.meal__link}
-          title={meal.name + ' details'}
-          href={isProd ? `/meal-picker/${meal.url}` : meal.url}
-        >
+      <a
+        className={styles.meal__link}
+        title={meal.name}
+        href={isProd ? `/meal-picker/${meal.url}` : meal.url}
+      >
+        <div className={styles['meal__img-container']}>
+          <img
+            loading={lazyLoad ? 'lazy' : 'eager'}
+            className={styles.meal__img}
+            src={meal.img ? meal.img : 'meal-placeholder.webp'}
+            alt={meal.name}
+            width="375"
+            height="250"
+          />
+        </div>
+        <div className={styles.meal__lower}>
           <h2 className={styles.meal__title}>
             {meal.name}
             {lazyLoad}
           </h2>
-          <div className={styles['meal__img-container']}>
-            <img
-              loading={lazyLoad ? 'lazy' : 'eager'}
-              className={styles.meal__img}
-              src={meal.img ? meal.img : 'meal-placeholder.webp'}
-              alt={meal.name}
-              width="375"
-              height="250"
-            />
-          </div>
-        </a>
-        <div className={styles.meal__actions}>
-          {isInBasket ? (
-            <button data-testid="remove-from-basket" className={styles.meal__btn} onClick={() => handleRemove(meal)}>
-              {'-'}
-              <SrOnly>Remove ingredients from basket</SrOnly>
-            </button>
-          ) : (
-            <button data-testid="add-to-basket" className={styles.meal__btn} onClick={() => handleAdd(meal)}>
-              {'+'}
-              <SrOnly>Add ingredients to basket</SrOnly>
-            </button>
-          )}
+          <ul className={styles['meal__info-list']}>
+            <li className={styles.meal__info}>
+              {meal.time} minutes
+            </li>
+            <li className={styles.meal__info}>
+              Serves {meal.serves}
+            </li>
+          </ul>
         </div>
-      </div>
-      <ul className={styles['meal__info-list']}>
-        <li className={styles.meal__info}>
-          <span className={styles.meal__icon}>
-            <Serves />
-          </span>
-          {meal.serves}
-        </li>
-        <li className={styles.meal__info}>
-          <span className={styles.meal__icon}>
-            <Time />
-          </span>
-          {meal.time} mins
-        </li>
-      </ul>
+      </a>
+      {isInBasket ? (
+        <button data-testid="remove-from-basket" className={styles.meal__btn} onClick={() => handleRemove(meal)}>
+          - Remove ingredients from basket
+        </button>
+      ) : (
+        <button data-testid="add-to-basket" className={styles.meal__btn} onClick={() => handleAdd(meal)}>
+          + Add ingredients to basket
+        </button>
+      )}
     </li>
   );
 };

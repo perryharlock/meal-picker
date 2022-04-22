@@ -3,22 +3,22 @@
 @import "styles/typography.scss";
 
 .meal {
-    width: 100%;
+    border: solid 1px $light-grey;
     margin-bottom: 30px;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
 
-    @media ($screen-laptop) {
-        margin-bottom: 35px;
-    }
-
-    @media ($screen-desktop) {
-        margin-bottom: 40px;
+    &:hover {
+        transform: scale(1.01);
     }
 
     &:last-child {
-        margin: 0;
+        @media ($screen-phone-end) {
+            margin-bottom: 0;
+        }
     }
 
-    @media ($screen-tablet) {
+    @media ($screen-smalltablet) {
         margin-right: 30px;
         width: calc(50% - 15px);
 
@@ -40,62 +40,7 @@
         }
     }
 
-    &__upper {
-        margin-bottom: 10px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    &__title {
-        color: $white;
-        font-size: 2.4rem;
-        font-weight: $font-weight-bold;
-        line-height: 1.2;
-        letter-spacing: 0.3px;
-        position: absolute;
-        text-shadow: 2px 2px $black;
-        top: 10px;
-        left: 13px;
-        right: 10px;
-        z-index: 2;
-
-        @media ($screen-desktop) {
-            font-size: 3rem;
-            top: 12px;
-            left: 18px;
-            right: 15px;
-        }
-    }
-
-    &__actions {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        z-index: 2;
-    }
-
-    &__info {
-        display: flex;
-        font-size: 1.6rem;
-        margin-right: 15px;
-        text-transform: uppercase;
-
-        &-list {
-            display: flex;
-            margin-top: 15px;
-        }
-    }
-
-    &__icon {
-        margin-right: 5px;
-
-        svg {
-            height: 20px;
-        }
-    }
-
     &__img {
-        border-radius: 5px;
         display: block;
         height: 180px;
         object-fit: cover;
@@ -105,37 +50,49 @@
             height: 210px;
         }
 
-        @media ($screen-desktop) {
-            height: 230px;
-        }
-
         @media ($screen-desktop-lg) {
             height: 260px;
         }
+    }
 
-        &-container {
-            &:before {
-                background-color: rgba(0, 0, 0, 0.2);
-                border-radius: 5px;
-                content: "";
-                display: block;
-                height: 100%;
-                left: 0;
-                position: absolute;
-                top: 0;
-                transition: all 0.2s ease-in-out;
-                width: 100%;
-                z-index: 1;
-            }
+    &__title {
+        color: $black;
+        font-size: 1.6rem;
+        font-weight: $font-weight-regular;
+        line-height: 1.2;
+        letter-spacing: 0.3px;
+        margin-bottom: 15px;
+
+        @media ($screen-smalltablet) {
+            height: 40px;
         }
+
+        @media ($screen-laptop) {
+            font-size: 1.8rem;
+            height: 45px;
+        }
+    }
+
+    &__info {
+        font-size: 1.4rem;
+        margin-right: 15px;
+
+        &-list {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__lower {
+        padding: 15px;
     }
 
     &__link {
         display: block;
 
         &:hover {
-            .meal__img-container:before {
-                background-color: rgba(0, 0, 0, 0.1);
+            .meal__title {
+                text-decoration: underline;
             }
         }
 
@@ -147,25 +104,26 @@
     }
 
     &__btn {
-        background-color: $coral;
-        color: $white;
+        background-color: $white;
+        color: $black;
         cursor: pointer;
         border: none;
-        border-radius: 3px;
-        font-size: 4rem;
-        height: 50px;
-        line-height: 50px;
+        border-top: solid 1px $light-grey;
+        font-family: $font-family;
+        font-size: 1.6rem;
+        font-weight: $font-weight-regular;
         margin: 0;
         outline: none;
-        padding: 0;
+        padding: 10px 0;
         text-align: center;
         transition: all 0.2s ease-in-out;
-        width: 70px;
+        width: 100%;
 
         &:hover,
         &:active,
         &:focus {
-            background-color: $black;
+            background-color: $coral;
+            color: $white;
         }
     }
 }
