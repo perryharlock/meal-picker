@@ -32,7 +32,7 @@ const Meals: NextPage = () => {
     setAnimate(!animate);
     sessionStorage.setItem('basket', JSON.stringify({ basketItems }));
     sessionStorage.setItem('basketLength', JSON.stringify(basketItems.length));
-  }
+  };
 
   const addToBasket = (mealId: MealType) => {
     basket.push(mealId);
