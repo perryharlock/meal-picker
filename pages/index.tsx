@@ -16,7 +16,7 @@ import { Search } from '../components/Search/Search';
 import styles from '../styles/Meals.module.scss';
 
 const Meals: NextPage = () => {
-  const [basket, setBasket] = useState<Array<MealType>>([]);
+  const [basket, setBasket] = useState<MealType[]>([]);
   const [basketLength, setBasketLength] = useState(0);
   const [basketVisible, setBasketVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -26,22 +26,23 @@ const Meals: NextPage = () => {
   const isTablet = useMediaQuery(991) && !isMobile;
   const isDesktop = useMediaQuery(992, 'min');
 
+  const setSessionState = (basketItems: MealType[]) => {
+    setBasket(basketItems);
+    setBasketLength(basketItems.length);
+    setAnimate(!animate);
+    sessionStorage.setItem('basket', JSON.stringify({ basketItems }));
+    sessionStorage.setItem('basketLength', JSON.stringify(basketItems.length));
+  }
+
   const addToBasket = (mealId: MealType) => {
     basket.push(mealId);
-    setBasket(basket);
-    setBasketLength(basket.length);
-    setAnimate(!animate);
-    sessionStorage.setItem('basket', JSON.stringify({ basket }));
-    sessionStorage.setItem('basketLength', JSON.stringify(basket.length));
+    const basketItems = basket;
+    setSessionState(basketItems);
   };
 
   const removeFromBasket = (mealId: MealType) => {
-    const newBasket = basket.filter((meal) => meal.id !== mealId.id);
-    setBasket(newBasket);
-    setBasketLength(newBasket.length);
-    setAnimate(!animate);
-    sessionStorage.setItem('basket', JSON.stringify({ newBasket }));
-    sessionStorage.setItem('basketLength', JSON.stringify(newBasket.length));
+    const basketItems = basket.filter((meal) => meal.id !== mealId.id);
+    setSessionState(basketItems);
   };
 
   const resetBasket = () => {
@@ -68,7 +69,7 @@ const Meals: NextPage = () => {
   useEffect(() => {
     const sessionData = JSON.parse(sessionStorage.getItem('basket') || '{}');
     const sessionLength = JSON.parse(sessionStorage.getItem('basketLength') || '0');
-    sessionData.basket !== undefined && setBasket(sessionData.basket);
+    sessionData.basketItems !== undefined && setBasket(sessionData.basketItems);
     sessionLength !== null && setBasketLength(sessionLength);
   }, []);
 

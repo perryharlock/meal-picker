@@ -39,7 +39,7 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients, me
   useEffect(() => {
     const sessionData = JSON.parse(sessionStorage.getItem('basket') || '{}');
     const sessionLength = JSON.parse(sessionStorage.getItem('basketLength') || '0');
-    sessionData.basket !== undefined && setBasket(sessionData.basket);
+    sessionData.basketItems !== undefined && setBasket(sessionData.basketItems);
     sessionLength !== null && setBasketLength(sessionLength);
   }, []);
 
