@@ -1,5 +1,6 @@
 @import "styles/media-queries.scss";
 @import "styles/colors.scss";
+@import "styles/typography.scss";
 
 .meal {
     display: flex;
@@ -9,52 +10,87 @@
 
     &__title {
         font-size: 2.4rem;
+        font-weight: $font-weight-regular;
+
+        @media ($screen-tablet) {
+            font-size: 2.6rem;
+            order: 2;
+        }
+
+        @media ($screen-laptop) {
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
     }
 
     &__ingredients {
         margin-top: 30px;
+
+        @media ($screen-laptop) {
+            margin-top: 0;
+            width: 66.67%;
+        }
 
         &-title {
             margin-bottom: 15px;
         }
     }
 
-    &__row {
-        display: flex;
-        flex-direction: column;
-
-        @media ($screen-tablet) {
-            flex-direction: row;
+    &__grid {
+        @media ($screen-laptop) {
+            display: flex;
         }
     }
 
-    &__column1 {
+    &__summary {
+        display: flex;
+        flex-direction: column;
+
+        @media ($screen-smalltablet) {
+            flex-direction: row;
+        }
+
+        @media ($screen-laptop) {
+            flex-direction: column;
+            margin-right: 30px;
+            width: 33.33%;
+        }
+    }
+
+    &__text {
         order: 1;
 
-        @media ($screen-tablet) {
+        @media ($screen-smalltablet) {
             order: 2;
         }
     }
 
-    &__column2 {
+    &__img-container {
         order: 2;
 
-        @media ($screen-tablet) {
+        @media ($screen-smalltablet) {
             order: 1;
             margin-right: 30px;
+        }
+
+        @media ($screen-laptop) {
+            margin-right: 0;
         }
     }
 
     &__img {
-        border-radius: 5px;
         display: block;
         height: 180px;
         margin-top: 15px;
         object-fit: cover;
         width: 100%;
 
-        @media ($screen-tablet) {
+        @media ($screen-smalltablet) {
             margin: 0;
+        }
+
+        @media ($screen-tablet) {
+            height: 190px;
         }
 
         @media ($screen-laptop) {
@@ -62,11 +98,7 @@
         }
 
         @media ($screen-desktop) {
-            height: 330px;
-        }
-
-        @media ($screen-desktop-lg) {
-            height: 385px;
+            height: 280px;
         }
     }
 
@@ -76,47 +108,41 @@
     }
 
     &__info {
-        display: flex;
         font-size: 1.6rem;
-        margin-right: 15px;
-        text-transform: uppercase;
+
+        @media ($screen-smalltablet) {
+            margin-bottom: 10px;
+        }
 
         &-list {
             display: flex;
+            justify-content: space-between;
             margin-top: 10px;
-        }
-    }
 
-    &__icon {
-        margin-right: 5px;
+            @media ($screen-smalltablet) {
+                justify-content: flex-start;
+                flex-direction: column;
+            }
 
-        svg {
-            height: 20px;
+            @media ($screen-laptop) {
+                justify-content: space-between;
+                flex-direction: row;
+            }
         }
     }
 
     &__ingredients-list {
         @media ($screen-tablet) {
-            font-size: 2rem;
-            max-width: 75%;
-        }
-
-        @media ($screen-laptop) {
-            max-width: 50%;
+            font-size: 1.8rem;
+            max-width: 500px;
         }
     }
 
     &__method {
-        &-list {
-            @media ($screen-laptop) {
-                max-width: 75%;
-            }
-        }
-
         &-item {
             counter-increment: item;
             font-size: 1.6rem;
-            line-height: 1.6;
+            line-height: 2;
             margin-bottom: 15px;
             padding-bottom: 10px;
             position: relative;
@@ -126,10 +152,6 @@
                 font-size: 1.8rem;
                 padding-left: 50px;
                 text-align: left;
-            }
-
-            @media ($screen-laptop) {
-                font-size: 2rem;
             }
 
             &:before {
@@ -151,10 +173,10 @@
             }
 
             &:after {
-                background-color: $light-grey;
+                background-color: $grey-600;
                 content: "";
                 display: block;
-                height: 2px;
+                height: 1px;
                 margin-top: 20px;
                 width: 100%;
             }

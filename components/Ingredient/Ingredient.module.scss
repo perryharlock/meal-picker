@@ -3,10 +3,10 @@
 .ingredient {
     display: flex;
     justify-content: space-between;
-    padding: 8px 5px;
+    padding: 8px 10px;
 
     &:nth-child(odd) {
-        background: $light-grey;
+        background: $grey-400;
     }
 
     &__title {

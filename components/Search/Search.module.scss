@@ -3,8 +3,7 @@
 
 .search {
     &__form {
-        border: solid 2px $light-grey;
-        border-radius: 5px;
+        border: solid 1px $grey-600;
         display: flex;
         justify-content: space-between;
         margin-bottom: 30px;
@@ -51,7 +50,7 @@
         width: 16px;
 
         svg {
-            fill: $coral;
+            fill: $black;
         }
     }
 }

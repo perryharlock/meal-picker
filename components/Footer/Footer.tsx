@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
     <footer className={styles.footer}>
       <Grid>
         <a
-          href="https://github.com/perryharlock"
+          href="https://www.perryharlock.co.uk"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.footer__highlight}
