@@ -32,7 +32,7 @@
 
         &--active {
             background-color: $white;
-            border-color: $light-grey;
+            border-color: $grey-600;
         }
 
         &:hover,
@@ -43,7 +43,7 @@
     }
 
     &__content {
-        border: solid 1px $light-grey;
+        border: solid 1px $grey-600;
         display: none;
         padding: 15px;
         position: relative;
