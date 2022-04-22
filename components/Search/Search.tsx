@@ -23,8 +23,13 @@ export const Search: React.FC<HeaderProps> = ({ searchTerm, onChangeValue }) => 
         value={searchTerm}
       />
       <button type="button" className={styles.search__clear} onClick={() => onChangeValue('')}>
-        <Close />
-        <SrOnly>Reset basket</SrOnly>
+        {searchTerm ? (
+          <>
+            <Close />
+            <SrOnly>Reset basket</SrOnly>
+          </>
+        ) : ''
+        }
       </button>
     </form>
   );
