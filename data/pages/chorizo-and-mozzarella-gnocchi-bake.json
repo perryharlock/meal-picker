@@ -1,0 +1,67 @@
+{
+  "url": "/chorizo-and-mozzarella-gnocchi-bake",
+  "name": "Chorizo & Mozzarella Gnocchi Bake",
+  "img": "chorizo-gnocchi.webp",
+  "time": 30,
+  "serves": 4,
+  "ingredients": [
+    {
+      "name": "Chicken",
+      "quantity": "300",
+      "quantityType": "g"
+    },
+    {
+      "name": "Potato gnocchi",
+      "quantity": "500",
+      "quantityType": "g"
+    },
+    {
+      "name": "Mozzarella",
+      "quantity": "100",
+      "quantityType": "g"
+    },
+    {
+      "name": "Olive oil",
+      "quantity": "1",
+      "quantityType": "tbsp"
+    },
+    {
+      "name": "Onion",
+      "quantity": "1"
+    },
+    {
+      "name": "Garlic cloves",
+      "quantity": "3"
+    },
+    {
+      "name": "Chorizo",
+      "quantity": "150",
+      "quantityType": "g"
+    },
+    {
+      "name": "Plum tomatoes",
+      "quantity": "1",
+      "quantityType": "tin"
+    },
+    {
+      "name": "Oregano",
+      "quantity": "1",
+      "quantityType": "tbsp"
+    },
+    {
+      "name": "Chilli flakes",
+      "quantity": "1",
+      "quantityType": "tsp"
+    },
+    {
+      "name": "Basil leaves",
+      "quantity": "2"
+    }
+  ],
+  "method": [
+    "Heat tsp of olive oil in an oven-proof pan and add chicken breast. (If you don't have an oven proof pan, you will need to transfer everything to a baking dish later but that's no problem). Season chicken generously and cook for 5 mins until no longer pink on the outside, then remove from pan and set aside.",
+    "Add remaining olive oil to pan along with onion. Allow onions to cook slowly, on low heat for 10 mins, stirring occasionally, then add garlic and chorizo. Break up chorizo with a wooden spoon or spatula. The chorizo should begin to release its oil into pan allowing the onion and garlic to soak up that flavour. Cook chorizo for 4-5 min, then add chicken back to pan, along with tin of plum tomatoes.",
+    "Bring pan to a simmer and break up the plum tomatoes as they start to cook. Add oregano, red wine vinegar and basil leaves. Allow to cook for 10-15 mins until sauce has reduced. Preheat oven to 180°C/360°F/160°C Fan whilst sauce is simmering.",
+    "Season tomato sauce to taste, then add gnocchi and stir. Add mozzarella slices and some black pepper, then bake for 15 mins. The mozzarella should come out golden and bubbling and the gnocchi soft and chewy."
+  ]
+}

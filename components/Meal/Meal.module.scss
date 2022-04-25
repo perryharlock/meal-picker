@@ -133,5 +133,9 @@
         @media ($screen-tablet) {
             font-size: 1.6rem;
         }
+
+        &--remove {
+            color: $coral;
+        }
     }
 }

@@ -1,0 +1,39 @@
+{
+  "url": "/sticky-kickin-wings",
+  "name": "Sticky Kickin Wings",
+  "img": "sticky-wings.webp",
+  "time": 45,
+  "serves": 2,
+  "ingredients": [
+    {
+      "name": "Sesame seeds",
+      "quantity": "3",
+      "quantityType": "tbsp"
+    },
+    {
+      "name": "Chicken wings",
+      "quantity": "12"
+    },
+    {
+      "name": "Teriyaki sauce",
+      "quantity": "1",
+      "quantityType": "bottle"
+    },
+    {
+      "name": "Chillies",
+      "quantity": "2"
+    },
+    {
+      "name": "Spring onions",
+      "quantity": "6"
+    }
+  ],
+  "method": [
+    "Toast the sesame seeds in a dry 20cm non-stick frying pan on a medium heat until lightly golden, then remove to a plate.",
+    "Still on the heat, sit the wings in the pan - they should fit snugly. Let them colour for 1 minute on each side, then add the teryaki and just cover the wings with water.",
+    "Halve the chilli lengthways and add to the pan.",
+    "Simmer for 35 to 40 minutes, or until the chicken is tender and the sauce is nice and sticky, turning occasionally.",
+    "Add a splash of red wine vinegar to the pan and jiggle around to pick up the gnarly bits.",
+    "Trim and finely slice the spring onions, scatter them over the chicken with the toasted sesame seeds, and get stuck in!"
+  ]
+}

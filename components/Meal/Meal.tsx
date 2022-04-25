@@ -16,8 +16,8 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInB
   const isProd = process.env.NODE_ENV === 'production';
 
   return (
-    <li className={styles.meal} key={`meal-${meal.id}`}>
-      <a className={styles.meal__link} title={meal.name} href={isProd ? `/meal-picker/${meal.url}` : meal.url}>
+    <li className={styles.meal} key={`meal-${meal.url}`}>
+      <a className={styles.meal__link} title={meal.name} href={isProd ? `/meal-picker${meal.url}` : meal.url}>
         <div className={styles['meal__img-container']}>
           <img
             loading={lazyLoad ? 'lazy' : 'eager'}
@@ -37,7 +37,11 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInB
         </div>
       </a>
       {isInBasket ? (
-        <button data-testid="remove-from-basket" className={styles.meal__btn} onClick={() => handleRemove(meal)}>
+        <button
+          data-testid="remove-from-basket"
+          className={`${styles.meal__btn} ${styles['meal__btn--remove']}`}
+          onClick={() => handleRemove(meal)}
+        >
           - Remove ingredients from basket
         </button>
       ) : (

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import type { NextPage } from 'next';
+import { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
+import * as fs from 'fs';
+import * as path from 'path';
 
-import mealData from '../data/meals.json';
 import { Meal as MealType } from '../types/meals';
 import { useMediaQuery } from '../hooks/useMediaMatch';
 
@@ -15,7 +16,11 @@ import { Search } from '../components/Search/Search';
 
 import styles from '../styles/Meals.module.scss';
 
-const Meals: NextPage = () => {
+type MealList = {
+  mealData: Array<MealType>;
+};
+
+const Meals: NextPage<MealList> = ({ mealData }) => {
   const [basket, setBasket] = useState<MealType[]>([]);
   const [basketLength, setBasketLength] = useState(0);
   const [basketVisible, setBasketVisible] = useState(false);
@@ -41,7 +46,7 @@ const Meals: NextPage = () => {
   };
 
   const removeFromBasket = (mealId: MealType) => {
-    const basketItems = basket.filter((meal) => meal.id !== mealId.id);
+    const basketItems = basket.filter((meal) => meal.url !== mealId.url);
     setSessionState(basketItems);
   };
 
@@ -58,7 +63,7 @@ const Meals: NextPage = () => {
   };
 
   const isInBasket = (mealId: string) => {
-    return basket.filter((e: { id: string }) => e.id === mealId).length > 0;
+    return basket.filter((e: { url: string }) => e.url === mealId).length > 0;
   };
 
   const searchMeals = (searchTerm: string) => {
@@ -89,13 +94,13 @@ const Meals: NextPage = () => {
 
           {meals.length ? (
             <ul className={styles.meals__list}>
-              {meals.map((meal, index) => (
+              {meals.map((meal: any, index: number) => (
                 <Meal
-                  key={meal.id}
+                  key={meal.url}
                   meal={meal}
                   handleRemove={removeFromBasket}
                   handleAdd={addToBasket}
-                  isInBasket={isInBasket(meal.id)}
+                  isInBasket={isInBasket(meal.url)}
                   lazyLoad={index > (isDesktop ? 8 : isTablet ? 7 : 2)}
                 />
               ))}
@@ -110,6 +115,38 @@ const Meals: NextPage = () => {
       <Footer />
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const getDataFromFile = (url: string) => {
+    const mealsDataFile = fs.readFileSync(path.resolve(process.cwd(), `data/pages/${url}.json`));
+    return JSON.parse(mealsDataFile.toString());
+  };
+
+  const getMealsData = () => {
+    let mealData: Array<MealType> = [];
+    fs.readdirSync(path.resolve(process.cwd(), 'data/pages/')).forEach((file) => {
+      if (file.endsWith('.json')) {
+        const fileName = file.slice(0, -5);
+        mealData.push(getDataFromFile(fileName));
+      }
+    });
+    return mealData;
+  };
+
+  const meals = getMealsData();
+
+  if (!meals) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      mealData: meals,
+    },
+  };
 };
 
 export default Meals;

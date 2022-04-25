@@ -36,10 +36,10 @@ export const Basket: React.FC<BasketProps> = ({ basket, toggleBasket, resetBaske
         </div>
         <div className={styles.basket__scrollable}>
           {basket.map((item) => (
-            <div key={item.id}>
+            <div key={item.url}>
               <p className={styles.basket__meal}>{item.name}</p>
               <ul className={styles.basket__list}>
-                {item.ingredients.map((ingredient, idx) => (
+                {item.ingredients.map((ingredient) => (
                   <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
                 ))}
               </ul>
