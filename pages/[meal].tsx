@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
+import * as fs from 'fs';
+import * as path from 'path';
 
 import slugify from 'slugify';
-
-import mealData from '../data/meals.json';
 
 import { Meal as MealType } from '../types/meals';
 
@@ -108,8 +108,13 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients, me
   );
 };
 
+const getUrlDataFromFile = (url: string) => {
+  const mealsDataFile = fs.readFileSync(path.resolve(process.cwd(), `data/pages/${url}.json`));
+  return JSON.parse(mealsDataFile.toString());
+};
+
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const meal = mealData.find((meal) => slugify(meal.url) === params?.meal);
+  const meal = getUrlDataFromFile(String(params?.meal));
 
   if (!meal) {
     return {
@@ -129,9 +134,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
+const getPageFiles = () => {
+  let fileList: string[] = [];
+  fs.readdirSync(path.resolve(process.cwd(), 'data/pages/')).forEach((file) => {
+    if (file.endsWith('.json')) {
+      const url = file.slice(0, -5);
+      fileList.push(url);
+    }
+  });
+  return fileList;
+};
+
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths: any[] = mealData.map((meal) => ({
-    params: { meal: slugify(meal.url) },
+  const paths: any[] = getPageFiles().map((url) => ({
+    params: { meal: slugify(url) },
   }));
 
   return {
