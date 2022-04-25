@@ -8,14 +8,11 @@ export type Meal = {
   id: string;
   url: string;
   name: string;
-  rating?: number;
   time?: number;
   img?: string;
-  tags?: string[];
   serves?: number;
   ingredients: Array<Ingredient>;
   method?: string[];
-  lastCooked?: Date;
 };
 
 export type Basket = {
