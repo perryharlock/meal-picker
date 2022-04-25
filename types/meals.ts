@@ -5,7 +5,6 @@ export type Ingredient = {
 };
 
 export type Meal = {
-  id: string;
   url: string;
   name: string;
   time?: number;

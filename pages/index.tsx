@@ -46,7 +46,7 @@ const Meals: NextPage<MealList> = ({ mealData }) => {
   };
 
   const removeFromBasket = (mealId: MealType) => {
-    const basketItems = basket.filter((meal) => meal.id !== mealId.id);
+    const basketItems = basket.filter((meal) => meal.url !== mealId.url);
     setSessionState(basketItems);
   };
 
@@ -63,7 +63,7 @@ const Meals: NextPage<MealList> = ({ mealData }) => {
   };
 
   const isInBasket = (mealId: string) => {
-    return basket.filter((e: { id: string }) => e.id === mealId).length > 0;
+    return basket.filter((e: { url: string }) => e.url === mealId).length > 0;
   };
 
   const searchMeals = (searchTerm: string) => {
@@ -96,11 +96,11 @@ const Meals: NextPage<MealList> = ({ mealData }) => {
             <ul className={styles.meals__list}>
               {meals.map((meal: any, index: number) => (
                 <Meal
-                  key={meal.id}
+                  key={meal.url}
                   meal={meal}
                   handleRemove={removeFromBasket}
                   handleAdd={addToBasket}
-                  isInBasket={isInBasket(meal.id)}
+                  isInBasket={isInBasket(meal.url)}
                   lazyLoad={index > (isDesktop ? 8 : isTablet ? 7 : 2)}
                 />
               ))}
