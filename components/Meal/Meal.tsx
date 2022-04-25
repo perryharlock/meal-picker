@@ -36,19 +36,13 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInB
           </ul>
         </div>
       </a>
-      {isInBasket ? (
-        <button
-          data-testid="remove-from-basket"
-          className={`${styles.meal__btn} ${styles['meal__btn--remove']}`}
-          onClick={() => handleRemove(meal)}
-        >
-          - Remove ingredients from basket
-        </button>
-      ) : (
-        <button data-testid="add-to-basket" className={styles.meal__btn} onClick={() => handleAdd(meal)}>
-          + Add ingredients to basket
-        </button>
-      )}
+      <button
+        data-testid={isInBasket ? 'remove-from-basket' : 'add-to-basket'}
+        className={`${styles.meal__btn} ${isInBasket ? styles['meal__btn--remove'] : ''}`}
+        onClick={() => (isInBasket ? handleRemove(meal) : handleAdd(meal))}
+      >
+        {isInBasket ? '- Remove ingredients from basket' : '+ Add ingredients to basket'}
+      </button>
     </li>
   );
 };
