@@ -39,7 +39,7 @@ export const Basket: React.FC<BasketProps> = ({ basket, toggleBasket, resetBaske
             <div key={item.id}>
               <p className={styles.basket__meal}>{item.name}</p>
               <ul className={styles.basket__list}>
-                {item.ingredients.map((ingredient, idx) => (
+                {item.ingredients.map((ingredient) => (
                   <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
                 ))}
               </ul>
