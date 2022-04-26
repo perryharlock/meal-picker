@@ -66,12 +66,14 @@
     }
 
     &__img-container {
+        margin-top: 15px;
         position: relative;
         order: 2;
 
         @media ($screen-smalltablet) {
             order: 1;
             margin-right: 30px;
+            margin-top: 0;
         }
 
         @media ($screen-laptop) {
@@ -82,7 +84,6 @@
     &__img {
         display: block;
         height: 180px;
-        margin-top: 15px;
         opacity: 0.8;
         object-fit: cover;
         width: 100%;
@@ -205,7 +206,7 @@
         font-weight: $font-weight-regular;
         margin: 15px 0 0 0;
         outline: none;
-        padding: 10px 0;
+        padding: 10px;
         text-align: center;
         transition: all 0.2s ease-in-out;
         width: 100%;

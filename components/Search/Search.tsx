@@ -38,8 +38,8 @@ export const Search: React.FC<HeaderProps> = ({ searchTerm, searchType, onChange
         </button>
       </div>
       <RadioContainer label="Filters" labelHidden={true}>
-        <Radio name="mealType" label="All" id="all" value='all' onChange={() => onChangeValue(searchTerm, '')} />
-        <Radio name="mealType" label="Meals" id="meal" value='meal' checked={true} onChange={() => onChangeValue(searchTerm, 'meal')} />
+        <Radio name="mealType" label="All" id="all" value='all' checked={true} onChange={() => onChangeValue(searchTerm, '')} />
+        <Radio name="mealType" label="Meals" id="meal" value='meal' onChange={() => onChangeValue(searchTerm, 'meal')} />
         <Radio name="mealType" label="Baking" id="baking" value='baking' onChange={() => onChangeValue(searchTerm, 'baking')} />
         <Radio name="mealType" label="Drink" id="drink" value='drink' onChange={() => onChangeValue(searchTerm, 'drink')} />
       </RadioContainer>
