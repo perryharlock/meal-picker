@@ -27,12 +27,13 @@ export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInB
             width="375"
             height="250"
           />
+          <span className={styles.meal__type}>{meal.type}</span>
         </div>
         <div className={styles.meal__lower}>
           <h2 className={styles.meal__title}>{meal.name}</h2>
           <ul className={styles['meal__info-list']}>
             <li className={styles.meal__info}>{meal.time} minutes</li>
-            <li className={styles.meal__info}>Serves {meal.serves}</li>
+            {meal.serves && <li className={styles.meal__info}>Serves {meal.serves}</li>}
           </ul>
         </div>
       </a>

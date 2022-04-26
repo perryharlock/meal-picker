@@ -4,6 +4,7 @@
   "img": "sausage-carbonara.webp",
   "time": 15,
   "serves": 2,
+  "type": "meal",
   "ingredients": [
     {
       "name": "Taglietelle",

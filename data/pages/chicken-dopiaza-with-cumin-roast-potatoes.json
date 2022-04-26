@@ -4,6 +4,7 @@
   "img": "chicken-dopiaza.webp",
   "time": 45,
   "serves": 4,
+  "type": "meal",
   "ingredients": [
     {
       "name": "Chicken",

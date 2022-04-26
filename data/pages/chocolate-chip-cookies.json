@@ -1,0 +1,51 @@
+{
+  "url": "/chocolate-chip-cookies",
+  "name": "Chocolate Chip Cookies",
+  "time": 30,
+  "type": "baking",
+  "ingredients": [
+    {
+      "name": "Gluten Free Self raising flour",
+      "quantity": "225",
+      "quantityType": "g"
+    },
+    {
+      "name": "Brown sugar",
+      "quantity": "170",
+      "quantityType": "g"
+    },
+    {
+      "name": "Butter",
+      "quantity": "140",
+      "quantityType": "g"
+    },
+    {
+      "name": "Dark chocolate",
+      "quantity": "100",
+      "quantityType": "g"
+    },
+    {
+      "name": "Eggs",
+      "quantity": "2"
+    },
+    {
+      "name": "Cinnamon",
+      "quantity": "1",
+      "quantityType": "tsp"
+    },
+    {
+      "name": "Nutmeg",
+      "quantity": "1/2",
+      "quantityType": "tsp"
+    }
+  ],
+  "method": [
+    "Preheat oven to 180°C/360°F/160°C Fan",
+    "Break the chocolate up into bits",
+    "Mix butter and sugar",
+    "Slowly add eggs and mix",
+    "Mix in flour and the chocolate chips",
+    "Split the mix into 20-25 individual cookies on a baking tray",
+    "Bake for 15 minutes"
+  ]
+}

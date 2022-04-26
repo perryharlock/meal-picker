@@ -18,7 +18,7 @@ import { Tab } from '../components/Tabs/Tab';
 
 import styles from '../styles/Meal.module.scss';
 
-const MealPage: NextPage<MealType> = ({ url, name, img, time, serves, ingredients, method }) => {
+const MealPage: NextPage<MealType> = ({ url, name, img, time, serves, type, ingredients, method }) => {
   const [basket, setBasket] = useState<Array<MealType>>([]);
   const [basketLength, setBasketLength] = useState(0);
   const [basketVisible, setBasketVisible] = useState(false);
@@ -30,6 +30,7 @@ const MealPage: NextPage<MealType> = ({ url, name, img, time, serves, ingredient
     img: img,
     time: time,
     serves: serves,
+    type: type,
     ingredients: ingredients,
     method: method,
   };
@@ -95,7 +96,7 @@ const MealPage: NextPage<MealType> = ({ url, name, img, time, serves, ingredient
               <h2 className={styles.meal__title}>{name}</h2>
               <ul className={styles['meal__info-list']}>
                 <li className={styles.meal__info}>{time} minutes</li>
-                <li className={styles.meal__info}>Serves {serves}</li>
+                {serves && <li className={styles.meal__info}>Serves {serves}</li>}
               </ul>
               <button
                 data-test-id={isInBasket() ? 'remove-from-basket' : 'add-to-basket'}
@@ -113,6 +114,7 @@ const MealPage: NextPage<MealType> = ({ url, name, img, time, serves, ingredient
                 width="375"
                 height="250"
               />
+              <span className={styles.meal__type}>{type}</span>
             </div>
           </div>
           <div className={styles.meal__ingredients}>
@@ -166,9 +168,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       url: meal.url,
       name: meal.name,
-      img: meal.img,
+      img: meal.img || null,
       time: meal.time,
-      serves: meal.serves,
+      serves: meal.serves || null,
+      type: meal.type,
       ingredients: meal.ingredients,
       method: meal.method || null,
     },

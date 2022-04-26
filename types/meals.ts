@@ -10,6 +10,7 @@ export type Meal = {
   time?: number;
   img?: string;
   serves?: number;
+  type: string;
   ingredients: Array<Ingredient>;
   method?: string[];
 };
