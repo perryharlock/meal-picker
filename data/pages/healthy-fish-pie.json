@@ -4,6 +4,7 @@
   "img": "healthy-fish-pie.webp",
   "time": 70,
   "serves": 4,
+  "type": "meal",
   "ingredients": [
     {
       "name": "Cod",

@@ -4,6 +4,7 @@
   "img": "chorizo-gnocchi.webp",
   "time": 30,
   "serves": 4,
+  "type": "meal",
   "ingredients": [
     {
       "name": "Chicken",

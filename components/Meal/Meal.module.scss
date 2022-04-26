@@ -54,6 +54,10 @@
         @media ($screen-desktop-lg) {
             height: 260px;
         }
+
+        &-container {
+            position: relative;
+        }
     }
 
     &__title {
@@ -137,5 +141,17 @@
         &--remove {
             color: $coral;
         }
+    }
+
+    &__type {
+        background-color: $coral;
+        color: $white;
+        font-size: 14px;
+        left: 10px;
+        line-height: 1;
+        padding: 4px 8px;
+        position: absolute;
+        text-transform: capitalize;
+        top: 10px;
     }
 }

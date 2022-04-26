@@ -3,15 +3,13 @@
 
 .search {
     &__form {
-        border: solid 1px $grey-600;
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
         margin-bottom: 30px;
-        padding: 0 15px;
-        width: 100%;
 
         @media ($screen-tablet) {
-            width: 400px;
+            flex-direction: row;
         }
     }
 
@@ -24,6 +22,19 @@
         &:active,
         &:focus {
             outline: none;
+        }
+
+        &-container {
+            border: solid 1px $grey-600;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 0 15px;
+            width: 100%;
+
+            @media ($screen-tablet) {
+                max-width: 400px;
+            }
         }
     }
 

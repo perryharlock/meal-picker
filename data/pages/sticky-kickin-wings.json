@@ -4,6 +4,7 @@
   "img": "sticky-wings.webp",
   "time": 45,
   "serves": 2,
+  "type": "meal",
   "ingredients": [
     {
       "name": "Sesame seeds",

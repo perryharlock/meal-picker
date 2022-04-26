@@ -4,6 +4,7 @@
   "img": "chorizo-carbonara.webp",
   "time": 15,
   "serves": 4,
+  "type": "meal",
   "ingredients": [
     {
       "name": "Spaghetti",

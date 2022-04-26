@@ -4,6 +4,7 @@
   "img": "butter-chicken.webp",
   "time": 40,
   "serves": 2,
+  "type": "meal",
   "ingredients": [
     {
       "name": "Chicken breast",

@@ -4,6 +4,7 @@
   "img": "cheats-fish-and-chips.webp",
   "time": 45,
   "serves": 2,
+  "type": "meal",
   "ingredients": [
     {
       "name": "White fish",

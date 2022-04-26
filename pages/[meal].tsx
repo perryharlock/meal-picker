@@ -18,11 +18,41 @@ import { Tab } from '../components/Tabs/Tab';
 
 import styles from '../styles/Meal.module.scss';
 
-const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients, method }) => {
+const MealPage: NextPage<MealType> = ({ url, name, img, time, serves, type, ingredients, method }) => {
   const [basket, setBasket] = useState<Array<MealType>>([]);
   const [basketLength, setBasketLength] = useState(0);
   const [basketVisible, setBasketVisible] = useState(false);
   const [animate, setAnimate] = useState(false);
+
+  const mealObject: MealType = {
+    url: url,
+    name: name,
+    img: img,
+    time: time,
+    serves: serves,
+    type: type,
+    ingredients: ingredients,
+    method: method,
+  };
+
+  const setSessionState = (basketItems: MealType[]) => {
+    setBasket(basketItems);
+    setBasketLength(basketItems.length);
+    setAnimate(!animate);
+    sessionStorage.setItem('basket', JSON.stringify({ basketItems }));
+    sessionStorage.setItem('basketLength', JSON.stringify(basketItems.length));
+  };
+
+  const addToBasket = (mealId: MealType) => {
+    basket.push(mealId);
+    const basketItems = basket;
+    setSessionState(basketItems);
+  };
+
+  const removeFromBasket = (mealId: MealType) => {
+    const basketItems = basket.filter((meal) => meal.url !== mealId.url);
+    setSessionState(basketItems);
+  };
 
   const resetBasket = () => {
     setBasket([]);
@@ -30,6 +60,10 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients, me
     setBasketVisible(false);
     sessionStorage.setItem('basket', JSON.stringify({}));
     sessionStorage.setItem('basketLength', JSON.stringify('0'));
+  };
+
+  const isInBasket = () => {
+    return basket.filter((e: { url: string }) => e.url === url).length > 0;
   };
 
   const toggleBasket = () => {
@@ -62,8 +96,15 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients, me
               <h2 className={styles.meal__title}>{name}</h2>
               <ul className={styles['meal__info-list']}>
                 <li className={styles.meal__info}>{time} minutes</li>
-                <li className={styles.meal__info}>Serves {serves}</li>
+                {serves && <li className={styles.meal__info}>Serves {serves}</li>}
               </ul>
+              <button
+                data-test-id={isInBasket() ? 'remove-from-basket' : 'add-to-basket'}
+                className={`${styles.meal__btn} ${isInBasket() ? styles['meal__btn--remove'] : ''}`}
+                onClick={() => (isInBasket() ? removeFromBasket(mealObject) : addToBasket(mealObject))}
+              >
+                {isInBasket() ? '- Remove ingredients from basket' : '+ Add ingredients to basket'}
+              </button>
             </div>
             <div className={styles['meal__img-container']}>
               <img
@@ -73,6 +114,7 @@ const MealPage: NextPage<MealType> = ({ name, img, time, serves, ingredients, me
                 width="375"
                 height="250"
               />
+              <span className={styles.meal__type}>{type}</span>
             </div>
           </div>
           <div className={styles.meal__ingredients}>
@@ -124,10 +166,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
+      url: meal.url,
       name: meal.name,
-      img: meal.img,
+      img: meal.img || null,
       time: meal.time,
-      serves: meal.serves,
+      serves: meal.serves || null,
+      type: meal.type,
       ingredients: meal.ingredients,
       method: meal.method || null,
     },

@@ -4,6 +4,7 @@
   "img": "spaghetti-bolognese.webp",
   "time": 55,
   "serves": 4,
+  "type": "meal",
   "ingredients": [
     {
       "name": "Beef mince",

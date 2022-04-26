@@ -25,7 +25,8 @@ const Meals: NextPage<MealList> = ({ mealData }) => {
   const [basketLength, setBasketLength] = useState(0);
   const [basketVisible, setBasketVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [meals, setMeals] = useState(mealData);
+  const [searchType, setSearchType] = useState('');
+  const [meals, setMeals] = useState<Array<MealType>>(mealData);
   const [animate, setAnimate] = useState(false);
   const isMobile = useMediaQuery(767);
   const isTablet = useMediaQuery(991) && !isMobile;
@@ -66,9 +67,16 @@ const Meals: NextPage<MealList> = ({ mealData }) => {
     return basket.filter((e: { url: string }) => e.url === mealId).length > 0;
   };
 
-  const searchMeals = (searchTerm: string) => {
-    setMeals(mealData.filter((meal) => meal.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1));
+  const searchMeals = (searchTerm: string, searchType: string) => {
+    setMeals(
+      mealData.filter(
+        (meal) =>
+          meal.type.toLowerCase().indexOf(searchType.toLowerCase()) !== -1 &&
+          meal.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1,
+      ),
+    );
     setSearchTerm(searchTerm);
+    setSearchType(searchType);
   };
 
   useEffect(() => {
@@ -90,8 +98,7 @@ const Meals: NextPage<MealList> = ({ mealData }) => {
 
       <main className={styles.meals__main}>
         <Grid>
-          <Search searchTerm={searchTerm} onChangeValue={searchMeals} />
-
+          <Search searchTerm={searchTerm} onChangeValue={searchMeals} searchType={searchType} />
           {meals.length ? (
             <ul className={styles.meals__list}>
               {meals.map((meal: any, index: number) => (
@@ -106,7 +113,7 @@ const Meals: NextPage<MealList> = ({ mealData }) => {
               ))}
             </ul>
           ) : (
-            <p>No meals match your search :-/</p>
+            <p>No matches for your search :-/</p>
           )}
         </Grid>
         {basketVisible ? <Basket basket={basket} resetBasket={resetBasket} toggleBasket={toggleBasket} /> : ''}

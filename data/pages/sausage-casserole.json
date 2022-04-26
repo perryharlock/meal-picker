@@ -4,6 +4,7 @@
   "img": "sausage-casserole.webp",
   "time": 60,
   "serves": 4,
+  "type": "meal",
   "ingredients": [
     {
       "name": "Cumberland sausages",
