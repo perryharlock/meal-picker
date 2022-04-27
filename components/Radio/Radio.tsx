@@ -7,18 +7,17 @@ export interface RadioProps {
   checked?: boolean;
   id: string;
   value: string | number;
-  dataTestId?: string;
   onChange?: () => void;
 }
 
-export const Radio: React.FC<RadioProps> = ({ name, label, checked, id, value, dataTestId, onChange }) => {
+export const Radio: React.FC<RadioProps> = ({ name, label, checked, id, value, onChange }) => {
   return (
     <div className={styles['radio__wrapper']}>
       <input
         name={name}
         id={id}
         value={value}
-        data-testid={dataTestId}
+        data-testid={`radio-${id}`}
         defaultChecked={checked}
         type="radio"
         className={styles['radio']}

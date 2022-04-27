@@ -25,6 +25,7 @@ export const Search: React.FC<HeaderProps> = ({ searchTerm, searchType, onChange
           onChange={(evt) => onChangeValue(evt.target.value, searchType)}
           placeholder="Type a meal name"
           value={searchTerm}
+          data-testid="search-input"
         />
         <button type="button" className={styles.search__clear} onClick={() => onChangeValue('', searchType)}>
           {searchTerm ? (
@@ -38,10 +39,38 @@ export const Search: React.FC<HeaderProps> = ({ searchTerm, searchType, onChange
         </button>
       </div>
       <RadioContainer label="Filters" labelHidden={true}>
-        <Radio name="mealType" label="All" id="all" value='all' checked={true} onChange={() => onChangeValue(searchTerm, '')} />
-        <Radio name="mealType" label="Meals" id="meal" value='meal' onChange={() => onChangeValue(searchTerm, 'meal')} />
-        <Radio name="mealType" label="Baking" id="baking" value='baking' onChange={() => onChangeValue(searchTerm, 'baking')} />
-        <Radio name="mealType" label="Drink" id="drink" value='drink' onChange={() => onChangeValue(searchTerm, 'drink')} />
+        <Radio
+          name="mealType"
+          label="All"
+          id="all"
+          value="all"
+          checked={searchType === '' ? true : false}
+          onChange={() => onChangeValue(searchTerm, '')}
+        />
+        <Radio
+          name="mealType"
+          label="Meals"
+          id="meal"
+          value="meal"
+          checked={searchType === 'meal' ? true : false}
+          onChange={() => onChangeValue(searchTerm, 'meal')}
+        />
+        <Radio
+          name="mealType"
+          label="Baking"
+          id="baking"
+          value="baking"
+          checked={searchType === 'baking' ? true : false}
+          onChange={() => onChangeValue(searchTerm, 'baking')}
+        />
+        <Radio
+          name="mealType"
+          label="Drink"
+          id="drink"
+          value="drink"
+          checked={searchType === 'drink' ? true : false}
+          onChange={() => onChangeValue(searchTerm, 'drink')}
+        />
       </RadioContainer>
     </form>
   );
