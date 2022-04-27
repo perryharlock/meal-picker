@@ -1,11 +1,11 @@
 [
   {
-    "id": "1",
     "url": "/chorizo-carbonara",
     "name": "Chorizo Carbonara",
     "img": "chorizo-carbonara.webp",
     "time": 15,
     "serves": 4,
+    "type": "meal",
     "ingredients": [
       {
         "name": "Spaghetti",
