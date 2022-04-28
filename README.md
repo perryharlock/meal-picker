@@ -38,8 +38,6 @@ You can run tests locally using
 yarn test
 ```
 
-e
-
 ## Prettier
 
 You can run prettier using
