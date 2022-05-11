@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 import { Grid } from '../Grid/Grid';
 import { Basket } from '../Icons';
@@ -17,11 +18,13 @@ export const Header: React.FC<HeaderProps> = ({ basketLength, toggleBasket, anim
   return (
     <header className={styles.header}>
       <Grid className={styles.header__content}>
-        <a href={isProd ? '/meal-picker' : '/'}>
-          <h1>
-            meal<span className={styles.header__highlight}>pick</span>er
-          </h1>
-        </a>
+        <Link href={isProd ? '/meal-picker' : '/'}>
+          <a>
+            <h1>
+              meal<span className={styles.header__highlight}>pick</span>er
+            </h1>
+          </a>
+        </Link>
         {basketLength > 0 ? (
           <button
             onClick={toggleBasket}

@@ -143,12 +143,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const meals = getMealsData();
 
-  if (!meals) {
-    return {
-      notFound: true,
-    };
-  }
-
   return {
     props: {
       mealData: meals,

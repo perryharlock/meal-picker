@@ -158,12 +158,6 @@ const getUrlDataFromFile = (url: string) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const meal = getUrlDataFromFile(String(params?.meal));
 
-  if (!meal) {
-    return {
-      notFound: true,
-    };
-  }
-
   return {
     props: {
       url: meal.url,
