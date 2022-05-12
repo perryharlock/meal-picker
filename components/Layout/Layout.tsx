@@ -62,9 +62,7 @@ export const Layout: React.FC = ({ children }) => {
     <LayoutContext.Provider
       value={{
         isInBasket,
-        toggleBasket,
         addToBasket,
-        resetBasket,
         removeFromBasket,
       }}
     >
