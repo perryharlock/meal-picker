@@ -1,0 +1,15 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+
+    &__main {
+        padding-top: 110px;
+        padding-bottom: 30px;
+    }
+
+    &--no-scroll {
+        overflow: hidden;
+    }
+}
