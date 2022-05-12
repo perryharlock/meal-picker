@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import { Meal } from '../components/Meal/Meal';
+import { MealCard } from '../components/MealCard/MealCard';
 
 import mock from '../data/mock.json';
 
@@ -13,7 +13,7 @@ describe('Meal card', () => {
     render(
       <ul>
         {mock.map((meal) => (
-          <Meal
+          <MealCard
             key={meal.url}
             meal={meal}
             handleRemove={handleRemoveMock}
@@ -37,7 +37,7 @@ describe('Meal card', () => {
     render(
       <ul>
         {mock.map((meal) => (
-          <Meal
+          <MealCard
             key={meal.url}
             meal={meal}
             handleRemove={handleRemoveMock}
@@ -61,7 +61,7 @@ describe('Meal card', () => {
     render(
       <ul>
         {mock.map((meal) => (
-          <Meal
+          <MealCard
             key={meal.url}
             meal={meal}
             handleRemove={handleRemoveMock}
@@ -86,7 +86,7 @@ describe('Meal card', () => {
     render(
       <ul>
         {mock.map((meal) => (
-          <Meal
+          <MealCard
             key={meal.url}
             meal={meal}
             handleRemove={handleRemoveMock}
