@@ -1,52 +1,76 @@
-import React from 'react';
-import Link from 'next/link';
+import React, { useContext } from 'react';
 
 import { Meal as MealType } from '../../types/meals';
 
+import { LayoutContext } from '../Layout/LayoutContext';
+import { Grid } from '../Grid/Grid';
+import { Ingredient } from '../Ingredient/Ingredient';
+import { Tabs } from '../Tabs/Tabs';
+import { Tab } from '../Tabs/Tab';
+
 import styles from './Meal.module.scss';
 
-export type MealProps = {
+type MealProps = {
   meal: MealType;
-  handleRemove: (mealId: MealType) => void;
-  handleAdd: (mealId: MealType) => void;
-  isInBasket: boolean;
-  lazyLoad: boolean;
 };
 
-export const Meal: React.FC<MealProps> = ({ meal, handleAdd, handleRemove, isInBasket, lazyLoad }) => {
-  const isProd = process.env.NODE_ENV === 'production';
+export const Meal: React.FC<MealProps> = ({ meal }) => {
+  const { isInBasket, removeFromBasket, addToBasket } = useContext(LayoutContext);
 
   return (
-    <li className={styles.meal} key={`meal-${meal.url}`}>
-      <Link href={isProd ? `/meal-picker${meal.url}` : meal.url}>
-        <a className={styles.meal__link} title={meal.name}>
-          <div className={styles['meal__img-container']}>
-            <img
-              loading={lazyLoad ? 'lazy' : 'eager'}
-              className={styles.meal__img}
-              src={meal.img ? meal.img : 'meal-placeholder.webp'}
-              alt={meal.name}
-              width="375"
-              height="250"
-            />
-            <span className={styles.meal__type}>{meal.type}</span>
-          </div>
-          <div className={styles.meal__lower}>
-            <h2 className={styles.meal__title}>{meal.name}</h2>
-            <ul className={styles['meal__info-list']}>
-              <li className={styles.meal__info}>{meal.time} minutes</li>
-              {meal.serves && <li className={styles.meal__info}>Serves {meal.serves}</li>}
+    <Grid className={styles.meal__grid}>
+      <div className={styles.meal__summary}>
+        <div className={styles.meal__text}>
+          <h2 className={styles.meal__title}>{meal.name}</h2>
+          <ul className={styles['meal__info-list']}>
+            <li className={styles.meal__info}>{meal.time} minutes</li>
+            {meal.serves && <li className={styles.meal__info}>Serves {meal.serves}</li>}
+          </ul>
+          <button
+            data-test-id={isInBasket(meal.url) ? 'remove-from-basket' : 'add-to-basket'}
+            className={`${styles.meal__btn} ${isInBasket(meal.url) ? styles['meal__btn--remove'] : ''}`}
+            onClick={() => (isInBasket(meal.url) ? removeFromBasket(meal) : addToBasket(meal))}
+          >
+            {isInBasket(meal.url) ? '- Remove ingredients from basket' : '+ Add ingredients to basket'}
+          </button>
+        </div>
+        <div className={styles['meal__img-container']}>
+          <img
+            className={styles.meal__img}
+            src={meal.img ? meal.img : 'meal-placeholder.webp'}
+            alt={meal.name}
+            width="375"
+            height="250"
+          />
+          <span className={styles.meal__type}>{meal.type}</span>
+        </div>
+      </div>
+      <div className={styles.meal__ingredients}>
+        <Tabs>
+          <Tab title="Ingredients">
+            <ul className={styles['meal__ingredients-list']}>
+              {meal.ingredients.map((ingredient) => (
+                <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
+              ))}
             </ul>
-          </div>
-        </a>
-      </Link>
-      <button
-        data-testid={isInBasket ? 'remove-from-basket' : 'add-to-basket'}
-        className={`${styles.meal__btn} ${isInBasket ? styles['meal__btn--remove'] : ''}`}
-        onClick={() => (isInBasket ? handleRemove(meal) : handleAdd(meal))}
-      >
-        {isInBasket ? '- Remove ingredients from basket' : '+ Add ingredients to basket'}
-      </button>
-    </li>
+          </Tab>
+          <Tab title="Method">
+            {meal.method ? (
+              <ol className={styles['meal__method-list']}>
+                {meal.method.map((step, index) => (
+                  <li key={`step-${index}`} className={styles['meal__method-item']}>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <p>No method availabe</p>
+            )}
+          </Tab>
+        </Tabs>
+      </div>
+    </Grid>
   );
 };
+
+export default Meal;
