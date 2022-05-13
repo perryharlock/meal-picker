@@ -1,0 +1,46 @@
+@import "styles/media-queries.scss";
+@import "styles/colors.scss";
+@import "styles/typography.scss";
+
+.breadcrumb {
+    margin-bottom: 30px;
+
+    @media ($screen-tablet) {
+        margin-bottom: 40px;
+    }
+
+    ol {
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+    }
+
+    li {
+        display: inline;
+    }
+
+    li + li::before {
+        display: inline-block;
+        margin: 0 10px;
+        transform: rotate(15deg);
+        border-right: 0.1em solid $coral;
+        height: 0.8em;
+        content: '';
+    }
+
+    a {
+        font-size: 1.4rem;
+
+        @media ($screen-tablet) {
+            font-size: 1.6rem;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    [aria-current="page"] {
+        font-weight: $font-weight-bold;
+    }
+}
