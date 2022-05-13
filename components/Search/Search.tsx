@@ -20,23 +20,23 @@ export const Search: React.FC<HeaderProps> = ({ searchTerm, searchType, onChange
         <div className={styles.search__icon}>
           <SearchIcon />
         </div>
+        <SrOnly>
+          <label htmlFor="search-input">Enter a search term</label>
+        </SrOnly>
         <input
+          id="search-input"
           className={styles.search__input}
           onChange={(evt) => onChangeValue(evt.target.value, searchType)}
           placeholder="Type a meal name"
           value={searchTerm}
           data-testid="search-input"
         />
-        <button type="button" className={styles.search__clear} onClick={() => onChangeValue('', searchType)}>
-          {searchTerm ? (
-            <>
-              <Close />
-              <SrOnly>Reset basket</SrOnly>
-            </>
-          ) : (
-            ''
-          )}
-        </button>
+        {searchTerm && (
+          <button type="button" className={styles.search__clear} onClick={() => onChangeValue('', searchType)}>
+            <Close />
+            <SrOnly>Reset basket</SrOnly>
+          </button>
+        )}
       </div>
       <RadioContainer label="Filters" labelHidden={true}>
         <Radio
