@@ -16,7 +16,7 @@ type MealProps = {
 };
 
 export const Meal: React.FC<MealProps> = ({ meal }) => {
-  const { isInBasket, removeFromBasket, addToBasket } = useContext(LayoutContext);
+  const { isInShoppingList, removeFromShoppingList, addToShoppingList } = useContext(LayoutContext);
 
   return (
     <Grid>
@@ -30,11 +30,11 @@ export const Meal: React.FC<MealProps> = ({ meal }) => {
               {meal.serves && <li className={styles.meal__info}>Serves {meal.serves}</li>}
             </ul>
             <button
-              data-test-id={isInBasket(meal.url) ? 'remove-from-basket' : 'add-to-basket'}
-              className={`${styles.meal__btn} ${isInBasket(meal.url) ? styles['meal__btn--remove'] : ''}`}
-              onClick={() => (isInBasket(meal.url) ? removeFromBasket(meal) : addToBasket(meal))}
+              data-test-id={isInShoppingList(meal.url) ? 'remove-from-shopping-list' : 'add-to-shopping-list'}
+              className={`${styles.meal__btn} ${isInShoppingList(meal.url) ? styles['meal__btn--remove'] : ''}`}
+              onClick={() => (isInShoppingList(meal.url) ? removeFromShoppingList(meal) : addToShoppingList(meal))}
             >
-              {isInBasket(meal.url) ? '- Remove ingredients from basket' : '+ Add ingredients to basket'}
+              {isInShoppingList(meal.url) ? '- Remove from shopping list' : '+ Add to shopping list'}
             </button>
           </div>
           <div className={styles['meal__img-container']}>

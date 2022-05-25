@@ -18,12 +18,12 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ name, url }) => {
           <Link href={isProd ? '/meal-picker' : '/'}>
             <a>All Meals</a>
           </Link>
-      </li>
-      <li>
-        <Link href={isProd ? `/meal-picker${url}` : url}>
-          <a aria-current="page">{name}</a>
-        </Link>
-      </li>
+        </li>
+        <li>
+          <Link href={isProd ? `/meal-picker${url}` : url}>
+            <a aria-current="page">{name}</a>
+          </Link>
+        </li>
       </ol>
     </nav>
   );

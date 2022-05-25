@@ -15,6 +15,6 @@ export type Meal = {
   method?: string[];
 };
 
-export type Basket = {
-  basket: Array<Meal>;
+export type ShoppingList = {
+  shoppingList: Array<Meal>;
 };

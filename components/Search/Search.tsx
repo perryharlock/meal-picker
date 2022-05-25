@@ -34,7 +34,7 @@ export const Search: React.FC<HeaderProps> = ({ searchTerm, searchType, onChange
         {searchTerm && (
           <button type="button" className={styles.search__clear} onClick={() => onChangeValue('', searchType)}>
             <Close />
-            <SrOnly>Reset basket</SrOnly>
+            <SrOnly>Reset shopping list</SrOnly>
           </button>
         )}
       </div>
