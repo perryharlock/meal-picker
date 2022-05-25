@@ -9,11 +9,11 @@ export type MealCardProps = {
   meal: MealType;
   handleRemove: (mealId: MealType) => void;
   handleAdd: (mealId: MealType) => void;
-  isInBasket: boolean;
+  isInShoppingList: boolean;
   lazyLoad: boolean;
 };
 
-export const MealCard: React.FC<MealCardProps> = ({ meal, handleAdd, handleRemove, isInBasket, lazyLoad }) => {
+export const MealCard: React.FC<MealCardProps> = ({ meal, handleAdd, handleRemove, isInShoppingList, lazyLoad }) => {
   const isProd = process.env.NODE_ENV === 'production';
 
   return (
@@ -41,11 +41,11 @@ export const MealCard: React.FC<MealCardProps> = ({ meal, handleAdd, handleRemov
         </a>
       </Link>
       <button
-        data-testid={isInBasket ? 'remove-from-basket' : 'add-to-basket'}
-        className={`${styles.meal__btn} ${isInBasket ? styles['meal__btn--remove'] : ''}`}
-        onClick={() => (isInBasket ? handleRemove(meal) : handleAdd(meal))}
+        data-testid={isInShoppingList ? 'remove-from-shopping-list' : 'add-to-shopping-list'}
+        className={`${styles.meal__btn} ${isInShoppingList ? styles['meal__btn--remove'] : ''}`}
+        onClick={() => (isInShoppingList ? handleRemove(meal) : handleAdd(meal))}
       >
-        {isInBasket ? '- Remove ingredients from basket' : '+ Add ingredients to basket'}
+        {isInShoppingList ? '- Remove from shopping list' : '+ Add to shopping list'}
       </button>
     </li>
   );

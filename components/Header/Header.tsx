@@ -2,17 +2,17 @@ import React from 'react';
 import Link from 'next/link';
 
 import { Grid } from '../Grid/Grid';
-import { Basket } from '../Icons';
+import { ShoppingList } from '../Icons';
 
 import styles from './Header.module.scss';
 
 export type HeaderProps = {
-  basketLength: number;
-  toggleBasket: () => void;
+  shoppingListLength: number;
+  toggleShoppingList: () => void;
   animate: boolean;
 };
 
-export const Header: React.FC<HeaderProps> = ({ basketLength, toggleBasket, animate }) => {
+export const Header: React.FC<HeaderProps> = ({ shoppingListLength, toggleShoppingList, animate }) => {
   const isProd = process.env.NODE_ENV === 'production';
 
   return (
@@ -25,15 +25,15 @@ export const Header: React.FC<HeaderProps> = ({ basketLength, toggleBasket, anim
             </h1>
           </a>
         </Link>
-        {basketLength > 0 ? (
+        {shoppingListLength > 0 ? (
           <button
-            onClick={toggleBasket}
-            className={`${styles.header__basket}
-                ${styles[`header__basket--${animate ? 'in' : 'out'}`]}`}
-            data-testid="header-basket"
+            onClick={toggleShoppingList}
+            className={`${styles.header__shopping}
+                ${styles[`header__shopping--${animate ? 'in' : 'out'}`]}`}
+            data-testid="header-shopping-list"
           >
-            <Basket />
-            <span className={styles.header__badge}>{basketLength > 99 ? '9+' : basketLength}</span>
+            <ShoppingList />
+            <span className={styles.header__badge}>{shoppingListLength > 99 ? '9+' : shoppingListLength}</span>
           </button>
         ) : (
           ''

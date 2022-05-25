@@ -1,4 +1,4 @@
-export * from './Basket';
+export * from './ShoppingList';
 export * from './Clear';
 export * from './Close';
 export * from './Search';

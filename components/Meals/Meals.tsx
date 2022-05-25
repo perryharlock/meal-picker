@@ -16,7 +16,7 @@ type MealsProps = {
 };
 
 export const Meals: React.FC<MealsProps> = ({ mealData }) => {
-  const { isInBasket, removeFromBasket, addToBasket } = useContext(LayoutContext);
+  const { isInShoppingList, removeFromShoppingList, addToShoppingList } = useContext(LayoutContext);
   const [meals, setMeals] = useState<Array<MealType>>(mealData);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState('');
@@ -46,9 +46,9 @@ export const Meals: React.FC<MealsProps> = ({ mealData }) => {
             <MealCard
               key={meal.url}
               meal={meal}
-              isInBasket={isInBasket(meal.url)}
-              handleRemove={removeFromBasket}
-              handleAdd={addToBasket}
+              isInShoppingList={isInShoppingList(meal.url)}
+              handleRemove={removeFromShoppingList}
+              handleAdd={addToShoppingList}
               lazyLoad={index > (isDesktop ? 8 : isTablet ? 7 : 2)}
             />
           ))}
