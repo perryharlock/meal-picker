@@ -11,7 +11,7 @@ type MealList = {
   mealData: Array<MealType>;
 };
 
-const Test: NextPage<MealList> = ({ mealData }) => {
+const Home: NextPage<MealList> = ({ mealData }) => {
   return (
     <Layout>
       <Meals mealData={mealData} />
@@ -45,4 +45,4 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default Test;
+export default Home;

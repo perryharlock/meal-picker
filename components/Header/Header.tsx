@@ -3,16 +3,17 @@ import Link from 'next/link';
 
 import { Grid } from '../Grid/Grid';
 import { ShoppingList } from '../Icons';
+import { useStateContext } from '../../context/StateContext';
 
 import styles from './Header.module.scss';
 
 export type HeaderProps = {
   shoppingListLength: number;
   toggleShoppingList: () => void;
-  animate: boolean;
 };
 
-export const Header: React.FC<HeaderProps> = ({ shoppingListLength, toggleShoppingList, animate }) => {
+export const Header: React.FC<HeaderProps> = ({ shoppingListLength, toggleShoppingList }) => {
+  const { animate } = useStateContext();
   const isProd = process.env.NODE_ENV === 'production';
 
   return (

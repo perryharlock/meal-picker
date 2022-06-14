@@ -74,6 +74,11 @@
         font-size: 1.8rem;
         font-weight: $font-weight-bold;
         margin: 0 0 15px 0;
+
+        &-container {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 
     &__list {
@@ -105,6 +110,12 @@
         svg {
             fill: $white;
         }
+    }
+
+    &__remove {
+        background-color: $coral;
+        border-radius: 50%;
+        padding: 4px;
     }
 }
 

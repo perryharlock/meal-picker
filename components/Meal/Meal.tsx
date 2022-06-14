@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { Meal as MealType } from '../../types/meals';
 
-import { LayoutContext } from '../Layout/LayoutContext';
+import { useStateContext } from '../../context/StateContext';
 import { Grid } from '../Grid/Grid';
 import { Ingredient } from '../Ingredient/Ingredient';
 import { Tabs } from '../Tabs/Tabs';
@@ -16,32 +16,33 @@ type MealProps = {
 };
 
 export const Meal: React.FC<MealProps> = ({ meal }) => {
-  const { isInShoppingList, removeFromShoppingList, addToShoppingList } = useContext(LayoutContext);
+  const { isInShoppingList, removeFromShoppingList, addToShoppingList } = useStateContext();
+  const { url, name, time, serves, img, ingredients, method } = meal;
 
   return (
     <Grid>
-      <Breadcrumb name={meal.name} url={meal.url} />
+      <Breadcrumb name={name} url={url} />
       <div className={styles.meal__grid}>
         <div className={styles.meal__summary}>
           <div className={styles.meal__text}>
-            <h2 className={styles.meal__title}>{meal.name}</h2>
+            <h2 className={styles.meal__title}>{name}</h2>
             <ul className={styles['meal__info-list']}>
-              <li className={styles.meal__info}>{meal.time} minutes</li>
-              {meal.serves && <li className={styles.meal__info}>Serves {meal.serves}</li>}
+              <li className={styles.meal__info}>{time} minutes</li>
+              {serves && <li className={styles.meal__info}>Serves {serves}</li>}
             </ul>
             <button
-              data-test-id={isInShoppingList(meal.url) ? 'remove-from-shopping-list' : 'add-to-shopping-list'}
-              className={`${styles.meal__btn} ${isInShoppingList(meal.url) ? styles['meal__btn--remove'] : ''}`}
-              onClick={() => (isInShoppingList(meal.url) ? removeFromShoppingList(meal) : addToShoppingList(meal))}
+              data-test-id={isInShoppingList(url) ? 'remove-from-shopping-list' : 'add-to-shopping-list'}
+              className={`${styles.meal__btn} ${isInShoppingList(url) ? styles['meal__btn--remove'] : ''}`}
+              onClick={() => (isInShoppingList(url) ? removeFromShoppingList(meal) : addToShoppingList(meal))}
             >
-              {isInShoppingList(meal.url) ? '- Remove from shopping list' : '+ Add to shopping list'}
+              {isInShoppingList(url) ? '- Remove from shopping list' : '+ Add to shopping list'}
             </button>
           </div>
           <div className={styles['meal__img-container']}>
             <img
               className={styles.meal__img}
-              src={meal.img ? meal.img : 'meal-placeholder.webp'}
-              alt={meal.name}
+              src={img ? img : 'meal-placeholder.webp'}
+              alt={name}
               width="375"
               height="250"
             />
@@ -52,15 +53,15 @@ export const Meal: React.FC<MealProps> = ({ meal }) => {
           <Tabs>
             <Tab title="Ingredients">
               <ul className={styles['meal__ingredients-list']}>
-                {meal.ingredients.map((ingredient) => (
+                {ingredients.map((ingredient) => (
                   <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
                 ))}
               </ul>
             </Tab>
             <Tab title="Method">
-              {meal.method ? (
+              {method ? (
                 <ol className={styles['meal__method-list']}>
-                  {meal.method.map((step, index) => (
+                  {method.map((step, index) => (
                     <li key={`step-${index}`} className={styles['meal__method-item']}>
                       {step}
                     </li>

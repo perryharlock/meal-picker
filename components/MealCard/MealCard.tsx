@@ -15,27 +15,28 @@ export type MealCardProps = {
 
 export const MealCard: React.FC<MealCardProps> = ({ meal, handleAdd, handleRemove, isInShoppingList, lazyLoad }) => {
   const isProd = process.env.NODE_ENV === 'production';
+  const { url, img, name, type, time, serves } = meal;
 
   return (
-    <li className={styles.meal} key={`meal-${meal.url}`}>
-      <Link href={isProd ? `/meal-picker${meal.url}` : meal.url}>
-        <a className={styles.meal__link} title={meal.name}>
+    <li className={styles.meal} key={`meal-${url}`}>
+      <Link href={isProd ? `/meal-picker${url}` : url}>
+        <a className={styles.meal__link} title={name}>
           <div className={styles['meal__img-container']}>
             <img
               loading={lazyLoad ? 'lazy' : 'eager'}
               className={styles.meal__img}
-              src={meal.img ? meal.img : 'meal-placeholder.webp'}
-              alt={meal.name}
+              src={img ? img : 'meal-placeholder.webp'}
+              alt={name}
               width="375"
               height="250"
             />
-            <span className={styles.meal__type}>{meal.type}</span>
+            <span className={styles.meal__type}>{type}</span>
           </div>
           <div className={styles.meal__lower}>
-            <h2 className={styles.meal__title}>{meal.name}</h2>
+            <h2 className={styles.meal__title}>{name}</h2>
             <ul className={styles['meal__info-list']}>
-              <li className={styles.meal__info}>{meal.time} minutes</li>
-              {meal.serves && <li className={styles.meal__info}>Serves {meal.serves}</li>}
+              <li className={styles.meal__info}>{time} minutes</li>
+              {serves && <li className={styles.meal__info}>Serves {serves}</li>}
             </ul>
           </div>
         </a>

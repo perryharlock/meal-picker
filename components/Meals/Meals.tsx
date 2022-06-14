@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 
 import { useMediaQuery } from '../../hooks/useMediaMatch';
 
 import { Meal as MealType } from '../../types/meals';
 
-import { LayoutContext } from '../Layout/LayoutContext';
+import { useStateContext } from '../../context/StateContext';
 import { Search } from '../Search/Search';
 import { MealCard } from '../MealCard/MealCard';
 import { Grid } from '../Grid/Grid';
@@ -16,7 +16,7 @@ type MealsProps = {
 };
 
 export const Meals: React.FC<MealsProps> = ({ mealData }) => {
-  const { isInShoppingList, removeFromShoppingList, addToShoppingList } = useContext(LayoutContext);
+  const { isInShoppingList, removeFromShoppingList, addToShoppingList } = useStateContext();
   const [meals, setMeals] = useState<Array<MealType>>(mealData);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState('');
