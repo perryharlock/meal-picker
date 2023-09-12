@@ -20,7 +20,7 @@ export const Layout: React.FC = ({ children }) => {
         <link rel="icon" href="favicon.ico" />
         
       </Head>
-      <Script id="clarity-test">
+      <Script id="clarity-test-test">
         {`(function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
