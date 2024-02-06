@@ -8,7 +8,7 @@ import { Ingredient } from '../Ingredient/Ingredient';
 import { Tabs } from '../Tabs/Tabs';
 import { Tab } from '../Tabs/Tab';
 import { Breadcrumb } from '../Breadcrumb/Breadcrumb';
-import { Markdown } from '../../lib/markdown';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import styles from './Meal.module.scss';
 
@@ -64,13 +64,13 @@ export const Meal: React.FC<MealProps> = ({ meal }) => {
 							)}
 						</Tab>
             <Tab title="Method">
-              {/* {method ? (
+              {method ? (
 								<div className={styles['meal__method-list']}>
-									<Markdown content={method} />
+                  {documentToReactComponents(method.json)};
 									</div>
-              ) : ( */}
+              ) : (
                 <p>No method availabe</p>
-              {/* )} */}
+              )}
             </Tab>
           </Tabs>
         </div>

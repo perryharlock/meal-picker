@@ -2,12 +2,10 @@ import React from 'react';
 import { NextPage} from 'next';
 
 import { Meal as MealType } from '../types/meals';
-import { getMealDetail, getAllMeals } from '../lib/api'
+import { getMealDetail } from '../lib/api'
 
 import { Layout } from '../components/Layout/Layout';
 import { Meal } from '../components/Meal/Meal';
-
-import slugify from 'slugify';
 
 const MealPage: NextPage<MealType> = ({ slug, name, image, time, serves, type, ingredientCollection, method }) => {
   const meal: MealType = {
@@ -46,17 +44,5 @@ export const getServerSideProps = async ({ params }: {
     },
   };
 };
-
-// export const getStaticPaths = async () => {
-// 	const meals: MealType[] = await getAllMeals(true)
-//   const paths: any[] = meals.map((meal: MealType) => ({
-//     params: { meal: meal.slug },
-// 	}));
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
 
 export { MealPage as default };
