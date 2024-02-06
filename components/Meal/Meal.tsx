@@ -64,13 +64,13 @@ export const Meal: React.FC<MealProps> = ({ meal }) => {
 							)}
 						</Tab>
             <Tab title="Method">
-              {method ? (
+              {/* {method ? (
 								<div className={styles['meal__method-list']}>
 									<Markdown content={method} />
 									</div>
-              ) : (
+              ) : ( */}
                 <p>No method availabe</p>
-              )}
+              {/* )} */}
             </Tab>
           </Tabs>
         </div>
