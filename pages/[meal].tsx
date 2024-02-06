@@ -28,7 +28,7 @@ const MealPage: NextPage<MealType> = ({ slug, name, image, time, serves, type, i
   );
 };
 
-export const getStaticProps = async ({ params }: {
+export const getServerSideProps = async ({ params }: {
   params: { meal: string }
 }) => {
 	const { meal } = await getMealDetail(params.meal);
@@ -47,16 +47,16 @@ export const getStaticProps = async ({ params }: {
   };
 };
 
-export const getStaticPaths = async () => {
-	const meals: MealType[] = await getAllMeals(true)
-  const paths: any[] = meals.map((meal: MealType) => ({
-    params: { meal: meal.slug },
-	}));
+// export const getStaticPaths = async () => {
+// 	const meals: MealType[] = await getAllMeals(true)
+//   const paths: any[] = meals.map((meal: MealType) => ({
+//     params: { meal: meal.slug },
+// 	}));
 
-  return {
-    paths,
-    fallback: false,
-  };
-};
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
 
 export { MealPage as default };

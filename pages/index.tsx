@@ -1,5 +1,5 @@
 import React from 'react';
-import { NextPage, GetStaticProps } from 'next';
+import { NextPage, GetServerSideProps } from 'next';
 
 import { Meal as MealType } from '../types/meals';
 import { Layout } from '../components/Layout/Layout';
@@ -19,7 +19,7 @@ const Home: NextPage<MealList> = ({ mealData }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const meals = await getAllMeals(true)
 
   return {
