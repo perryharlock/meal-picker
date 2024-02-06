@@ -132,7 +132,7 @@
     }
 
     &__method {
-        &-item {
+        &-list li {
             counter-increment: item;
             font-size: 1.6rem;
             line-height: 2;

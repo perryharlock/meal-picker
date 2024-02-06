@@ -1,18 +1,28 @@
+import { Content } from '../lib/markdown';
+
 export type Ingredient = {
-  name: string;
-  quantity: string;
+  product: string;
+  quantity: number;
   quantityType?: string;
 };
 
+export type Image = {
+	url: string;
+	width?: number;
+	quality?: number;
+};
+
 export type Meal = {
-  url: string;
+  slug: string;
   name: string;
   time?: number;
-  img?: string;
+	image?: Image;
   serves?: number;
   type: string;
-  ingredients: Array<Ingredient>;
-  method?: string[];
+  ingredientCollection: {
+		items: Array<Ingredient>
+	}
+  method?: Content;
 };
 
 export type ShoppingList = {

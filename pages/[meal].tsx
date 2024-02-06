@@ -1,24 +1,23 @@
 import React from 'react';
-import { NextPage, GetStaticPaths, GetStaticProps } from 'next';
-import * as fs from 'fs';
-import * as path from 'path';
-
-import slugify from 'slugify';
+import { NextPage} from 'next';
 
 import { Meal as MealType } from '../types/meals';
+import { getMealDetail, getAllMeals } from '../lib/api'
 
 import { Layout } from '../components/Layout/Layout';
 import { Meal } from '../components/Meal/Meal';
 
-const MealPage: NextPage<MealType> = ({ url, name, img, time, serves, type, ingredients, method }) => {
+import slugify from 'slugify';
+
+const MealPage: NextPage<MealType> = ({ slug, name, image, time, serves, type, ingredientCollection, method }) => {
   const meal: MealType = {
-    url: url,
+    slug: slug,
     name: name,
-    img: img,
+    image: image,
     time: time,
     serves: serves,
     type: type,
-    ingredients: ingredients,
+    ingredientCollection: ingredientCollection,
     method: method,
   };
 
@@ -29,43 +28,30 @@ const MealPage: NextPage<MealType> = ({ url, name, img, time, serves, type, ingr
   );
 };
 
-const getUrlDataFromFile = (url: string) => {
-  const mealsDataFile = fs.readFileSync(path.resolve(process.cwd(), `data/pages/${url}.json`));
-  return JSON.parse(mealsDataFile.toString());
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const meal = getUrlDataFromFile(String(params?.meal));
+export const getStaticProps = async ({ params }: {
+  params: { meal: string }
+}) => {
+	const { meal } = await getMealDetail(params.meal);
 
   return {
     props: {
-      url: meal.url,
+      slug: meal.slug,
       name: meal.name,
-      img: meal.img || null,
+      image: meal.image || null,
       time: meal.time,
       serves: meal.serves || null,
-      type: meal.type,
-      ingredients: meal.ingredients,
+			type: meal.type,
+			ingredientCollection: meal.ingredientCollection,
       method: meal.method || null,
     },
   };
 };
 
-const getPageFiles = () => {
-  let fileList: string[] = [];
-  fs.readdirSync(path.resolve(process.cwd(), 'data/pages/')).forEach((file) => {
-    if (file.endsWith('.json')) {
-      const url = file.slice(0, -5);
-      fileList.push(url);
-    }
-  });
-  return fileList;
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths: any[] = getPageFiles().map((url) => ({
-    params: { meal: slugify(url) },
-  }));
+export const getStaticPaths = async () => {
+	const meals: MealType[] = await getAllMeals(true)
+  const paths: any[] = meals.map((meal: MealType) => ({
+    params: { meal: meal.slug },
+	}));
 
   return {
     paths,

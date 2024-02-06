@@ -52,12 +52,12 @@ export const StateContext: React.FC<{}> = ({ children }) => {
   };
 
   const removeFromShoppingList = (mealId: MealType) => {
-    const shoppingListItems = shoppingList.filter((meal) => meal.url !== mealId.url);
+    const shoppingListItems = shoppingList.filter((meal) => meal.slug !== mealId.slug);
     setSessionState(shoppingListItems);
   };
 
   const isInShoppingList = (mealId: string) => {
-    return shoppingList.filter((e: { url: string }) => e.url === mealId).length > 0;
+    return shoppingList.filter((e: { slug: string }) => e.slug === mealId).length > 0;
   };
 
   useEffect(() => {

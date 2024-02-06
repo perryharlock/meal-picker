@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import { MealCard } from '../components/MealCard/MealCard';
+import { Meal as MealType } from '../types/meals';
 
 import mock from '../data/mock.json';
 
@@ -11,17 +12,17 @@ describe('Meal card', () => {
     const handleRemoveMock = jest.fn();
 
     render(
-      <ul>
-        {mock.map((meal) => (
+			<ul>
+				{mock.map((meal) => (
           <MealCard
-            key={meal.url}
-            meal={meal}
-            handleRemove={handleRemoveMock}
+						key={meal.slug}
+						meal={meal as MealType}
+						handleRemove={handleRemoveMock}
             handleAdd={handleAddMock}
             isInShoppingList={false}
             lazyLoad={false}
-          />
-        ))}
+					/>
+				))}
       </ul>,
     );
 
@@ -38,8 +39,8 @@ describe('Meal card', () => {
       <ul>
         {mock.map((meal) => (
           <MealCard
-            key={meal.url}
-            meal={meal}
+            key={meal.slug}
+            meal={meal as MealType}
             handleRemove={handleRemoveMock}
             handleAdd={handleAddMock}
             isInShoppingList={true}
@@ -62,8 +63,8 @@ describe('Meal card', () => {
       <ul>
         {mock.map((meal) => (
           <MealCard
-            key={meal.url}
-            meal={meal}
+            key={meal.slug}
+            meal={meal as MealType}
             handleRemove={handleRemoveMock}
             handleAdd={handleAddMock}
             isInShoppingList={false}
@@ -87,8 +88,8 @@ describe('Meal card', () => {
       <ul>
         {mock.map((meal) => (
           <MealCard
-            key={meal.url}
-            meal={meal}
+            key={meal.slug}
+            meal={meal as MealType}
             handleRemove={handleRemoveMock}
             handleAdd={handleAddMock}
             isInShoppingList={true}

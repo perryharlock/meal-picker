@@ -42,11 +42,11 @@ export const Meals: React.FC<MealsProps> = ({ mealData }) => {
 
       {meals.length ? (
         <ul className={styles.meals__list}>
-          {meals.map((meal: any, index: number) => (
+          {meals.map((meal: MealType, index: number) => (
             <MealCard
-              key={meal.url}
+              key={meal.slug}
               meal={meal}
-              isInShoppingList={isInShoppingList(meal.url)}
+              isInShoppingList={isInShoppingList(meal.slug)}
               handleRemove={removeFromShoppingList}
               handleAdd={addToShoppingList}
               lazyLoad={index > (isDesktop ? 8 : isTablet ? 7 : 2)}

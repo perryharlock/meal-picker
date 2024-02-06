@@ -25,7 +25,7 @@ export const Tabs: React.FC = ({ children }) => {
           const tab = `tab${index}`;
 
           return (
-            <li className={styles.tab} role="presentation">
+						<li key={index} className={styles.tab} role="presentation">
               <a
                 className={`${styles.tab__link} ${isActive ? styles[`tab__link--active`] : ''}`}
                 onClick={(e) => handleClick(e, tab)}
@@ -50,7 +50,8 @@ export const Tabs: React.FC = ({ children }) => {
             id={tab}
             aria-labelledby={tab}
             aria-hidden={!isActive}
-            role="tabpanel"
+						role="tabpanel"
+						key={index}
             className={`${styles.tab__content} ${isActive ? styles[`tab__content--active`] : ''}`}
           >
             {child}
