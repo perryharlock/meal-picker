@@ -1,4 +1,23 @@
-import { Content } from '../lib/markdown';
+// import { Content } from '../lib/markdown';
+
+interface Asset {
+  sys: {
+    id: string
+  }
+  url: string
+  description: string
+}
+
+interface AssetLink {
+  block: Asset[]
+}
+
+export type Content = {
+  json: any
+  links: {
+    assets: AssetLink
+  }
+}
 
 export type Ingredient = {
   product: string;
