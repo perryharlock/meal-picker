@@ -9,17 +9,25 @@ import { useStateContext } from '../../context/StateContext';
 import styles from './Layout.module.scss';
 
 export const Layout: React.FC = ({ children }) => {
-  const { shoppingListVisible, shoppingListLength, toggleShoppingList } = useStateContext();
+  const { shoppingListVisible, shoppingListLength, toggleShoppingList } =
+    useStateContext();
 
   return (
-    <div className={`${styles.layout} ${shoppingListVisible ? styles['layout--no-scroll'] : ''}`}>
+    <div
+      className={`${styles.layout} ${
+        shoppingListVisible ? styles['layout--no-scroll'] : ''
+      }`}
+    >
       <Head>
         <title>mealpicker</title>
         <meta name="description" content="Meal picker app" />
-        <link rel="icon" href="favicon.ico" />        
+        <link rel="icon" href="favicon.ico" />
       </Head>
 
-      <Header shoppingListLength={shoppingListLength} toggleShoppingList={toggleShoppingList} />
+      <Header
+        shoppingListLength={shoppingListLength}
+        toggleShoppingList={toggleShoppingList}
+      />
 
       <main className={styles.layout__main}>{children}</main>
 

@@ -7,5 +7,7 @@ export type GridProps = {
 };
 
 export const Grid: React.FC<GridProps> = ({ children, className }) => (
-  <div className={`${styles.container} ${className ? className : ''}`}>{children}</div>
+  <div className={`${styles.container} ${className ? className : ''}`}>
+    {children}
+  </div>
 );

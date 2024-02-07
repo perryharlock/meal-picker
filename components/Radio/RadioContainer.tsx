@@ -9,7 +9,12 @@ interface RadioContainerProps {
   labelHidden?: boolean;
 }
 
-export const RadioContainer: React.FC<RadioContainerProps> = ({ className, label, labelHidden, children }) => {
+export const RadioContainer: React.FC<RadioContainerProps> = ({
+  className,
+  label,
+  labelHidden,
+  children,
+}) => {
   return (
     <div className={className ? className : ''}>
       {labelHidden ? (

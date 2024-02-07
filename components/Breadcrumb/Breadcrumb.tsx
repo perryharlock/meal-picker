@@ -13,7 +13,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ name, url }) => {
     <nav aria-label="Breadcrumb" className={styles.breadcrumb}>
       <ol>
         <li>
-          <Link href='/'>
+          <Link href="/">
             <a>All Meals</a>
           </Link>
         </li>

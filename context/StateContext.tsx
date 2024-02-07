@@ -29,8 +29,14 @@ export const StateContext: React.FC<{}> = ({ children }) => {
     setShoppingList(shoppingListItems);
     setShoppingListLength(shoppingListItems.length);
     setAnimate(!animate);
-    sessionStorage.setItem('shoppingList', JSON.stringify({ shoppingListItems }));
-    sessionStorage.setItem('shoppingListLength', JSON.stringify(shoppingListItems.length));
+    sessionStorage.setItem(
+      'shoppingList',
+      JSON.stringify({ shoppingListItems }),
+    );
+    sessionStorage.setItem(
+      'shoppingListLength',
+      JSON.stringify(shoppingListItems.length),
+    );
   };
 
   const resetShoppingList = () => {
@@ -52,18 +58,27 @@ export const StateContext: React.FC<{}> = ({ children }) => {
   };
 
   const removeFromShoppingList = (mealId: MealType) => {
-    const shoppingListItems = shoppingList.filter((meal) => meal.slug !== mealId.slug);
+    const shoppingListItems = shoppingList.filter(
+      (meal) => meal.slug !== mealId.slug,
+    );
     setSessionState(shoppingListItems);
   };
 
   const isInShoppingList = (mealId: string) => {
-    return shoppingList.filter((e: { slug: string }) => e.slug === mealId).length > 0;
+    return (
+      shoppingList.filter((e: { slug: string }) => e.slug === mealId).length > 0
+    );
   };
 
   useEffect(() => {
-    const sessionData = JSON.parse(sessionStorage.getItem('shoppingList') || '{}');
-    const sessionLength = JSON.parse(sessionStorage.getItem('shoppingListLength') || '0');
-    sessionData.shoppingListItems !== undefined && setShoppingList(sessionData.shoppingListItems);
+    const sessionData = JSON.parse(
+      sessionStorage.getItem('shoppingList') || '{}',
+    );
+    const sessionLength = JSON.parse(
+      sessionStorage.getItem('shoppingListLength') || '0',
+    );
+    sessionData.shoppingListItems !== undefined &&
+      setShoppingList(sessionData.shoppingListItems);
     sessionLength !== null && setShoppingListLength(sessionLength);
   }, []);
 

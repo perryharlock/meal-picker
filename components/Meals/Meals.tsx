@@ -16,7 +16,8 @@ type MealsProps = {
 };
 
 export const Meals: React.FC<MealsProps> = ({ mealData }) => {
-  const { isInShoppingList, removeFromShoppingList, addToShoppingList } = useStateContext();
+  const { isInShoppingList, removeFromShoppingList, addToShoppingList } =
+    useStateContext();
   const [meals, setMeals] = useState<Array<MealType>>(mealData);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState('');
@@ -38,7 +39,11 @@ export const Meals: React.FC<MealsProps> = ({ mealData }) => {
 
   return (
     <Grid>
-      <Search searchTerm={searchTerm} onChangeValue={searchMeals} searchType={searchType} />
+      <Search
+        searchTerm={searchTerm}
+        onChangeValue={searchMeals}
+        searchType={searchType}
+      />
 
       {meals.length ? (
         <ul className={styles.meals__list}>

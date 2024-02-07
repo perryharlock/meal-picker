@@ -7,7 +7,12 @@ import { useStateContext } from '../../context/StateContext';
 import styles from './ShoppingList.module.scss';
 
 export const ShoppingList = () => {
-  const { shoppingList, resetShoppingList, toggleShoppingList, removeFromShoppingList } = useStateContext();
+  const {
+    shoppingList,
+    resetShoppingList,
+    toggleShoppingList,
+    removeFromShoppingList,
+  } = useStateContext();
   return (
     <div className={styles.shopping}>
       <div className={styles.shopping__inner}>
@@ -24,7 +29,11 @@ export const ShoppingList = () => {
                 <SrOnly>Reset shopping list</SrOnly>
               </button>
             )}
-            <button title="Close shopping list" className={styles.shopping__btn} onClick={toggleShoppingList}>
+            <button
+              title="Close shopping list"
+              className={styles.shopping__btn}
+              onClick={toggleShoppingList}
+            >
               <Close />
               <SrOnly>Close shopping list</SrOnly>
             </button>
@@ -44,10 +53,13 @@ export const ShoppingList = () => {
                     <SrOnly>Remove {item.name}</SrOnly>
                     <Close />
                   </button>
-								</div>
+                </div>
                 <ul className={styles.shopping__list}>
                   {item.ingredientCollection.items.map((ingredient) => (
-                    <Ingredient key={`ingredient-${ingredient.product}`} ingredient={ingredient} />
+                    <Ingredient
+                      key={`ingredient-${ingredient.product}`}
+                      ingredient={ingredient}
+                    />
                   ))}
                 </ul>
               </div>

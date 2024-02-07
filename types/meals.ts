@@ -2,22 +2,22 @@
 
 interface Asset {
   sys: {
-    id: string
-  }
-  url: string
-  description: string
+    id: string;
+  };
+  url: string;
+  description: string;
 }
 
 interface AssetLink {
-  block: Asset[]
+  block: Asset[];
 }
 
 export type Content = {
-  json: any
+  json: any;
   links: {
-    assets: AssetLink
-  }
-}
+    assets: AssetLink;
+  };
+};
 
 export type Ingredient = {
   product: string;
@@ -26,21 +26,21 @@ export type Ingredient = {
 };
 
 export type Image = {
-	url: string;
-	width?: number;
-	quality?: number;
+  url: string;
+  width?: number;
+  quality?: number;
 };
 
 export type Meal = {
   slug: string;
   name: string;
   time?: number;
-	image?: Image;
+  image?: Image;
   serves?: number;
   type: string;
   ingredientCollection: {
-		items: Array<Ingredient>
-	}
+    items: Array<Ingredient>;
+  };
   method?: Content;
 };
 

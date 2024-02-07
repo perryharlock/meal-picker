@@ -10,7 +10,14 @@ export interface RadioProps {
   onChange?: () => void;
 }
 
-export const Radio: React.FC<RadioProps> = ({ name, label, checked, id, value, onChange }) => {
+export const Radio: React.FC<RadioProps> = ({
+  name,
+  label,
+  checked,
+  id,
+  value,
+  onChange,
+}) => {
   return (
     <div className={styles['radio__wrapper']}>
       <input

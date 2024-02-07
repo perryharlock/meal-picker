@@ -1,67 +1,67 @@
-@import "styles/media-queries.scss";
-@import "styles/colors.scss";
+@import 'styles/media-queries.scss';
+@import 'styles/colors.scss';
 
 .search {
-    &__form {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin-bottom: 30px;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 30px;
 
-        @media ($screen-tablet) {
-            flex-direction: row;
-        }
+    @media ($screen-tablet) {
+      flex-direction: row;
+    }
+  }
+
+  &__input {
+    border: none;
+    flex-grow: 1;
+    font-size: 1.8rem;
+    padding: 10px 0;
+
+    &:active,
+    &:focus {
+      outline: none;
     }
 
-    &__input {
-        border: none;
-        flex-grow: 1;
-        font-size: 1.8rem;
-        padding: 10px 0;
+    &-container {
+      border: solid 1px $grey-600;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding: 0 15px;
+      width: 100%;
 
-        &:active,
-        &:focus {
-            outline: none;
-        }
-
-        &-container {
-            border: solid 1px $grey-600;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding: 0 15px;
-            width: 100%;
-
-            @media ($screen-tablet) {
-                max-width: 400px;
-            }
-        }
+      @media ($screen-tablet) {
+        max-width: 400px;
+      }
     }
+  }
 
-    &__icon {
-        align-items: center;
-        display: flex;
-        margin-right: 10px;
-        padding: 10px 0;
-        width: 16px;
+  &__icon {
+    align-items: center;
+    display: flex;
+    margin-right: 10px;
+    padding: 10px 0;
+    width: 16px;
 
-        svg {
-            fill: $black;
-            width: 16px;
-            height: 16px;
-        }
+    svg {
+      fill: $black;
+      width: 16px;
+      height: 16px;
     }
+  }
 
-    &__clear {
-        background: none;
-        border: none;
-        cursor: pointer;
-        line-height: 0;
-        padding: 10px 0;
-        width: 16px;
+  &__clear {
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 0;
+    padding: 10px 0;
+    width: 16px;
 
-        svg {
-            fill: $black;
-        }
+    svg {
+      fill: $black;
     }
+  }
 }

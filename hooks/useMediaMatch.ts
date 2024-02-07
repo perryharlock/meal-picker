@@ -12,7 +12,9 @@ export const useMediaQuery = (width: any, minOrMaxWidth?: 'max' | 'min') => {
   }, []);
 
   useEffect(() => {
-    const media = window.matchMedia(`(${minOrMaxWidth ? minOrMaxWidth : 'max'}-width: ${width}px)`);
+    const media = window.matchMedia(
+      `(${minOrMaxWidth ? minOrMaxWidth : 'max'}-width: ${width}px)`,
+    );
     media.addListener(updateTarget);
 
     // Check on mount (callback is not called until a change occurs)

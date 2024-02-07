@@ -5,7 +5,7 @@ import { Meal as MealType } from '../types/meals';
 import { Layout } from '../components/Layout/Layout';
 import { Meals } from '../components/Meals/Meals';
 
-import { getAllMeals } from '../lib/api'
+import { getAllMeals } from '../lib/api';
 
 type MealList = {
   mealData: Array<MealType>;
@@ -20,7 +20,7 @@ const Home: NextPage<MealList> = ({ mealData }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const meals = await getAllMeals(true)
+  const meals = await getAllMeals(true);
 
   return {
     props: {

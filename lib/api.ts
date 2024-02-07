@@ -17,7 +17,7 @@ const MEAL_GRAPHQL_FIELDS = `
 			quantityType
 		}
 	}
-`
+`;
 
 async function fetchGraphQL(query: string, preview = false): Promise<any> {
   return fetch(
@@ -33,16 +33,16 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
         }`,
       },
       body: JSON.stringify({ query }),
-    }
-  ).then((response) => response.json())
+    },
+  ).then((response) => response.json());
 }
 
 function extractMeal(fetchResponse: any): any {
-  return fetchResponse?.data?.mealCollection?.items?.[0]
+  return fetchResponse?.data?.mealCollection?.items?.[0];
 }
 
 function extractMealEntries(fetchResponse: any): any[] {
-  return fetchResponse?.data?.mealCollection?.items
+  return fetchResponse?.data?.mealCollection?.items;
 }
 
 export async function getAllMeals(isDraftMode: boolean): Promise<any[]> {
@@ -56,14 +56,12 @@ export async function getAllMeals(isDraftMode: boolean): Promise<any[]> {
         }
       }
     }`,
-    isDraftMode
-  )
-  return extractMealEntries(entries)
+    isDraftMode,
+  );
+  return extractMealEntries(entries);
 }
 
-export async function getMealDetail(
-  slug: string | null
-): Promise<any> {
+export async function getMealDetail(slug: string | null): Promise<any> {
   const entry = await fetchGraphQL(
     `query {
       mealCollection(where: { slug: "${slug}" }, preview: true, limit: 1) {
@@ -72,9 +70,9 @@ export async function getMealDetail(
         }
       }
     }`,
-    true
-  )
+    true,
+  );
   return {
     meal: extractMeal(entry),
-  }
+  };
 }

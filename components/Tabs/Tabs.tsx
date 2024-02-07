@@ -11,7 +11,10 @@ export const Tabs: React.FC = ({ children }) => {
     setActiveTab(tab);
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, tab: string) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    tab: string,
+  ) => {
     e.preventDefault();
     selectTab(tab);
   };
@@ -25,9 +28,11 @@ export const Tabs: React.FC = ({ children }) => {
           const tab = `tab${index}`;
 
           return (
-						<li key={index} className={styles.tab} role="presentation">
+            <li key={index} className={styles.tab} role="presentation">
               <a
-                className={`${styles.tab__link} ${isActive ? styles[`tab__link--active`] : ''}`}
+                className={`${styles.tab__link} ${
+                  isActive ? styles[`tab__link--active`] : ''
+                }`}
                 onClick={(e) => handleClick(e, tab)}
                 role="tab"
                 href={`#${tab}`}
@@ -50,9 +55,11 @@ export const Tabs: React.FC = ({ children }) => {
             id={tab}
             aria-labelledby={tab}
             aria-hidden={!isActive}
-						role="tabpanel"
-						key={index}
-            className={`${styles.tab__content} ${isActive ? styles[`tab__content--active`] : ''}`}
+            role="tabpanel"
+            key={index}
+            className={`${styles.tab__content} ${
+              isActive ? styles[`tab__content--active`] : ''
+            }`}
           >
             {child}
           </div>

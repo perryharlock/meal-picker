@@ -1,13 +1,22 @@
 import React from 'react';
-import { NextPage} from 'next';
+import { NextPage } from 'next';
 
 import { Meal as MealType } from '../types/meals';
-import { getMealDetail } from '../lib/api'
+import { getMealDetail } from '../lib/api';
 
 import { Layout } from '../components/Layout/Layout';
 import { Meal } from '../components/Meal/Meal';
 
-const MealPage: NextPage<MealType> = ({ slug, name, image, time, serves, type, ingredientCollection, method }) => {
+const MealPage: NextPage<MealType> = ({
+  slug,
+  name,
+  image,
+  time,
+  serves,
+  type,
+  ingredientCollection,
+  method,
+}) => {
   const meal: MealType = {
     slug: slug,
     name: name,
@@ -26,10 +35,12 @@ const MealPage: NextPage<MealType> = ({ slug, name, image, time, serves, type, i
   );
 };
 
-export const getServerSideProps = async ({ params }: {
-  params: { meal: string }
+export const getServerSideProps = async ({
+  params,
+}: {
+  params: { meal: string };
 }) => {
-	const { meal } = await getMealDetail(params.meal);
+  const { meal } = await getMealDetail(params.meal);
 
   return {
     props: {
@@ -38,8 +49,8 @@ export const getServerSideProps = async ({ params }: {
       image: meal.image || null,
       time: meal.time,
       serves: meal.serves || null,
-			type: meal.type,
-			ingredientCollection: meal.ingredientCollection,
+      type: meal.type,
+      ingredientCollection: meal.ingredientCollection,
       method: meal.method || null,
     },
   };
