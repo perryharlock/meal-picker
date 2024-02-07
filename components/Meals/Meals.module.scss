@@ -1,9 +1,9 @@
-@import "styles/media-queries.scss";
+@import 'styles/media-queries.scss';
 
 .meals {
-    &__list {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
+  &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }

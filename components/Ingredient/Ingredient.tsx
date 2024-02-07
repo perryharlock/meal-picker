@@ -9,8 +9,8 @@ export type IngredientProps = {
 
 export const Ingredient: React.FC<IngredientProps> = ({ ingredient }) => {
   return (
-    <li className={styles.ingredient} key={`tag-${ingredient.name}`}>
-      <div>{ingredient.name}</div>
+    <li className={styles.ingredient} key={`tag-${ingredient.product}`}>
+      <div>{ingredient.product}</div>
       <div>
         {ingredient.quantity}
         {ingredient.quantityType !== 'g' ? ' ' : ''}

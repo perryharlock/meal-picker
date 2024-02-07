@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+Site is deployed via Vercel to https://meal-picker-pi.vercel.app/
+
 ## What is mealpicker
 
 This is a personal project built in NextJS/Typescript/SCSS.

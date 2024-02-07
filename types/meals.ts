@@ -1,18 +1,47 @@
+// import { Content } from '../lib/markdown';
+
+interface Asset {
+  sys: {
+    id: string;
+  };
+  url: string;
+  description: string;
+}
+
+interface AssetLink {
+  block: Asset[];
+}
+
+export type Content = {
+  json: any;
+  links: {
+    assets: AssetLink;
+  };
+};
+
 export type Ingredient = {
-  name: string;
-  quantity: string;
+  product: string;
+  quantity: number;
   quantityType?: string;
 };
 
-export type Meal = {
+export type Image = {
   url: string;
+  width?: number;
+  quality?: number;
+};
+
+export type Meal = {
+  slug: string;
   name: string;
   time?: number;
-  img?: string;
+  image?: Image;
   serves?: number;
   type: string;
-  ingredients: Array<Ingredient>;
-  method?: string[];
+  ingredientCollection: {
+    items: Array<Ingredient>;
+  };
+  method?: Content;
 };
 
 export type ShoppingList = {

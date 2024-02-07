@@ -1,15 +1,15 @@
-@import "styles/colors.scss";
+@import 'styles/colors.scss';
 
 .ingredient {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px;
 
-    &:nth-child(odd) {
-        background: $grey-400;
-    }
+  &:nth-child(odd) {
+    background: $grey-400;
+  }
 
-    &__title {
-        font-size: 1.4rem;
-    }
+  &__title {
+    font-size: 1.4rem;
+  }
 }

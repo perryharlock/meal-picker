@@ -7,7 +7,13 @@ describe('Search', () => {
   it('marks the correct radio button as checked', () => {
     const searchMealsMock = jest.fn();
 
-    render(<Search searchTerm="/chorizo-carbonara" onChangeValue={searchMealsMock} searchType="meal" />);
+    render(
+      <Search
+        searchTerm="/chorizo-carbonara"
+        onChangeValue={searchMealsMock}
+        searchType="meal"
+      />,
+    );
 
     const selectedRadio = screen.getByTestId('radio-meal');
     const notSelectedRadio = screen.getByTestId('radio-all');
@@ -19,7 +25,13 @@ describe('Search', () => {
   it('shows the correct value in the search input', () => {
     const searchMealsMock = jest.fn();
 
-    render(<Search searchTerm="/chorizo-carbonara" onChangeValue={searchMealsMock} searchType="" />);
+    render(
+      <Search
+        searchTerm="/chorizo-carbonara"
+        onChangeValue={searchMealsMock}
+        searchType=""
+      />,
+    );
 
     const searchInput = screen.getByTestId('search-input');
 
@@ -29,7 +41,13 @@ describe('Search', () => {
   it('changes the search results when input value is changed', () => {
     const searchMealsMock = jest.fn();
 
-    render(<Search searchTerm="/chorizo-carbonara" onChangeValue={searchMealsMock} searchType="" />);
+    render(
+      <Search
+        searchTerm="/chorizo-carbonara"
+        onChangeValue={searchMealsMock}
+        searchType=""
+      />,
+    );
 
     const searchInput = screen.getByTestId('search-input');
 

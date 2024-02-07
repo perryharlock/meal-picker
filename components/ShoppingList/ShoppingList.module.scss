@@ -1,130 +1,130 @@
-@import "styles/media-queries.scss";
-@import "styles/colors.scss";
-@import "styles/typography.scss";
+@import 'styles/media-queries.scss';
+@import 'styles/colors.scss';
+@import 'styles/typography.scss';
 
 .shopping {
-    background: rgba($pure-black, 0.8);
-    bottom: 0;
+  background: rgba($pure-black, 0.8);
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 5;
+
+  &__inner {
+    background: $white;
+    color: $black;
     height: 100%;
+    margin: 0 auto;
+    max-width: 600px;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+
+    @media ($screen-smalltablet) {
+      height: auto;
+      max-height: 90%;
+      position: relative;
+      top: 5%;
+      width: 90%;
+    }
+
+    @media ($screen-tablet) {
+      max-height: 80%;
+      top: 10%;
+    }
+
+    @media ($screen-laptop) {
+      height: 70%;
+      top: 15%;
+      max-height: none;
+    }
+  }
+
+  &__ingredient {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+  }
+
+  &__header {
+    background-color: $black;
+    display: flex;
+    justify-content: space-between;
     left: 0;
-    position: fixed;
+    margin: 0 0 20px 0;
+    padding: 15px;
+    position: sticky;
     right: 0;
-    z-index: 5;
+    top: 0;
+  }
 
-    &__inner {
-        background: $white;
-        color: $black;
-        height: 100%;
-        margin: 0 auto;
-        max-width: 600px;
-        animation-name: fadeIn;
-        animation-duration: 0.4s;
+  &__scrollable {
+    height: calc(100% - 80px);
+    overflow-y: scroll;
+    padding: 0 15px;
+  }
 
-        @media ($screen-smalltablet) {
-            height: auto;
-            max-height: 90%;
-            position: relative;
-            top: 5%;
-            width: 90%;
-        }
+  &__title {
+    color: $white;
+    font-size: 2.2rem;
+    line-height: 1;
+  }
 
-        @media ($screen-tablet) {
-            max-height: 80%;
-            top: 10%;
-        }
+  &__meal {
+    font-size: 1.8rem;
+    font-weight: $font-weight-bold;
+    margin: 0 0 15px 0;
 
-        @media ($screen-laptop) {
-            height: 70%;
-            top: 15%;
-            max-height: none;
-        }
+    &-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__list {
+    margin-bottom: 40px;
+  }
+
+  &__btn {
+    background-color: $black;
+    color: $white;
+    cursor: pointer;
+    border: none;
+    height: 20px;
+    margin: 0 0 0 20px;
+    outline: none;
+    padding: 0;
+    transition: all 0.2s ease-in-out;
+    width: 20px;
+
+    &--reset {
+      width: 27px;
     }
 
-    &__ingredient {
-        display: flex;
-        justify-content: space-between;
-        padding: 5px;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $black;
     }
 
-    &__header {
-        background-color: $black;
-        display: flex;
-        justify-content: space-between;
-        left: 0;
-        margin: 0 0 20px 0;
-        padding: 15px;
-        position: sticky;
-        right: 0;
-        top: 0;
+    svg {
+      fill: $white;
     }
+  }
 
-    &__scrollable {
-        height: calc(100% - 80px);
-        overflow-y: scroll;
-        padding: 0 15px;
-    }
-
-    &__title {
-        color: $white;
-        font-size: 2.2rem;
-        line-height: 1;
-    }
-
-    &__meal {
-        font-size: 1.8rem;
-        font-weight: $font-weight-bold;
-        margin: 0 0 15px 0;
-
-        &-container {
-            display: flex;
-            justify-content: space-between;
-        }
-    }
-
-    &__list {
-        margin-bottom: 40px;
-    }
-
-    &__btn {
-        background-color: $black;
-        color: $white;
-        cursor: pointer;
-        border: none;
-        height: 20px;
-        margin: 0 0 0 20px;
-        outline: none;
-        padding: 0;
-        transition: all 0.2s ease-in-out;
-        width: 20px;
-
-        &--reset {
-            width: 27px;
-        }
-
-        &:hover,
-        &:active,
-        &:focus {
-            background-color: $black;
-        }
-
-        svg {
-            fill: $white;
-        }
-    }
-
-    &__remove {
-        background-color: $coral;
-        border-radius: 50%;
-        padding: 4px;
-    }
+  &__remove {
+    background-color: $coral;
+    border-radius: 50%;
+    padding: 4px;
+  }
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }

@@ -12,14 +12,16 @@ export type HeaderProps = {
   toggleShoppingList: () => void;
 };
 
-export const Header: React.FC<HeaderProps> = ({ shoppingListLength, toggleShoppingList }) => {
+export const Header: React.FC<HeaderProps> = ({
+  shoppingListLength,
+  toggleShoppingList,
+}) => {
   const { animate } = useStateContext();
-  const isProd = process.env.NODE_ENV === 'production';
 
   return (
     <header className={styles.header}>
       <Grid className={styles.header__content}>
-        <Link href={isProd ? '/meal-picker' : '/'}>
+        <Link href="/">
           <a>
             <h1>
               meal<span className={styles.header__highlight}>pick</span>er
@@ -34,7 +36,9 @@ export const Header: React.FC<HeaderProps> = ({ shoppingListLength, toggleShoppi
             data-testid="header-shopping-list"
           >
             <ShoppingList />
-            <span className={styles.header__badge}>{shoppingListLength > 99 ? '9+' : shoppingListLength}</span>
+            <span className={styles.header__badge}>
+              {shoppingListLength > 99 ? '9+' : shoppingListLength}
+            </span>
           </button>
         ) : (
           ''

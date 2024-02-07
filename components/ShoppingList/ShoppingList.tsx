@@ -7,7 +7,12 @@ import { useStateContext } from '../../context/StateContext';
 import styles from './ShoppingList.module.scss';
 
 export const ShoppingList = () => {
-  const { shoppingList, resetShoppingList, toggleShoppingList, removeFromShoppingList } = useStateContext();
+  const {
+    shoppingList,
+    resetShoppingList,
+    toggleShoppingList,
+    removeFromShoppingList,
+  } = useStateContext();
   return (
     <div className={styles.shopping}>
       <div className={styles.shopping__inner}>
@@ -24,7 +29,11 @@ export const ShoppingList = () => {
                 <SrOnly>Reset shopping list</SrOnly>
               </button>
             )}
-            <button title="Close shopping list" className={styles.shopping__btn} onClick={toggleShoppingList}>
+            <button
+              title="Close shopping list"
+              className={styles.shopping__btn}
+              onClick={toggleShoppingList}
+            >
               <Close />
               <SrOnly>Close shopping list</SrOnly>
             </button>
@@ -33,7 +42,7 @@ export const ShoppingList = () => {
         <div className={styles.shopping__scrollable}>
           {shoppingList.length > 0 ? (
             shoppingList.map((item) => (
-              <div key={item.url}>
+              <div key={item.slug}>
                 <div className={styles['shopping__meal-container']}>
                   <h5 className={styles.shopping__meal}>{item.name}</h5>
                   <button
@@ -46,8 +55,11 @@ export const ShoppingList = () => {
                   </button>
                 </div>
                 <ul className={styles.shopping__list}>
-                  {item.ingredients.map((ingredient) => (
-                    <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
+                  {item.ingredientCollection.items.map((ingredient) => (
+                    <Ingredient
+                      key={`ingredient-${ingredient.product}`}
+                      ingredient={ingredient}
+                    />
                   ))}
                 </ul>
               </div>

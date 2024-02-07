@@ -16,7 +16,8 @@ type MealsProps = {
 };
 
 export const Meals: React.FC<MealsProps> = ({ mealData }) => {
-  const { isInShoppingList, removeFromShoppingList, addToShoppingList } = useStateContext();
+  const { isInShoppingList, removeFromShoppingList, addToShoppingList } =
+    useStateContext();
   const [meals, setMeals] = useState<Array<MealType>>(mealData);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchType, setSearchType] = useState('');
@@ -38,15 +39,19 @@ export const Meals: React.FC<MealsProps> = ({ mealData }) => {
 
   return (
     <Grid>
-      <Search searchTerm={searchTerm} onChangeValue={searchMeals} searchType={searchType} />
+      <Search
+        searchTerm={searchTerm}
+        onChangeValue={searchMeals}
+        searchType={searchType}
+      />
 
       {meals.length ? (
         <ul className={styles.meals__list}>
-          {meals.map((meal: any, index: number) => (
+          {meals.map((meal: MealType, index: number) => (
             <MealCard
-              key={meal.url}
+              key={meal.slug}
               meal={meal}
-              isInShoppingList={isInShoppingList(meal.url)}
+              isInShoppingList={isInShoppingList(meal.slug)}
               handleRemove={removeFromShoppingList}
               handleAdd={addToShoppingList}
               lazyLoad={index > (isDesktop ? 8 : isTablet ? 7 : 2)}

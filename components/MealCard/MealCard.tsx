@@ -13,19 +13,24 @@ export type MealCardProps = {
   lazyLoad: boolean;
 };
 
-export const MealCard: React.FC<MealCardProps> = ({ meal, handleAdd, handleRemove, isInShoppingList, lazyLoad }) => {
-  const isProd = process.env.NODE_ENV === 'production';
-  const { url, img, name, type, time, serves } = meal;
+export const MealCard: React.FC<MealCardProps> = ({
+  meal,
+  handleAdd,
+  handleRemove,
+  isInShoppingList,
+  lazyLoad,
+}) => {
+  const { slug, image, name, type, time, serves } = meal;
 
   return (
-    <li className={styles.meal} key={`meal-${url}`}>
-      <Link href={isProd ? `/meal-picker${url}` : url}>
+    <li className={styles.meal} key={`meal-${slug}`}>
+      <Link href={`/${slug}`}>
         <a className={styles.meal__link} title={name}>
           <div className={styles['meal__img-container']}>
             <img
               loading={lazyLoad ? 'lazy' : 'eager'}
               className={styles.meal__img}
-              src={img ? img : 'meal-placeholder.webp'}
+              src={image ? image.url : 'meal-placeholder.webp'}
               alt={name}
               width="375"
               height="250"
@@ -42,11 +47,21 @@ export const MealCard: React.FC<MealCardProps> = ({ meal, handleAdd, handleRemov
         </a>
       </Link>
       <button
-        data-testid={isInShoppingList ? 'remove-from-shopping-list' : 'add-to-shopping-list'}
-        className={`${styles.meal__btn} ${isInShoppingList ? styles['meal__btn--remove'] : ''}`}
-        onClick={() => (isInShoppingList ? handleRemove(meal) : handleAdd(meal))}
+        data-testid={
+          isInShoppingList
+            ? 'remove-from-shopping-list'
+            : 'add-to-shopping-list'
+        }
+        className={`${styles.meal__btn} ${
+          isInShoppingList ? styles['meal__btn--remove'] : ''
+        }`}
+        onClick={() =>
+          isInShoppingList ? handleRemove(meal) : handleAdd(meal)
+        }
       >
-        {isInShoppingList ? '- Remove from shopping list' : '+ Add to shopping list'}
+        {isInShoppingList
+          ? '- Remove from shopping list'
+          : '+ Add to shopping list'}
       </button>
     </li>
   );

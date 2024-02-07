@@ -1,15 +1,15 @@
-@import "styles/media-queries.scss";
-@import "styles/colors.scss";
-@import "styles/typography.scss";
+@import 'styles/media-queries.scss';
+@import 'styles/colors.scss';
+@import 'styles/typography.scss';
 
 .footer {
-    background-color: $black;
-    color: $white;
-    padding: 15px 0;
-    text-align: center;
+  background-color: $black;
+  color: $white;
+  padding: 15px 0;
+  text-align: center;
 
-    &__highlight {
-        color: $white;
-        font-weight: $font-weight-bold;
-    }
+  &__highlight {
+    color: $white;
+    font-weight: $font-weight-bold;
+  }
 }

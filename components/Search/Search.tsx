@@ -13,7 +13,11 @@ export type HeaderProps = {
   onChangeValue: (term: string, type: string) => void;
 };
 
-export const Search: React.FC<HeaderProps> = ({ searchTerm, searchType, onChangeValue }) => {
+export const Search: React.FC<HeaderProps> = ({
+  searchTerm,
+  searchType,
+  onChangeValue,
+}) => {
   return (
     <form className={styles.search__form}>
       <div className={styles['search__input-container']}>
@@ -32,7 +36,11 @@ export const Search: React.FC<HeaderProps> = ({ searchTerm, searchType, onChange
           data-testid="search-input"
         />
         {searchTerm && (
-          <button type="button" className={styles.search__clear} onClick={() => onChangeValue('', searchType)}>
+          <button
+            type="button"
+            className={styles.search__clear}
+            onClick={() => onChangeValue('', searchType)}
+          >
             <Close />
             <SrOnly>Reset shopping list</SrOnly>
           </button>

@@ -8,6 +8,7 @@ import { Ingredient } from '../Ingredient/Ingredient';
 import { Tabs } from '../Tabs/Tabs';
 import { Tab } from '../Tabs/Tab';
 import { Breadcrumb } from '../Breadcrumb/Breadcrumb';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import styles from './Meal.module.scss';
 
@@ -16,12 +17,14 @@ type MealProps = {
 };
 
 export const Meal: React.FC<MealProps> = ({ meal }) => {
-  const { isInShoppingList, removeFromShoppingList, addToShoppingList } = useStateContext();
-  const { url, name, time, serves, img, ingredients, method } = meal;
+  const { isInShoppingList, removeFromShoppingList, addToShoppingList } =
+    useStateContext();
+  const { slug, name, time, serves, image, ingredientCollection, method } =
+    meal;
 
   return (
     <Grid>
-      <Breadcrumb name={name} url={url} />
+      <Breadcrumb name={name} url={'/' + slug} />
       <div className={styles.meal__grid}>
         <div className={styles.meal__summary}>
           <div className={styles.meal__text}>
@@ -31,17 +34,29 @@ export const Meal: React.FC<MealProps> = ({ meal }) => {
               {serves && <li className={styles.meal__info}>Serves {serves}</li>}
             </ul>
             <button
-              data-test-id={isInShoppingList(url) ? 'remove-from-shopping-list' : 'add-to-shopping-list'}
-              className={`${styles.meal__btn} ${isInShoppingList(url) ? styles['meal__btn--remove'] : ''}`}
-              onClick={() => (isInShoppingList(url) ? removeFromShoppingList(meal) : addToShoppingList(meal))}
+              data-test-id={
+                isInShoppingList(slug)
+                  ? 'remove-from-shopping-list'
+                  : 'add-to-shopping-list'
+              }
+              className={`${styles.meal__btn} ${
+                isInShoppingList(slug) ? styles['meal__btn--remove'] : ''
+              }`}
+              onClick={() =>
+                isInShoppingList(slug)
+                  ? removeFromShoppingList(meal)
+                  : addToShoppingList(meal)
+              }
             >
-              {isInShoppingList(url) ? '- Remove from shopping list' : '+ Add to shopping list'}
+              {isInShoppingList(slug)
+                ? '- Remove from shopping list'
+                : '+ Add to shopping list'}
             </button>
           </div>
           <div className={styles['meal__img-container']}>
             <img
               className={styles.meal__img}
-              src={img ? img : 'meal-placeholder.webp'}
+              src={image ? image.url : 'meal-placeholder.webp'}
               alt={name}
               width="375"
               height="250"
@@ -52,21 +67,24 @@ export const Meal: React.FC<MealProps> = ({ meal }) => {
         <div className={styles.meal__ingredients}>
           <Tabs>
             <Tab title="Ingredients">
-              <ul className={styles['meal__ingredients-list']}>
-                {ingredients.map((ingredient) => (
-                  <Ingredient key={`ingredient-${ingredient.name}`} ingredient={ingredient} />
-                ))}
-              </ul>
+              {ingredientCollection && ingredientCollection.items.length > 0 ? (
+                <ul className={styles['meal__ingredients-list']}>
+                  {ingredientCollection.items.map((ingredient) => (
+                    <Ingredient
+                      key={`ingredient-${ingredient.product}`}
+                      ingredient={ingredient}
+                    />
+                  ))}
+                </ul>
+              ) : (
+                <p>No ingredients available</p>
+              )}
             </Tab>
             <Tab title="Method">
               {method ? (
-                <ol className={styles['meal__method-list']}>
-                  {method.map((step, index) => (
-                    <li key={`step-${index}`} className={styles['meal__method-item']}>
-                      {step}
-                    </li>
-                  ))}
-                </ol>
+                <div className={styles['meal__method-list']}>
+                  {documentToReactComponents(method.json)}
+                </div>
               ) : (
                 <p>No method availabe</p>
               )}
