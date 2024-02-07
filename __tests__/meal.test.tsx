@@ -12,17 +12,17 @@ describe('Meal card', () => {
     const handleRemoveMock = jest.fn();
 
     render(
-			<ul>
-				{mock.map((meal) => (
+      <ul>
+        {mock.map((meal) => (
           <MealCard
-						key={meal.slug}
-						meal={meal as MealType}
-						handleRemove={handleRemoveMock}
+            key={meal.slug}
+            meal={meal as MealType}
+            handleRemove={handleRemoveMock}
             handleAdd={handleAddMock}
             isInShoppingList={false}
             lazyLoad={false}
-					/>
-				))}
+          />
+        ))}
       </ul>,
     );
 

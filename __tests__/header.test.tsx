@@ -6,7 +6,12 @@ describe('Header', () => {
   it('does not render shopping list button if shopping list is empty', () => {
     const toggleShoppingListMock = jest.fn();
 
-    render(<Header shoppingListLength={0} toggleShoppingList={toggleShoppingListMock} />);
+    render(
+      <Header
+        shoppingListLength={0}
+        toggleShoppingList={toggleShoppingListMock}
+      />,
+    );
 
     const shoppingListButton = screen.queryByTestId('header-shopping-list');
 
@@ -16,7 +21,12 @@ describe('Header', () => {
   it('renders the shopping list button if there are items in the shopping list', () => {
     const toggleShoppingListMock = jest.fn();
 
-    render(<Header shoppingListLength={1} toggleShoppingList={toggleShoppingListMock} />);
+    render(
+      <Header
+        shoppingListLength={1}
+        toggleShoppingList={toggleShoppingListMock}
+      />,
+    );
 
     const shoppingListButton = screen.getByTestId('header-shopping-list');
 
@@ -26,7 +36,12 @@ describe('Header', () => {
   it('toggles the shopping list when shopping list button is clicked', () => {
     const toggleShoppingListMock = jest.fn();
 
-    render(<Header shoppingListLength={1} toggleShoppingList={toggleShoppingListMock} />);
+    render(
+      <Header
+        shoppingListLength={1}
+        toggleShoppingList={toggleShoppingListMock}
+      />,
+    );
 
     const shoppingListButton = screen.getByTestId('header-shopping-list');
 

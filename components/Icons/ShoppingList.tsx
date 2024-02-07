@@ -16,7 +16,11 @@ const ShoppingList: React.FC = () => {
         clipRule="evenodd"
         d="M6.31579 12H0V18H6.31579V12ZM4.73684 13.5H1.57895V16.5H4.73684V13.5Z"
       />
-      <path fillRule="evenodd" clipRule="evenodd" d="M6.31579 0H0V6H6.31579V0ZM4.73684 1.5H1.57895V4.5H4.73684V1.5Z" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6.31579 0H0V6H6.31579V0ZM4.73684 1.5H1.57895V4.5H4.73684V1.5Z"
+      />
     </svg>
   );
 };

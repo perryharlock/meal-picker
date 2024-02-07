@@ -30,5 +30,8 @@
       "quantity": "Lots"
     }
   ],
-  "method": ["Place your ingredients in a blender and blend!", "Serve in a jug or large glass"]
+  "method": [
+    "Place your ingredients in a blender and blend!",
+    "Serve in a jug or large glass"
+  ]
 }
