@@ -10,7 +10,7 @@ We were forever forgetting what meals we liked and which recipe books or website
 
 I decided to create a simple website which would act as a central repository for our meals so that we could build a shopping list and get access to the cooking instructions in one place.
 
-The meals are retrieved from a JSON file and displayed in a list view with an add to shopping list option which will build a list of ingredients required.
+The meals are retrieved from [Contentful CMS](https://www.contentful.com/) and displayed in a list view with an add to shopping list option which will build a list of ingredients required.
 
 The meal details page shows the ingredients and the cooking method.
 
@@ -45,7 +45,7 @@ yarn test
 You can run prettier using
 
 ```bash
-yarn pretier
+yarn prettier
 ```
 
 and to fix prettier issues
